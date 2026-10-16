@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Darshan 360</string>
+    <string name="title_activity_main">Darshan 360</string>
+    <string name="package_name">org.srajan.ghumoindia</string>
+    <string name="custom_url_scheme">org.srajan.ghumoindia</string>
+</resources>

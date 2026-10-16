@@ -1,0 +1,245 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+@import 'leaflet/dist/leaflet.css';
+
+/* Theme Variables */
+:root {
+  --theme-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Morning / Day Theme - Warm Alabaster, Saffron Terracotta & Sacred Ochre */
+[data-theme="morning"] {
+  --bg-primary: #FAF8F5;
+  --bg-secondary: #F3EFE9;
+  --accent-primary: #C2410C;
+  --accent-secondary: #0D9488;
+  --accent-gold: #D97706;
+  --text-primary: #1C1917;
+  --text-secondary: #57534E;
+  --glass-bg: #FFFFFF;
+  --glass-border: #E7DFD5;
+  --shadow-color: rgba(28, 25, 23, 0.05);
+  --card-bg: #FFFFFF;
+  --card-border: #E7DFD5;
+}
+
+/* Evening / Aarti Theme - Deep Midnight Ghats & Warm Aarti Amber */
+[data-theme="evening"] {
+  --bg-primary: #0A0F1D;
+  --bg-secondary: #111A2E;
+  --accent-primary: #F59E0B;
+  --accent-secondary: #38BDF8;
+  --accent-gold: #FBBF24;
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --glass-bg: #111A2E;
+  --glass-border: #1E293B;
+  --shadow-color: rgba(0, 0, 0, 0.35);
+  --card-bg: #111928;
+  --card-border: #1E293B;
+}
+
+/* Polished Editorial & Glassmorphic Surfaces */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+}
+
+.editorial-card {
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 20px -2px var(--shadow-color);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -4px var(--shadow-color);
+}
+
+/* Dimmed glass for header - less brightness */
+.glass-dimmed {
+  background: rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
+}
+
+/* Map marker styles */
+.custom-marker {
+  background: none;
+  border: none;
+}
+
+/* Leaflet popup customization */
+.leaflet-popup-content-wrapper {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 16px !important;
+  padding: 0 !important;
+}
+
+.leaflet-popup-tip {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(12px);
+}
+
+.leaflet-container {
+  font-family: inherit;
+}
+
+/* Hide scrollbar */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Radix ScrollArea Styles */
+[data-slot="scroll-area-scrollbar"] {
+  background: transparent;
+  transition: background 0.2s;
+}
+
+[data-slot="scroll-area-scrollbar"][data-orientation="vertical"] {
+  width: 10px;
+}
+
+[data-slot="scroll-area-scrollbar"] > div {
+  background: var(--accent-primary);
+  border-radius: 5px;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+[data-slot="scroll-area-scrollbar"]:hover > div {
+  opacity: 1;
+}
+
+[data-slot="scroll-area-scrollbar"][data-state="visible"] > div {
+  background: var(--accent-primary);
+}
+
+/* Markdown-like Text Styling for ChatGPT Format */
+.markdown-content {
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+/* Bold text styling */
+.markdown-content strong,
+.markdown-text strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Italic styling */
+.markdown-content em,
+.markdown-text em {
+  font-style: italic;
+}
+
+/* List styling for bullets */
+.markdown-content ul,
+.markdown-content ol,
+.markdown-text ul,
+.markdown-text ol {
+  margin-left: 1.25rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.markdown-content li,
+.markdown-text li {
+  margin-bottom: 0.25rem;
+  line-height: 1.5;
+}
+
+/* Paragraph spacing */
+.markdown-content p,
+.markdown-text p {
+  margin-bottom: 0.5rem;
+  white-space: normal;
+}
+
+/* Heading styling */
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-text h1,
+.markdown-text h2,
+.markdown-text h3 {
+  font-weight: 600;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.markdown-content h1,
+.markdown-text h1 { font-size: 1.25rem; }
+.markdown-content h2,
+.markdown-text h2 { font-size: 1.125rem; }
+.markdown-content h3,
+.markdown-text h3 { font-size: 1rem; }
+
+/* Code styling */
+.markdown-content code,
+.markdown-text code {
+  background: var(--bg-secondary);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.875rem;
+  color: var(--accent-primary);
+}
+
+/* Blockquote styling */
+.markdown-content blockquote,
+.markdown-text blockquote {
+  border-left: 3px solid var(--accent-primary);
+  padding-left: 1rem;
+  margin-left: 0;
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+}
+
+/* Ticker marquee animation */
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}

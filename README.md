@@ -161,6 +161,7 @@ Every component of our technical plan is thoroughly elaborated across our dedica
 | 🔬 [`research/EVIDENCE_REGISTER.csv`](research/EVIDENCE_REGISTER.csv) | **Research Provenance** | Audited evidence log distinguishing Case Evidence, Assumptions, and Unknowns. |
 | 🧪 [`tests/ACCEPTANCE_TESTS.md`](tests/ACCEPTANCE_TESTS.md) | **Functional QA** | Acceptance scenarios AT-01 through AT-06 with test logging formats. |
 | 🛠️ [`tests/API_TEST_PLAN.md`](tests/API_TEST_PLAN.md) | **Backend Verification** | Test suites covering status codes, boundary conditions, and mock fallbacks. |
+| 🚀 [`ghumo-india/`](ghumo-india/) | **Interactive Web & Mobile App** | Full-fledged React + Vite + Leaflet PWA with Ghumo AI concierge, time-aware itinerary copilot, and MP archaeological showcase. |
 
 ---
 
