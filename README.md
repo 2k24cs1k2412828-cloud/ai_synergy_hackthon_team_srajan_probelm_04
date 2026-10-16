@@ -6,33 +6,44 @@
 [![AI Synergy Hackathon 2026](https://img.shields.io/badge/AI_Synergy_Hackathon-2026-blueviolet?style=for-the-badge&logo=target)](https://github.com/2k24cs1k2412828-cloud/ai_synergy_hackthon_team_srajan_probelm_04)
 [![Tourism Track](https://img.shields.io/badge/Track-Tourism_&_Heritage-FF6F00?style=for-the-badge&logo=compass)](https://github.com/2k24cs1k2412828-cloud/ai_synergy_hackthon_team_srajan_probelm_04)
 [![Case Study 04](https://img.shields.io/badge/Case_Study-04_Beyond_the_Fort-00C853?style=for-the-badge&logo=readme)](https://github.com/2k24cs1k2412828-cloud/ai_synergy_hackthon_team_srajan_probelm_04)
-[![Stage](https://img.shields.io/badge/Stage-Round_1:_Technical_Evidence-00B0FF?style=for-the-badge&logo=gitbook)](https://github.com/2k24cs1k2412828-cloud/ai_synergy_hackthon_team_srajan_probelm_04)
+[![Live Hosted Application](https://img.shields.io/badge/🌐_Live_Demo-ghumoindia--dusky.vercel.app-00C853?style=for-the-badge&logo=vercel)](https://ghumoindia-dusky.vercel.app/)
 
 <br/>
 
 [![React](https://img.shields.io/badge/Frontend-React_18-61DAFB?logo=react&logoColor=black&style=flat-square)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/Language-TypeScript-3178C6?logo=typescript&logoColor=white&style=flat-square)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Build-Vite-646CFF?logo=vite&logoColor=white&style=flat-square)](https://vitejs.dev/)
-[![Node.js](https://img.shields.io/badge/Backend-Node.js_Express-339933?logo=nodedotjs&logoColor=white&style=flat-square)](https://nodejs.org/)
-[![PostgreSQL](https://img.shields.io/badge/Database-Supabase_/_PostgreSQL-4169E1?logo=postgresql&logoColor=white&style=flat-square)](https://supabase.com/)
-[![Google Gemini API](https://img.shields.io/badge/AI-Google_Gemini-4285F4?logo=google&logoColor=white&style=flat-square)](https://ai.google.dev/)
-[![Status](https://img.shields.io/badge/Status-Planning_&_Evidence_Only-FFAB00?style=flat-square)](https://github.com/2k24cs1k2412828-cloud/ai_synergy_hackthon_team_srajan_probelm_04)
+[![Ghumo AI](https://img.shields.io/badge/AI_Engine-Google_Gemini-4285F4?logo=google&logoColor=white&style=flat-square)](https://ai.google.dev/)
+[![Codebase Directory](https://img.shields.io/badge/App_Folder-📁_ghumo--india-orange?style=flat-square)](ghumo-india/)
 
 <p align="center">
   <b>Bridging the discovery gap for Madhya Pradesh’s hidden archaeological wonders, secluded temple clusters, and cultural corridors through evidence-grounded AI intelligence.</b>
 </p>
 
+[🌐 Live Hosted App](https://ghumoindia-dusky.vercel.app/) •
+[🚀 Ghumo India App Code (`ghumo-india/`)](ghumo-india/) •
 [📌 Problem Investigation](#-problem-statement--investigation) •
 [💡 Solution Concept](#-proposed-solution) •
 [🏛️ Heritage Showcase](#-target-heritage-destinations) •
 [🏗️ Architecture](#%EF%B8%8F-system-architecture) •
 [📂 Repository Guide](#-repository-documentation-index) •
-[🛡️ Responsible AI](#%EF%B8%8F-responsible-ai--grounding-framework) •
 [🗺️ Round 2 Roadmap](#%EF%B8%8F-round-2-implementation-roadmap)
 
 ---
 
 </div>
+
+> ### 🌐 **Live Hosted Application**: [**https://ghumoindia-dusky.vercel.app/**](https://ghumoindia-dusky.vercel.app/)
+>
+> 📁 **Interactive Application Directory**: [`ghumo-india/`](ghumo-india/)
+> 
+> **Repository Organization & Navigation:**
+> - 🏛️ **Ghumo India Web & Mobile Application ([`ghumo-india/`](ghumo-india/))**: The interactive React 18 + TypeScript + Vite PWA featuring the **Ghumo AI Concierge**, interactive heritage maps, time-aware itinerary copilot, and authentic local photography for MP's archaeological sites.
+> - 📚 **Technical Architecture & Problem Evidence ([`docs/`](docs/))**: The complete engineering documentation suite covering case investigation, architectural data flows, API specifications, and responsible AI grounding.
+> - 📊 **Sourced Heritage Datasets ([`data/`](data/) & [`ghumo-india/src/data/`](ghumo-india/src/data/))**: Verified archaeological records for Bateshwar, Mitawali, Padhavali, Kakanmath, Gwalior Fort, Orchha, and Chanderi.
+> - 🔬 **Research & QA Frameworks ([`research/`](research/) & [`tests/`](tests/))**: Comprehensive evidence audit logs, API test plans, and acceptance test scenarios (AT-01 to AT-06).
+
+---
 
 > [!NOTE]
 > **Round 1 Status Disclosure:** This repository serves as our comprehensive Round 1 Technical Evidence and Problem Architecture submission. It establishes our problem investigation, system architecture, dataset strategy, API contract, and Round 2 validation plan. In accordance with strict hackathon integrity standards, no feature is claimed as operational until implemented and tested in Round 2.

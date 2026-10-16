@@ -3,6 +3,7 @@
 
 <div align="center">
 
+![Live Hosted Application](https://img.shields.io/badge/🌐_Live_Demo-ghumoindia--dusky.vercel.app-00C853?style=for-the-badge&logo=vercel)
 ![Ghumo India Banner](https://img.shields.io/badge/Ghumo%20India-Team%20Srajan-orange?style=for-the-badge&logo=compass)
 ![AI Synergy Hackathon](https://img.shields.io/badge/AI%20Synergy%20Hackathon-Problem%2004-blueviolet?style=for-the-badge&logo=target)
 ![Track](https://img.shields.io/badge/Track-Tourism%20%26%20Heritage-FF6F00?style=for-the-badge)
@@ -13,7 +14,9 @@
 
 **Ghumo India — Team Srajan, AI Synergy Hackathon Problem 4 Track Tourism**
 
-[✨ Features](#-features) · [🚀 Getting Started](#-getting-started) · [🏗️ Architecture](#️-architecture) · [🗺️ Covered Destinations](#️-covered-destinations) · [🛡️ .env Setup](#️-environment-variables) · [📦 Tech Stack](#-tech-stack)
+> 🌐 **Live Production Deployment**: [**https://ghumoindia-dusky.vercel.app/**](https://ghumoindia-dusky.vercel.app/)
+
+[🌐 Live Hosted App](https://ghumoindia-dusky.vercel.app/) · [✨ Features](#-features) · [🚀 Getting Started](#-getting-started) · [🏗️ Architecture](#️-architecture) · [🗺️ Covered Destinations](#️-covered-destinations) · [🛡️ .env Setup](#️-environment-variables) · [📦 Tech Stack](#-tech-stack)
 
 </div>
 
@@ -26,7 +29,7 @@
 While famous monuments like Gwalior Fort or Khajuraho receive sustained footfall, extraordinary heritage complexes within 30–90 km (such as the 200-temple **Bateshwar complex**, the circular **Chausath Yogini at Mitawali**, **Garhi Padhavali**, and the mortarless **Kakanmath Shiva Temple**) remain largely overlooked due to discovery, information reliability, and transport feasibility gaps.
 
 **Ghumo India** bridges these friction points with:
-- **Bilingual Disha AI Travel Companion** (Hindi/English voice STT/TTS powered by Google Gemini).
+- **Bilingual Ghumo AI Travel Companion** (Hindi/English voice STT/TTS powered by Google Gemini).
 - **Interactive Multi-State Heritage Map** (Leaflet) with the **Chambal Heritage Corridor** route.
 - **Time-Aware Trip Copilot** with real-time delay rescheduling and deadline buffers.
 - **Ground-Truth Archaeological Intelligence** backed by ASI and MP Tourism registries.
@@ -35,7 +38,7 @@ While famous monuments like Gwalior Fort or Khajuraho receive sustained footfall
 
 ## ✨ Features
 
-### 🤖 Disha AI — Bilingual Heritage & Travel Assistant
+### 🤖 Ghumo AI — Bilingual Heritage & Travel Assistant
 - **Bilingual Support**: Seamlessly switch between **Hindi (हिन्दी)** and **English**
 - **Voice Input (STT)**: Speech-to-Text with live recording wave animation using the Web Speech API
 - **Voice Output (TTS)**: Natural voice synthesis with play/stop controls
@@ -148,28 +151,29 @@ The output will be in the `dist/` folder.
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `VITE_GEMINI_API_KEY` | ✅ Yes | Google Gemini API key for the Disha AI assistant |
+| `VITE_GEMINI_API_KEY` | ✅ Yes | Google Gemini API key for the Ghumo AI assistant |
 
-> 💡 **Offline Fallback**: If no API key is provided or the API call fails, the app falls back to curated local responses from `uttarPradeshService.ts`.
+> 💡 **Offline Fallback**: If no API key is provided or the API call fails, the app falls back to curated local responses and databases.
 
 ---
 
 ## 🏗️ Architecture
 
 ```
-darshan-360/
+ghumo-india/
 ├── src/
 │   ├── main.tsx                        # App entry point
 │   ├── app/
 │   │   ├── App.tsx                     # Root layout: themes, mode switches, language toggle
 │   │   ├── components/
-│   │   │   ├── ChatPanel.tsx           # Disha AI chat: voice I/O, map cards, photo galleries
-│   │   │   ├── MapPanel.tsx            # Leaflet interactive UP map: filters, routes, pins
-│   │   │   ├── Darshan360Insights.tsx  # Tourism insights dashboard
+│   │   │   ├── ChatPanel.tsx           # Ghumo AI chat: voice I/O, map cards, photo galleries
+│   │   │   ├── MapPanel.tsx            # Leaflet interactive map: filters, routes, pins
+│   │   │   ├── MPSitesShowcase.tsx     # Dedicated MP archaeological sites showcase
+│   │   │   ├── GhumoIndiaInsights.tsx  # Tourism insights & impact dashboard
 │   │   │   ├── HeritageGallery.tsx     # Masonry photo gallery
-│   │   │   ├── ServiceBookingModal.tsx # Booking interface (boats, guides, etc.)
-│   │   │   ├── BoatBookingModal.tsx    # Ganga boat booking flow
-│   │   │   ├── HelpGuide.tsx          # Onboarding help guide
+│   │   │   ├── ServiceBookingModal.tsx # Booking interface (guides, passes, etc.)
+│   │   │   ├── BoatBookingModal.tsx    # Boat booking flow
+│   │   │   ├── HelpGuide.tsx           # Onboarding help guide
 │   │   │   ├── LoadingScreen.tsx       # Splash loading screen
 │   │   │   └── MapMarkerPopup.tsx      # Map click-to-chat popup cards
 │   │   └── services/
