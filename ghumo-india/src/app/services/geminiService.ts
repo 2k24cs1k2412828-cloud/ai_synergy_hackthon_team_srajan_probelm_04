@@ -261,32 +261,32 @@ _How may I help you discover India's magnificent heritage today?_`;
 
   if (isPureGreeting) {
     const welcomeText = activeLang === 'hi'
-      ? `### 🙏 नमस्ते! दर्शन 360° में आपका स्वागत है
+      ? `### 🙏 नमस्ते! घूमो इंडिया (Ghumo India) में आपका स्वागत है
 
-मैं **दिशा AI** हूँ — उत्तर प्रदेश पर्यटन की आपकी आधिकारिक डिजिटल साथी एवं मार्गदर्शक।
+मैं **घूमो AI (Ghumo AI)** हूँ — मध्य प्रदेश एवं संपूर्ण भारत की ऐतिहासिक धरोहरों व पर्यटन की आपकी आधिकारिक डिजिटल साथी एवं मार्गदर्शक।
 
 मैं आपकी यात्रा को सुगम और अविस्मरणीय बनाने हेतु निम्नलिखित सेवाएं प्रदान करती हूँ:
 
-• **🛕 दर्शन एवं आरती पास:** अयोध्या राम मंदिर, काशी विश्वनाथ, बांके बिहारी मंदिर के दर्शन समय, वीआईपी पास व ड्रेस कोड नियम।
-• **🚗 हाईवे मार्ग व दूरी कैलकुलेटर:** यूपी के किन्हीं भी दो शहरों या धामों के बीच सीधी दूरी, एक्सप्रेसवे और अनुमानित यात्रा समय (उदा. *"कानपुर से प्रयागराज"* या *"लखनऊ से अयोध्या"* पूछें)।
-• **🌊 पावन घाट व गंगा आरती:** वाराणसी, अयोध्या, मथुरा और प्रयागराज के पवित्र घाटों की सांध्य व प्रातःकालीन आरती का समय।
-• **👥 लाइव भीड़ स्थिति सूचकांक:** किस धाम में आज कितनी प्रतीक्षा है और यात्रा हेतु सबसे उपयुक्त समय।
-• **🛡️ सुरक्षा व धोखाधड़ी से बचाव:** आधिकारिक बोट किराया, दर्शन पास की सत्यता और 24x7 हेल्पलाइन (**1800-180-5145**)।
+• **🏛️ 50 म.प्र. धरोहरें (Beyond the Fort):** बटेश्वर के 200 मंदिर, मितावली चौसठ योगिनी, गढ़ी पढ़ावली, ककनमठ, ग्वालियर दुर्ग, सांची, भीमबेटका, मांडू, ओरछा और चंदेरी के महलों का प्रामाणिक इतिहास व अंतिम मील यात्रा मार्गदर्शन।
+• **🧭 स्मार्ट हेरिटेज टूर कोपायलट:** समयबद्ध यात्रा योजना, वापसी की समय सीमा (Deadline) और मानचित्र रूट ट्रैकिंग।
+• **🚗 हाईवे मार्ग व दूरी कैलकुलेटर:** चंबल हेरिटेज कॉरिडोर, नेशनल हाईवे और अंतर्राज्यीय मार्गों पर सटीक दूरी व स्टॉप्स।
+• **👥 लाइव भीड़ स्थिति एवं दर्शन परामर्श:** प्रतीक्षा समय, उपयुक्त समय व यात्रा व्यवहार्यता विश्लेषण।
+• **🛡️ सुरक्षा व पर्यटन सहायता:** आधिकारिक पर्यटन टोल-फ्री हेल्पलाइन (**1800-233-0303**)।
 
-आप उत्तर प्रदेश के किस पावन धाम, घाट या ऐतिहासिक धरोहर की यात्रा की योजना बना रहे हैं?`
+आप मध्य प्रदेश अथवा देश के किस धरोहर स्थल या यात्रा मार्ग की जानकारी चाहते हैं?`
       : `### 🙏 Namaste! Welcome to Ghumo India
 
-I am **Ghumo AI** — your official spiritual, cultural, and heritage companion for tourism and heritage exploration.
+I am **Ghumo AI** — your official heritage, cultural, and travel companion for exploring Madhya Pradesh and incredible destinations across India.
 
-Here is how I can assist your travels and pilgrimage:
+Here is how I can assist your journeys:
 
-• **🛕 Darshan & Aarti Pass Guidelines:** Ram Mandir Ayodhya, Kashi Vishwanath, Bankey Bihari timings, dress code, and official portal bookings.
-• **🚗 Highway Directions & Distance Calculator:** Point-to-point road distances, expressway corridors (Agra-Lucknow, Purvanchal, Yamuna, Bundelkhand), and driving times (e.g., try asking *"Kanpur to Prayagraj route"* or *"Lucknow to Ayodhya"*).
-• **🌊 Sacred River Ghats:** Aarti schedules, boat guidelines, and accessibility across Varanasi, Ayodhya, Mathura, Prayagraj, and Bithoor.
-• **👥 Live Pilgrim Crowd Index:** Real-time rush levels, temple wait times, and recommended peaceful visiting slots.
-• **🛡️ Scam & Safety Advisory:** Official ticket verification, standard boat fares, and emergency helplines (**1800-180-5145**).
+• **🏛️ 50 Curated MP Heritage Sites (Beyond the Fort):** Grounded history, transport, and last-mile access for Bateshwar (200 temples), Mitawali Chausath Yogini, Garhi Padavali, Kakanmath, Gwalior Fort, Sanchi, Bhimbetka, Mandu, Orchha, and Chanderi.
+• **🧭 Smart Heritage Tour Copilot:** Time-aware sequential itineraries with departure deadlines and route tracking.
+• **🚗 Highway Directions & Distance Calculator:** Point-to-point road distances, Chambal Heritage Corridor, and inter-city circuits.
+• **👥 Live Crowd Index & Visiting Feasibility:** Rush levels, queue timings, and recommended peaceful slots.
+• **🛡️ Tourism Assistance & Helplines:** Official Madhya Pradesh Tourism toll-free support (**1800-233-0303**).
 
-Which sacred destination, circuit, or city in Uttar Pradesh would you like to explore today?`;
+Which heritage destination, circuit, or city would you like to explore today?`;
 
     return {
       text: welcomeText,
@@ -912,7 +912,7 @@ ${p.deepHistory.hi}
 
 `;
         } else {
-          output += `### 🛕 ${p.name} (${p.city}, Uttar Pradesh)
+          output += `### 🛕 ${p.name} (${p.city})
 
 **✨ Travel Purpose & Significance (Travel Cause):**
 ${p.travelCause.en}

@@ -1,3 +1,5 @@
+import { MP_50_HERITAGE_SITES, type MP50HeritageSite } from "./mp-50-heritage-sites";
+
 // Comprehensive Geo-Registry & Tourism Database for Madhya Pradesh
 // Covers Chambal, Gwalior, Bundelkhand (Orchha, Datia), Malwa (Chanderi, Ujjain, Mandu),
 // Central MP (Bhopal, Sanchi, Bhimbetka), Mahakoshal (Jabalpur/Bhedaghat), and Khajuraho.
@@ -53,7 +55,23 @@ export const MP_CITY_COORDINATES: Record<string, { name: string; hindi: string; 
   pachmarhi: { name: 'Pachmarhi', hindi: 'पचमढ़ी', coords: [22.4674, 78.4346] },
   shivpuri: { name: 'Shivpuri', hindi: 'शिवपुरी', coords: [25.4243, 77.6598] },
   maheshwar: { name: 'Maheshwar', hindi: 'महेश्वर', coords: [22.1768, 75.5843] },
-  omkareshwar: { name: 'Omkareshwar', hindi: 'ओंकारेश्वर', coords: [22.2435, 76.1506] }
+  omkareshwar: { name: 'Omkareshwar', hindi: 'ओंकारेश्वर', coords: [22.2435, 76.1506] },
+  bhind: { name: 'Bhind', hindi: 'भिंड', coords: [26.5645, 78.7845] },
+  sheopur: { name: 'Sheopur', hindi: 'श्योपुर', coords: [25.6669, 76.6978] },
+  vidisha: { name: 'Vidisha', hindi: 'विदिशा', coords: [23.5239, 77.8062] },
+  raisen: { name: 'Raisen', hindi: 'रायसेन', coords: [23.3325, 77.7889] },
+  dhar: { name: 'Dhar', hindi: 'धार', coords: [22.6000, 75.2972] },
+  burhanpur: { name: 'Burhanpur', hindi: 'बुरहानपुर', coords: [21.3122, 76.2236] },
+  ashoknagar: { name: 'Ashoknagar', hindi: 'अशोकनगर', coords: [24.5800, 77.7300] },
+  niwari: { name: 'Niwari', hindi: 'निवाड़ी', coords: [25.3508, 78.6436] },
+  sagar: { name: 'Sagar', hindi: 'सागर', coords: [23.8388, 78.7378] },
+  rewa: { name: 'Rewa', hindi: 'रीवा', coords: [24.5362, 81.3037] },
+  panna: { name: 'Panna', hindi: 'पन्ना', coords: [24.7214, 80.1983] },
+  satna: { name: 'Satna', hindi: 'सतना', coords: [24.5800, 80.8300] },
+  umaria: { name: 'Umaria', hindi: 'उमरिया', coords: [23.5245, 80.8365] },
+  khargone: { name: 'Khargone', hindi: 'खरगोन', coords: [21.8234, 75.6186] },
+  katni: { name: 'Katni', hindi: 'कटनी', coords: [23.8343, 80.3992] },
+  mandsaur: { name: 'Mandsaur', hindi: 'मंदसौर', coords: [24.0722, 75.0683] }
 };
 
 // Common landmarks registry for direct destination routing
@@ -82,9 +100,73 @@ export const MP_LANDMARK_COORDINATES: Record<string, { name: string; hindi: stri
   'bhedaghat': { name: 'Bhedaghat & Dhuandhar Falls', hindi: 'भेड़ाघाट संगमरमर व धुआंधार', coords: [23.1314, 79.8006], city: 'Jabalpur' },
   'mandu': { name: 'Jahaz Mahal & Mandu Citadel', hindi: 'जहाज महल एवं मांडू दुर्ग', coords: [22.3664, 75.3912], city: 'Mandu' }
 };
+// Auto-register all 50 MP Heritage Sites into Landmark Registry for map direct routing
+for (const s of MP_50_HERITAGE_SITES) {
+  const normKey = s.name.en.toLowerCase().trim();
+  MP_LANDMARK_COORDINATES[normKey] = {
+    name: s.name.en,
+    hindi: s.name.hi,
+    coords: s.coordinates,
+    city: s.district.en.split(',')[0].trim()
+  };
+  MP_LANDMARK_COORDINATES[s.id] = {
+    name: s.name.en,
+    hindi: s.name.hi,
+    coords: s.coordinates,
+    city: s.district.en.split(',')[0].trim()
+  };
+}
+
 
 // Comprehensive Madhya Pradesh Places Database (Over 35 prime destinations)
-export const MP_PLACES: MPPlace[] = [
+function convertMP50ToPlace(site: MP50HeritageSite): MPPlace {
+  let cat: MPPlace['category'] = 'heritage';
+  if (site.category === 'ancient_temple') cat = 'temple';
+  else if (site.category === 'buddhist_site') cat = 'buddhist';
+  else if (site.category === 'rock_art_nature') cat = 'nature';
+  else if (site.category === 'monument') cat = 'monument';
+  else cat = 'heritage';
+
+  return {
+    id: site.id,
+    name: site.name.en,
+    hindiName: site.name.hi,
+    city: site.district.en.split(',')[0].trim(),
+    hindiCity: site.district.hi,
+    category: cat,
+    categoryLabel: { en: site.badge.en, hi: site.badge.hi },
+    coordinates: site.coordinates,
+    description: {
+      en: `${site.tagline.en} — ${site.focus.en}`,
+      hi: `${site.tagline.hi} — ${site.focus.hi}`
+    },
+    travelCause: site.focus,
+    deepHistory: site.history.chronicle,
+    architecture: site.architecture.style,
+    bestTime: site.practicalInfo.bestSlot,
+    timings: site.practicalInfo.timings,
+    entryFee: site.practicalInfo.entryFee,
+    accessibilityRating: site.practicalInfo.accessibilityScore,
+    accessibilityNotes: site.lastMileGuidance,
+    photographyTips: site.practicalInfo.photographyTips,
+    safetyTips: site.practicalInfo.safetyAdvisory,
+    images: site.gallery.map(g => ({
+      url: g.url,
+      title: site.name,
+      caption: g.caption.en
+    })),
+    tags: [
+      site.id,
+      site.zone,
+      site.category,
+      site.name.en.toLowerCase(),
+      site.district.en.toLowerCase(),
+      ...site.name.en.toLowerCase().split(' ')
+    ]
+  };
+}
+
+const BASE_MP_PLACES: MPPlace[] = [
   // --- CHAMBAL HERITAGE CORRIDOR (MORENA) ---
   {
     id: 'bateshwar_morena',
@@ -948,6 +1030,11 @@ export const MP_PLACES: MPPlace[] = [
 ];
 
 // Pre-built Madhya Pradesh Curated Travel Circuits
+export const MP_PLACES: MPPlace[] = [
+  ...MP_50_HERITAGE_SITES.map(convertMP50ToPlace),
+  ...BASE_MP_PLACES.filter(bp => !MP_50_HERITAGE_SITES.some(s => s.id === bp.id || s.name.en.toLowerCase().trim() === bp.name.toLowerCase().trim()))
+];
+
 export const MP_TRAVEL_ROUTES: MPRoute[] = [
   {
     id: 'chambal_heritage_circuit',
