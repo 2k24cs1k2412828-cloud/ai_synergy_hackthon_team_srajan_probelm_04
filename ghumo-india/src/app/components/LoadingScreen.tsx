@@ -8,6 +8,9 @@ export function LoadingScreen() {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
+      role="status"
+      aria-live="polite"
+      aria-label="Application loading"
       className="fixed inset-0 z-[10000] flex items-center justify-center bg-[#FAF8F5]"
     >
       <div className="text-center">
@@ -30,24 +33,14 @@ export function LoadingScreen() {
           />
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="text-3xl font-bold text-[#2C1810] mb-2"
-        >
+        <h2 className="text-3xl font-bold text-[#2C1810] mb-2">
           Ghumo India
-        </motion.h1>
+        </h2>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="text-sm text-[#5A4A3A] mb-6 flex items-center justify-center gap-2"
-        >
-          <Sparkles className="w-4 h-4 text-[#FF9933]" />
+        <p className="text-sm font-semibold text-[#2C1810] mb-6 flex items-center justify-center gap-2">
+          <Sparkles className="w-4 h-4 text-[#C2410C]" />
           Beyond the Fort • MP Heritage & Tourism Portal
-        </motion.p>
+        </p>
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -58,28 +51,23 @@ export function LoadingScreen() {
           <motion.div
             animate={{ scale: [1, 1.2, 1] }}
             transition={{ duration: 1, repeat: Infinity, delay: 0 }}
-            className="w-3 h-3 rounded-full bg-[#FF9933]"
+            className="w-3 h-3 rounded-full bg-[#C2410C]"
           />
           <motion.div
             animate={{ scale: [1, 1.2, 1] }}
             transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}
-            className="w-3 h-3 rounded-full bg-[#FF9933]"
+            className="w-3 h-3 rounded-full bg-[#C2410C]"
           />
           <motion.div
             animate={{ scale: [1, 1.2, 1] }}
             transition={{ duration: 1, repeat: Infinity, delay: 0.4 }}
-            className="w-3 h-3 rounded-full bg-[#FF9933]"
+            className="w-3 h-3 rounded-full bg-[#C2410C]"
           />
         </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-          className="text-xs text-[#5A4A3A] mt-6"
-        >
+        <p className="text-xs font-bold text-[#1C1917] mt-6">
           Preparing your journey...
-        </motion.p>
+        </p>
       </div>
     </motion.div>
   );

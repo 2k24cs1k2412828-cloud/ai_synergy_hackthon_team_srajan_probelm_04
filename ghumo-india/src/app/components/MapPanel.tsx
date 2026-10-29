@@ -703,7 +703,11 @@ export function MapPanel({
                     ? (language === 'hi' ? 'पूर्ण स्क्रीन विंडो से बाहर निकलें (Esc)' : 'Exit Full Screen Window (Esc)')
                     : (language === 'hi' ? 'पूर्ण स्क्रीन विंडो (Esc से बाहर निकलें)' : 'Full Screen Window (Press Esc to exit)')
                 }
-                aria-label="Toggle Full Screen Window"
+                aria-label={
+                  isWindowFullScreen
+                    ? (language === 'hi' ? 'पूर्ण स्क्रीन विंडो से बाहर निकलें' : 'Exit Full Screen Window')
+                    : (language === 'hi' ? 'पूर्ण स्क्रीन विंडो' : 'Full Screen Window')
+                }
               >
                 {isWindowFullScreen ? (
                   <Shrink className="w-4 h-4 text-[var(--accent-primary)]" />

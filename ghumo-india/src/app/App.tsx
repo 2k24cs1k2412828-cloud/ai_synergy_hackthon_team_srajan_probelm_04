@@ -166,6 +166,17 @@ export default function App() {
       setIsLoading(false);
     }, 1200);
 
+    // Deep linking support matching sitemap.xml routes
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const tab = params.get('tab');
+      if (tab === 'mpsites') setLayoutMode('mpsites');
+      else if (tab === 'map') setLayoutMode('fullmap');
+      else if (tab === 'planner' || tab === 'split') setLayoutMode('split');
+      else if (tab === 'news') setLayoutMode('news');
+      else if (tab === 'chat') setLayoutMode('fullchat');
+    } catch (_) {}
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -226,9 +237,7 @@ export default function App() {
     setIsCopilotOpen(true);
   };
 
-  if (isLoading) {
-    return <LoadingScreen />;
-  }
+
 
   const sidebarQuickPrompts = language === 'hi' ? [
     { id: 1, icon: '🏛️', label: 'Bateshwar & Mitawali Circuit', query: 'ग्वालियर से बटेश्वर और मितावली चौसठ योगिनी मंदिर का 4 घंटे का हेरिटेज रूट और इतिहास बताएं।' },
@@ -278,7 +287,17 @@ export default function App() {
   return (
     <div className={`w-full h-screen overflow-hidden bg-[var(--bg-primary)] transition-all duration-300 flex ${
       layoutMode === 'fullchat' ? 'flex-col lg:flex-row' : 'flex-col'
-    } font-sans`}>
+    } font-sans relative`}>
+      {/* Accessible Skip Navigation Landmark */}
+      <nav aria-label="Skip links" className="sr-only focus-within:not-sr-only">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[99999] focus:px-4 focus:py-2 focus:bg-orange-600 focus:text-white focus:rounded-lg focus:shadow-2xl focus:font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+        >
+          {language === 'hi' ? 'मुख्य सामग्री पर जाएं' : 'Skip to main content'}
+        </a>
+      </nav>
+
       <Toaster position="top-right" richColors />
 
       {/* Top Main Navigation Bar - Visible on all pages EXCEPT desktop fullchat */}
@@ -302,7 +321,7 @@ export default function App() {
                 <h1 className="text-base md:text-xl font-bold tracking-tight text-[var(--text-primary)] font-display">
                   GHUMO INDIA
                 </h1>
-                <span className="text-[10px] font-semibold tracking-wider px-2 py-0.5 rounded-full bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border border-[var(--accent-primary)]/20 uppercase">
+                <span className="text-[10px] font-bold tracking-wider px-2 py-0.5 rounded-full bg-orange-100 text-orange-800 dark:bg-orange-950/60 dark:text-orange-200 border border-orange-200 dark:border-orange-800 uppercase">
                   Madhya Pradesh
                 </span>
               </div>
@@ -431,7 +450,7 @@ export default function App() {
             <div className="glass rounded-full p-0.5 flex items-center border border-[var(--glass-border)] shadow-sm" role="group" aria-label="Language selection">
               <button
                 onClick={() => setLanguage('en')}
-                aria-label="Switch language to English"
+                aria-label="EN - English"
                 className={`px-2 py-0.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                   language === 'en'
                     ? 'bg-[var(--accent-primary)] text-white shadow-sm'
@@ -442,7 +461,7 @@ export default function App() {
               </button>
               <button
                 onClick={() => setLanguage('hi')}
-                aria-label="Switch language to Hindi"
+                aria-label="हिन्दी - Hindi"
                 className={`px-2 py-0.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                   language === 'hi'
                     ? 'bg-[var(--accent-primary)] text-white shadow-sm'
@@ -515,7 +534,7 @@ export default function App() {
                         GHUMO INDIA
                       </h1>
                     </div>
-                    <span className="text-[9px] font-semibold tracking-wider px-1.5 py-0.2 rounded-full bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border border-[var(--accent-primary)]/20 uppercase">
+                    <span className="text-[9px] font-bold tracking-wider px-1.5 py-0.5 rounded-full bg-orange-100 text-orange-800 dark:bg-orange-950/60 dark:text-orange-200 border border-orange-200 dark:border-orange-800 uppercase">
                       Beyond The Fort
                     </span>
                   </div>
@@ -715,7 +734,15 @@ export default function App() {
       )}
 
       {/* Main Dual-Pillar Content Layout */}
-      <main id="main-content" role="main" aria-label="Main Content" className="flex-1 w-full min-h-0 relative overflow-hidden">
+      <main
+        id="main-content"
+        role="main"
+        tabIndex={-1}
+        aria-label="Main Content"
+        className="flex-1 w-full min-h-0 relative overflow-hidden outline-none"
+      >
+        {/* Accessible Loading Screen Overlay within Main Landmark */}
+        {isLoading && <LoadingScreen />}
         {layoutMode === 'split' && (
           <div className="w-full h-full lg:grid lg:grid-cols-12 min-h-0 relative flex flex-col">
             {/* Left Pillar: Interactive Uttar Pradesh Map */}
@@ -879,14 +906,14 @@ export default function App() {
           }}
           className={`flex flex-col items-center gap-0.5 py-1 px-2 rounded-xl transition-all cursor-pointer ${
             mobileTab === 'chat' && layoutMode !== 'news' && layoutMode !== 'mpsites'
-              ? 'text-[var(--accent-primary)] font-bold'
-              : 'text-[var(--text-secondary)] font-medium hover:text-[var(--text-primary)]'
+              ? 'text-orange-800 dark:text-orange-300 font-bold'
+              : 'text-neutral-700 dark:text-neutral-300 font-semibold hover:text-[var(--text-primary)]'
           }`}
         >
           <MessageSquare className="w-4 h-4" />
-          <span className="text-[10px] font-medium">{language === 'hi' ? 'घूमो AI' : 'Ghumo AI'}</span>
+          <span className="text-[10px] font-semibold">{language === 'hi' ? 'घूमो AI' : 'Ghumo AI'}</span>
           {mobileTab === 'chat' && layoutMode !== 'news' && layoutMode !== 'mpsites' && (
-            <motion.div layoutId="activeMobileIndicator" className="w-1.5 h-1.5 rounded-full bg-[var(--accent-primary)]" />
+            <motion.div layoutId="activeMobileIndicator" className="w-1.5 h-1.5 rounded-full bg-orange-700 dark:bg-orange-400" />
           )}
         </button>
 
@@ -898,14 +925,14 @@ export default function App() {
           }}
           className={`flex flex-col items-center gap-0.5 py-1 px-2 rounded-xl transition-all cursor-pointer ${
             mobileTab === 'map' && layoutMode !== 'news' && layoutMode !== 'mpsites'
-              ? 'text-[var(--accent-primary)] font-bold'
-              : 'text-[var(--text-secondary)] font-medium hover:text-[var(--text-primary)]'
+              ? 'text-orange-800 dark:text-orange-300 font-bold'
+              : 'text-neutral-700 dark:text-neutral-300 font-semibold hover:text-[var(--text-primary)]'
           }`}
         >
           <MapIcon className="w-4 h-4" />
-          <span className="text-[10px] font-medium">{language === 'hi' ? 'मानचित्र' : 'Map'}</span>
+          <span className="text-[10px] font-semibold">{language === 'hi' ? 'मानचित्र' : 'Map'}</span>
           {mobileTab === 'map' && layoutMode !== 'news' && layoutMode !== 'mpsites' && (
-            <motion.div layoutId="activeMobileIndicator" className="w-1.5 h-1.5 rounded-full bg-[var(--accent-primary)]" />
+            <motion.div layoutId="activeMobileIndicator" className="w-1.5 h-1.5 rounded-full bg-orange-700 dark:bg-orange-400" />
           )}
         </button>
 
@@ -917,14 +944,14 @@ export default function App() {
           }}
           className={`flex flex-col items-center gap-0.5 py-1 px-2 rounded-xl transition-all cursor-pointer relative ${
             layoutMode === 'mpsites'
-              ? 'text-[var(--accent-primary)] font-bold'
-              : 'text-[var(--text-secondary)] font-medium hover:text-[var(--text-primary)]'
+              ? 'text-orange-800 dark:text-orange-300 font-bold'
+              : 'text-neutral-700 dark:text-neutral-300 font-semibold hover:text-[var(--text-primary)]'
           }`}
         >
           <Globe className="w-4 h-4" />
-          <span className="text-[10px] font-medium">{language === 'hi' ? 'धरोहर' : 'MP Sites'}</span>
+          <span className="text-[10px] font-semibold">{language === 'hi' ? 'धरोहर' : 'MP Sites'}</span>
           {layoutMode === 'mpsites' && (
-            <motion.div layoutId="activeMobileIndicator" className="w-1.5 h-1.5 rounded-full bg-[var(--accent-primary)]" />
+            <motion.div layoutId="activeMobileIndicator" className="w-1.5 h-1.5 rounded-full bg-orange-700 dark:bg-orange-400" />
           )}
         </button>
 
@@ -935,12 +962,12 @@ export default function App() {
           }}
           className={`flex flex-col items-center gap-0.5 py-1 px-2 rounded-xl transition-all cursor-pointer relative ${
             isCopilotOpen
-              ? 'text-orange-600 font-bold'
-              : 'text-[var(--text-secondary)] font-medium hover:text-[var(--text-primary)]'
+              ? 'text-orange-800 dark:text-orange-300 font-bold'
+              : 'text-neutral-700 dark:text-neutral-300 font-semibold hover:text-[var(--text-primary)]'
           }`}
         >
-          <Route className="w-4 h-4 text-orange-500" />
-          <span className="text-[10px] font-medium">{language === 'hi' ? 'कोपायलट' : 'Copilot'}</span>
+          <Route className="w-4 h-4 text-orange-600 dark:text-orange-400" />
+          <span className="text-[10px] font-semibold">{language === 'hi' ? 'कोपायलट' : 'Copilot'}</span>
           {activeItinerary && (
             <span className="w-2 h-2 rounded-full bg-emerald-400 absolute top-1 right-1.5 animate-pulse" />
           )}
@@ -954,21 +981,25 @@ export default function App() {
           }}
           className={`flex flex-col items-center gap-0.5 py-1 px-2 rounded-xl transition-all cursor-pointer ${
             layoutMode === 'news'
-              ? 'text-[var(--accent-primary)] font-bold'
-              : 'text-[var(--text-secondary)] font-medium hover:text-[var(--text-primary)]'
+              ? 'text-orange-800 dark:text-orange-300 font-bold'
+              : 'text-neutral-700 dark:text-neutral-300 font-semibold hover:text-[var(--text-primary)]'
           }`}
         >
           <div className="relative">
             <Newspaper className="w-4 h-4" />
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse absolute -top-0.5 -right-0.5" />
           </div>
-          <span className="text-[10px] font-medium">{language === 'hi' ? 'बुलेटिन' : 'Dispatch'}</span>
+          <span className="text-[10px] font-semibold">{language === 'hi' ? 'बुलेटिन' : 'Dispatch'}</span>
           {layoutMode === 'news' && (
-            <motion.div layoutId="activeMobileIndicator" className="w-1.5 h-1.5 rounded-full bg-[var(--accent-primary)]" />
+            <motion.div layoutId="activeMobileIndicator" className="w-1.5 h-1.5 rounded-full bg-orange-700 dark:bg-orange-400" />
           )}
         </button>
       </nav>
 
+      {/* Accessibility Landmark: Site Footer */}
+      <footer role="contentinfo" aria-label="Site Footer" className="sr-only">
+        <p>Ghumo India — Beyond the Fort • Madhya Pradesh Tourism & Heritage Portal</p>
+      </footer>
     </div>
   );
 }

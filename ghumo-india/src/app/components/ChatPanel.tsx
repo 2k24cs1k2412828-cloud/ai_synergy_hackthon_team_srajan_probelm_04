@@ -446,8 +446,8 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
               <h2 className="text-xs sm:text-sm font-bold text-[var(--text-primary)] font-editorial truncate">
                 {language === 'hi' ? 'घूमो AI' : 'Ghumo AI'}
               </h2>
-              <span className="flex-shrink-0 inline-flex items-center gap-1 text-[9px] px-1.5 py-0.2 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-semibold border border-emerald-500/20">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="flex-shrink-0 inline-flex items-center gap-1 text-[9px] px-1.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/50 text-emerald-800 dark:text-emerald-300 font-bold border border-emerald-300 dark:border-emerald-700">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400 animate-pulse" />
                 <span>Online</span>
               </span>
             </div>
@@ -475,7 +475,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
               onClick={onToggleFullScreen}
               className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all border cursor-pointer shadow-2xs ${
                 layoutMode === 'fullchat'
-                  ? 'bg-orange-500/15 text-[var(--accent-primary)] border-orange-500/30 hover:bg-orange-500/25'
+                  ? 'bg-orange-100 dark:bg-orange-950/60 text-orange-900 dark:text-orange-200 border-orange-300 dark:border-orange-700'
                   : 'glass text-[var(--text-primary)] border-[var(--glass-border)] hover:border-[var(--accent-primary)] hover:text-[var(--accent-primary)]'
               }`}
               title={layoutMode === 'fullchat' ? (language === 'hi' ? 'द्वैत दृश्य में बदलें' : 'Switch to Split View') : (language === 'hi' ? 'चैट पैनल विस्तृत करें' : 'Expand Chat Panel')}
@@ -483,12 +483,12 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
               {layoutMode === 'fullchat' ? (
                 <>
                   <Columns2 className="w-3.5 h-3.5 text-[var(--accent-primary)]" />
-                  <span className="text-[11px] font-medium">{language === 'hi' ? 'द्वैत दृश्य' : 'Split'}</span>
+                  <span className="text-[11px] font-bold">{language === 'hi' ? 'द्वैत दृश्य' : 'Split'}</span>
                 </>
               ) : (
                 <>
                   <Maximize2 className="w-3.5 h-3.5 text-[var(--accent-primary)]" />
-                  <span className="text-[11px] font-medium">{language === 'hi' ? 'विस्तार' : 'Expand'}</span>
+                  <span className="text-[11px] font-bold">{language === 'hi' ? 'विस्तार' : 'Expand'}</span>
                 </>
               )}
             </button>
@@ -499,24 +499,23 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
             onClick={onToggleWindowFullScreen || toggleBrowserFullScreen}
             className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all border cursor-pointer shadow-2xs ${
               (isWindowFullScreen ?? isBrowserFullScreen)
-                ? 'bg-orange-500/15 text-[var(--accent-primary)] border-orange-500/30 hover:bg-orange-500/25'
+                ? 'bg-orange-100 dark:bg-orange-950/60 text-orange-900 dark:text-orange-200 border-orange-300 dark:border-orange-700 hover:bg-orange-200'
                 : 'glass text-[var(--text-primary)] border-[var(--glass-border)] hover:border-[var(--accent-primary)] hover:text-[var(--accent-primary)]'
             }`}
             title={(isWindowFullScreen ?? isBrowserFullScreen)
               ? (language === 'hi' ? 'पूर्ण स्क्रीन विंडो से बाहर निकलें (Esc)' : 'Exit Full Screen Window (Esc)')
               : (language === 'hi' ? 'पूर्ण स्क्रीन विंडो (Esc से बाहर निकलें)' : 'Full Screen Window (Press Esc to exit)')
             }
-            aria-label="Toggle Full Screen Window"
           >
             {(isWindowFullScreen ?? isBrowserFullScreen) ? (
               <>
                 <Shrink className="w-3.5 h-3.5 text-[var(--accent-primary)]" />
-                <span className="text-[11px] font-medium">{language === 'hi' ? 'निकास' : 'Exit FS'}</span>
+                <span className="text-[11px] font-bold">{language === 'hi' ? 'निकास' : 'Exit FS'}</span>
               </>
             ) : (
               <>
                 <Fullscreen className="w-3.5 h-3.5 text-[var(--accent-primary)]" />
-                <span className="text-[11px] font-medium">{language === 'hi' ? 'पूर्ण विंडो' : 'Window FS'}</span>
+                <span className="text-[11px] font-bold">{language === 'hi' ? 'पूर्ण विंडो' : 'Window FS'}</span>
               </>
             )}
           </button>
@@ -1044,6 +1043,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
             <button
               type="submit"
               disabled={!inputValue.trim() || isTyping}
+              aria-label={language === 'hi' ? 'संदेश भेजें' : 'Send message'}
               className={`p-2.5 rounded-full transition-all flex items-center justify-center cursor-pointer ${
                 inputValue.trim() && !isTyping
                   ? 'bg-gradient-to-r from-orange-600 to-amber-600 text-white hover:opacity-95 shadow-md shadow-orange-500/20'

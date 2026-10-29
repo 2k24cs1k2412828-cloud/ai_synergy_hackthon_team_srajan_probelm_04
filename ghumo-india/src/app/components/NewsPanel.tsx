@@ -430,6 +430,7 @@ export function NewsPanel({ theme, language, onAskAI }: NewsPanelProps) {
           <select
             value={selectedDistrict}
             onChange={(e) => setSelectedDistrict(e.target.value)}
+            aria-label={language === 'hi' ? 'जिला चुनें' : 'Select District'}
             className="px-3 py-2 rounded-xl text-xs font-semibold bg-[var(--bg-secondary)]/80 border border-[var(--glass-border)] text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent-primary)] cursor-pointer"
           >
             {ALL_UP_DISTRICTS.map((d) => (

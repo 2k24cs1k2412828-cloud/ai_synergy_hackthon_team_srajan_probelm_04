@@ -106,11 +106,11 @@ export function MPSitesShowcase({
               </span>
             </div>
 
-            <h1 className="text-xl md:text-2xl lg:text-3xl font-extrabold tracking-tight text-[var(--text-primary)] font-display">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-extrabold tracking-tight text-[var(--text-primary)] font-display">
               {language === 'hi' 
                 ? 'बियॉन्ड द फोर्ट — मध्य प्रदेश की पुरातात्विक व सांस्कृतिक धरोहरें'
                 : 'Beyond the Fort — Archaeological & Cultural Wonders of Madhya Pradesh'}
-            </h1>
+            </h2>
 
             <p className="text-xs md:text-sm text-[var(--text-secondary)] leading-relaxed">
               {language === 'hi'
@@ -460,19 +460,19 @@ export function MPSitesShowcase({
                     </div>
 
                     <div className="space-y-2">
-                      <h4 className="text-sm font-bold text-[var(--text-primary)]">
+                      <h3 className="text-sm font-bold text-[var(--text-primary)]">
                         {language === 'hi' ? '📜 ऐतिहासिक गाथा एवं पुरातात्विक पृष्ठभूमि' : '📜 Historical Narrative & Archaeological Background'}
-                      </h4>
+                      </h3>
                       <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
                         {language === 'hi' ? selectedSite.history.chronicle.hi : selectedSite.history.chronicle.en}
                       </p>
                     </div>
 
                     <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 space-y-1.5">
-                      <h4 className="text-xs font-bold text-amber-700 dark:text-amber-400 flex items-center gap-1.5">
+                      <h3 className="text-xs font-bold text-amber-700 dark:text-amber-400 flex items-center gap-1.5">
                         <ShieldCheck className="w-4 h-4" />
                         <span>{language === 'hi' ? 'ASI संरक्षण एवं पुनरुद्धार अभिलेख' : 'ASI Conservation & Archaeological Record'}</span>
-                      </h4>
+                      </h3>
                       <p className="text-xs text-[var(--text-primary)] leading-relaxed">
                         {language === 'hi' ? selectedSite.history.asiSignificance.hi : selectedSite.history.asiSignificance.en}
                       </p>
@@ -493,19 +493,19 @@ export function MPSitesShowcase({
                     </div>
 
                     <div className="space-y-2">
-                      <h4 className="text-sm font-bold text-[var(--text-primary)]">
+                      <h3 className="text-sm font-bold text-[var(--text-primary)]">
                         {language === 'hi' ? '🕉️ पौराणिक आख्यान एवं देव स्वरूप' : '🕉️ Mythology & Deities'}
-                      </h4>
+                      </h3>
                       <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
                         {language === 'hi' ? selectedSite.culture.mythology.hi : selectedSite.culture.mythology.en}
                       </p>
                     </div>
 
                     <div className="p-3.5 rounded-xl border border-[var(--glass-border)] bg-[var(--bg-primary)] space-y-1">
-                      <h5 className="text-xs font-bold text-[var(--text-primary)] flex items-center gap-1.5">
+                      <h4 className="text-xs font-bold text-[var(--text-primary)] flex items-center gap-1.5">
                         <Sparkles className="w-3.5 h-3.5 text-orange-500" />
                         <span>{language === 'hi' ? 'जीवंत लोक परंपरा एवं त्यौहार' : 'Living Traditions & Seasonal Festivals'}</span>
-                      </h5>
+                      </h4>
                       <p className="text-xs text-[var(--text-secondary)]">
                         {language === 'hi' ? selectedSite.culture.livingTradition.hi : selectedSite.culture.livingTradition.en}
                       </p>
@@ -526,9 +526,9 @@ export function MPSitesShowcase({
                     </div>
 
                     <div className="space-y-2">
-                      <h4 className="text-sm font-bold text-[var(--text-primary)]">
+                      <h3 className="text-sm font-bold text-[var(--text-primary)]">
                         {language === 'hi' ? '📐 इंजीनियरिंग एवं संरचनात्मक विशेषताएं' : '📐 Civil Engineering & Structural Highlights'}
-                      </h4>
+                      </h3>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {(language === 'hi' ? selectedSite.architecture.engineeringHighlights.hi : selectedSite.architecture.engineeringHighlights.en).map((item, idx) => (
                           <div key={idx} className="p-3 rounded-xl border border-[var(--glass-border)] bg-[var(--bg-secondary)] flex items-start gap-2">
@@ -540,9 +540,9 @@ export function MPSitesShowcase({
                     </div>
 
                     <div className="space-y-1.5">
-                      <h4 className="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider">
+                      <h3 className="text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider">
                         {language === 'hi' ? 'वास्तुशिल्पीय विश्लेषण' : 'Architectural Overview'}
-                      </h4>
+                      </h3>
                       <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
                         {language === 'hi' ? selectedSite.architecture.architecturalNotes.hi : selectedSite.architecture.architecturalNotes.en}
                       </p>
@@ -678,10 +678,10 @@ export function MPSitesShowcase({
                     </div>
 
                     <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/20">
-                      <h4 className="text-xs font-bold text-rose-700 dark:text-rose-400 flex items-center gap-1.5">
+                      <h3 className="text-xs font-bold text-rose-700 dark:text-rose-400 flex items-center gap-1.5">
                         <Info className="w-4 h-4" />
                         <span>{language === 'hi' ? 'सुरक्षा एवं सावधानी परामर्श' : 'Safety Advisory & Practical Precautions'}</span>
-                      </h4>
+                      </h3>
                       <p className="text-xs text-[var(--text-primary)] mt-1">
                         {language === 'hi' ? selectedSite.practicalInfo.safetyAdvisory.hi : selectedSite.practicalInfo.safetyAdvisory.en}
                       </p>

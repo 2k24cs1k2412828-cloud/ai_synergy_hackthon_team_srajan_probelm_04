@@ -6,6 +6,18 @@
 /* Theme Variables */
 :root {
   --theme-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --bg-primary: #FAF8F5;
+  --bg-secondary: #F3EFE9;
+  --accent-primary: #C2410C;
+  --accent-secondary: #0D9488;
+  --accent-gold: #D97706;
+  --text-primary: #1C1917;
+  --text-secondary: #57534E;
+  --glass-bg: #FFFFFF;
+  --glass-border: #E7DFD5;
+  --shadow-color: rgba(28, 25, 23, 0.05);
+  --card-bg: #FFFFFF;
+  --card-border: #E7DFD5;
 }
 
 /* Morning / Day Theme - Warm Alabaster, Saffron Terracotta & Sacred Ochre */
