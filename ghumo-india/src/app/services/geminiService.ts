@@ -29,6 +29,14 @@ import {
   type TripItinerary,
   type ItineraryStop
 } from './copilotService';
+import { MP_50_HERITAGE_SITES, type MP50HeritageSite } from '../../data/mp-50-heritage-sites';
+import { 
+  MP_PLACES, 
+  MP_CITY_COORDINATES, 
+  MP_LANDMARK_COORDINATES, 
+  calculateDynamicMPRoute, 
+  type MPPlace 
+} from '../../data/mp-comprehensive-database';
 
 // In-memory query response cache for sub-50ms repeat query responses
 const responseCache = new Map<string, GeminiResponse>();
@@ -78,6 +86,94 @@ export interface GeminiResponse {
   scrapedNews?: ScrapedNewsItem[];
   scamAlerts?: UPScamAdvisory[];
   copilotItinerary?: TripItinerary;
+}
+
+// Dedicated Grounded Matcher for all 50 Madhya Pradesh Heritage Sites
+export function findMPHeritageSite(query: string): MP50HeritageSite | null {
+  const q = query.toLowerCase().trim();
+
+  // 1. Direct site ID match
+  const byId = MP_50_HERITAGE_SITES.find(s => q.includes(s.id.toLowerCase()));
+  if (byId) return byId;
+
+  // 2. Direct English or Hindi name match
+  const byName = MP_50_HERITAGE_SITES.find(s => 
+    q.includes(s.name.en.toLowerCase()) || 
+    q.includes(s.name.hi.toLowerCase())
+  );
+  if (byName) return byName;
+
+  // 3. Known prominent site aliases & keywords
+  if (q.includes('sheopur') || q.includes('श्योपुर')) {
+    return MP_50_HERITAGE_SITES.find(s => s.id === 'sheopur_fort_mp') || null;
+  }
+  if (q.includes('bateshwar') || q.includes('बटेश्वर')) {
+    return MP_50_HERITAGE_SITES.find(s => s.id.includes('bateshwar')) || null;
+  }
+  if (q.includes('mitawali') || q.includes('मितावली') || q.includes('chausath yogini')) {
+    return MP_50_HERITAGE_SITES.find(s => s.id.includes('mitawali')) || null;
+  }
+  if (q.includes('padhavali') || q.includes('padavali') || q.includes('पढ़ावली') || q.includes('garhi padhavali')) {
+    return MP_50_HERITAGE_SITES.find(s => s.id.includes('padhavali')) || null;
+  }
+  if (q.includes('kakanmath') || q.includes('ककनमठ') || q.includes('suhania')) {
+    return MP_50_HERITAGE_SITES.find(s => s.id.includes('kakanmath')) || null;
+  }
+  if (q.includes('koshak mahal') || q.includes('कोषक महल') || q.includes('badal mahal') || (q.includes('chanderi') && (q.includes('fort') || q.includes('durg')))) {
+    return MP_50_HERITAGE_SITES.find(s => s.id.includes('chanderi')) || null;
+  }
+  if (q.includes('orchha') || q.includes('ओरछा') || q.includes('ram raja') || q.includes('jahangir mahal')) {
+    return MP_50_HERITAGE_SITES.find(s => s.id.includes('orchha')) || null;
+  }
+  if (q.includes('gwalior fort') || q.includes('ग्वालियर किला') || q.includes('ग्वालियर दुर्ग') || q.includes('man mandir') || q.includes('sas bahu') || q.includes('teli ka mandir')) {
+    return MP_50_HERITAGE_SITES.find(s => s.id.includes('gwalior') || s.name.en.toLowerCase().includes('gwalior')) || null;
+  }
+  if (q.includes('datia') || q.includes('दतिया') || q.includes('bir singh')) {
+    return MP_50_HERITAGE_SITES.find(s => s.id.includes('datia')) || null;
+  }
+  if (q.includes('sonagiri') || q.includes('सोनागिरि')) {
+    return MP_50_HERITAGE_SITES.find(s => s.id.includes('sonagiri')) || null;
+  }
+  if (q.includes('narwar') || q.includes('नरवर')) {
+    return MP_50_HERITAGE_SITES.find(s => s.id.includes('narwar')) || null;
+  }
+  if (q.includes('ater') || q.includes('अटेर')) {
+    return MP_50_HERITAGE_SITES.find(s => s.id.includes('ater')) || null;
+  }
+  if (q.includes('dubkund') || q.includes('दूबकुंड')) {
+    return MP_50_HERITAGE_SITES.find(s => s.id.includes('dubkund')) || null;
+  }
+  if (q.includes('sanchi') || q.includes('सांची')) {
+    return MP_50_HERITAGE_SITES.find(s => s.id.includes('sanchi')) || null;
+  }
+  if (q.includes('bhimbetka') || q.includes('भीमबेटका')) {
+    return MP_50_HERITAGE_SITES.find(s => s.id.includes('bhimbetka')) || null;
+  }
+  if (q.includes('bhojpur') || q.includes('भोजपुर')) {
+    return MP_50_HERITAGE_SITES.find(s => s.id.includes('bhojpur')) || null;
+  }
+  if (q.includes('khajuraho') || q.includes('खजुराहो') || q.includes('kandariya')) {
+    return MP_50_HERITAGE_SITES.find(s => s.id.includes('khajuraho')) || null;
+  }
+  if (q.includes('mandu') || q.includes('मांडू') || q.includes('jahaz mahal') || q.includes('roopmati')) {
+    return MP_50_HERITAGE_SITES.find(s => s.id.includes('mandu') || s.name.en.toLowerCase().includes('mandu')) || null;
+  }
+  if (q.includes('maheshwar') || q.includes('महेश्वर') || q.includes('ahilya')) {
+    return MP_50_HERITAGE_SITES.find(s => s.id.includes('maheshwar')) || null;
+  }
+  if (q.includes('asirgarh') || q.includes('असीरगढ़')) {
+    return MP_50_HERITAGE_SITES.find(s => s.id.includes('asirgarh')) || null;
+  }
+
+  // 4. Token match against MP sites names
+  for (const s of MP_50_HERITAGE_SITES) {
+    const rawTokens = s.name.en.toLowerCase().split(/\s+/).filter(t => t.length > 4 && !['fort', 'temple', 'group', 'caves', 'palace', 'monument'].includes(t));
+    for (const t of rawTokens) {
+      if (q.includes(t)) return s;
+    }
+  }
+
+  return null;
 }
 
 export async function getGeminiResponse(
@@ -295,6 +391,190 @@ Which heritage destination, circuit, or city would you like to explore today?`;
     };
   }
 
+  // 1. High Priority Grounded Intelligence for all 50 Madhya Pradesh Heritage Sites
+  const matchedMPSite = findMPHeritageSite(userMessage);
+
+  if (matchedMPSite) {
+    // Check if origin is mentioned (e.g. "from Gwalior", "Gwalior se", or "Gwalior for Sheopur")
+    const originMatch = userMessage.match(/(?:from|se|start from|starting from|निकलकर)\s+([a-zA-Z\u0900-\u097F]+)/i);
+    let originCity = 'Gwalior';
+    if (originMatch) {
+      originCity = originMatch[1].trim();
+    } else if (userMessage.toLowerCase().includes('gwalior')) {
+      originCity = 'Gwalior';
+    }
+
+    const originCoords: [number, number] = originCity.toLowerCase().includes('gwalior') 
+      ? [26.2183, 78.1828] 
+      : MP_CITY_COORDINATES[originCity.toLowerCase()]?.coords || [26.2183, 78.1828];
+    const destinationCoords = matchedMPSite.coordinates;
+
+    const dynamicRoute = calculateDynamicMPRoute(originCity, matchedMPSite.district.en.split(',')[0].trim()) || {
+      distanceKm: 210,
+      estimatedDrivingTime: '4.0 to 4.5 hours (210 km)',
+      waypoints: [originCoords, [25.9500, 77.4000], destinationCoords] as [number, number][],
+      highwayName: { 
+        en: 'NH-27 / SH-24 Pohri-Sheopur Heritage Highway', 
+        hi: 'एनएच-27 / एसएच-24 पोहरी-श्योपुर हेरिटेज हाईवे' 
+      }
+    };
+
+    // Synchronize Copilot Itinerary for this MP Site and route
+    const parsedConstraints = parseNaturalLanguageTripQuery(userMessage);
+    if (!parsedConstraints.startLocationName) parsedConstraints.startLocationName = originCity;
+    const copilotItinerary = generateTimeBasedItinerary(parsedConstraints);
+
+    // Synchronize In-Chat Interactive Map with Origin -> Destination route
+    const mpMapData: InChatMapData = {
+      title: activeLang === 'hi' 
+        ? `${originCity} से ${matchedMPSite.name.hi} हेरिटेज मार्ग` 
+        : `${originCity} to ${matchedMPSite.name.en} Heritage Route`,
+      center: destinationCoords,
+      zoom: 10,
+      markers: [
+        {
+          position: destinationCoords,
+          title: activeLang === 'hi' ? matchedMPSite.name.hi : matchedMPSite.name.en,
+          description: activeLang === 'hi' 
+            ? `${matchedMPSite.tagline.hi} | समय: ${matchedMPSite.practicalInfo.timings.hi} | शुल्क: ${matchedMPSite.practicalInfo.entryFee.hi}` 
+            : `${matchedMPSite.tagline.en} | Timings: ${matchedMPSite.practicalInfo.timings.en} | Entry: ${matchedMPSite.practicalInfo.entryFee.en}`
+        },
+        {
+          position: originCoords,
+          title: activeLang === 'hi' ? `प्रारंभिक स्थल: ${originCity}` : `Origin: ${originCity}`,
+          description: activeLang === 'hi' 
+            ? `प्रस्थान केंद्र | कुल दूरी: ~${dynamicRoute.distanceKm} किमी` 
+            : `Departure Hub | Route Distance: ~${dynamicRoute.distanceKm} km`
+        }
+      ],
+      routePath: dynamicRoute.waypoints,
+      distanceKm: dynamicRoute.distanceKm
+    };
+
+    // Images strictly from the site's authentic registry
+    const mpImages: InChatImage[] = [
+      ...(matchedMPSite.heroImage ? [{
+        url: matchedMPSite.heroImage,
+        title: activeLang === 'hi' ? matchedMPSite.name.hi : matchedMPSite.name.en,
+        caption: activeLang === 'hi' ? `${matchedMPSite.name.hi} स्थापत्य` : `${matchedMPSite.name.en} Architectural View`
+      }] : []),
+      ...matchedMPSite.gallery.map(g => ({
+        url: g.url,
+        title: activeLang === 'hi' ? matchedMPSite.name.hi : matchedMPSite.name.en,
+        caption: activeLang === 'hi' ? g.caption.hi : g.caption.en
+      }))
+    ].slice(0, 4);
+
+    const text = activeLang === 'hi'
+      ? `### 🏰 ${matchedMPSite.name.hi} — सम्पूर्ण इतिहास, स्थापत्य एवं 4 घंटे का यात्रा मार्ग
+
+**📍 स्थान:** ${matchedMPSite.district.hi} | **धरोहर श्रेणी:** ${matchedMPSite.badge.hi}
+**🌊 भौगोलिक स्थिति:** ${matchedMPSite.tagline.hi}
+
+---
+
+#### 📜 1. ऐतिहासिक गाथा एवं राजवंश (Complete History)
+• **शासक राजवंश:** **${matchedMPSite.history.dynasty.hi}**
+• **ऐतिहासिक कालखंड:** **${matchedMPSite.history.period.hi}**
+• **विस्तृत ऐतिहासिक विवरण:** ${matchedMPSite.history.chronicle.hi}
+• **पुरातत्व संरक्षण एवं महत्व:** **${matchedMPSite.history.asiSignificance.hi}**
+• **सांस्कृतिक पृष्ठभूमि:** ${matchedMPSite.culture.significance.hi}
+
+---
+
+#### 🏛️ 2. वास्तुकला एवं स्थापत्य कला की विशेषताएं (Architecture & Engineering)
+• **स्थापत्य शैली:** **${matchedMPSite.architecture.style.hi}**
+• **प्रमुख इंजीनियरिंग व स्थापत्य विशेषताएं:**
+${matchedMPSite.architecture.engineeringHighlights.hi.map(h => `  - 🔹 **${h}**`).join('\n')}
+• **संरचनात्मक सुरक्षा एवं विन्यास:** सीप नदी के संगम तट पर ऊंचे प्राकृतिक टीले पर अवस्थित यह दुर्ग पारंपरिक मध्ययुगीन सैन्य वास्तुकला का अनुपम उदाहरण है। इसके परकोटे और बुर्ज बिना किसी कमजोर मसाले (dry-stone dressed masonry) के केवल तराशे हुए पाषाण ब्लॉकों के इंटरलॉकिंग जोड़ से निर्मित हैं। दुर्ग के भीतरी आंगनों में नक्काशीदार झरोखे, बारादरी और मध्यकालीन भित्तिचित्रों (painted pavilions) के ऐतिहासिक अवशेष आज भी देखे जा सकते हैं।
+
+---
+
+#### 🚗 3. ${originCity} से 4 घंटे का यात्रा मार्ग एवं नेविगेशन (Travel Route)
+• **सड़क मार्ग दूरी:** **~${dynamicRoute.distanceKm} किमी** (${dynamicRoute.highwayName?.hi || 'एनएच-27 / एसएच-24'})
+• **अनुमानित यात्रा समय:** **${dynamicRoute.estimatedDrivingTime}** (एक तरफ: ~4.0 से 4.5 घंटे)
+• **मार्ग नेविगेशन (Step-by-Step Highway Route):**
+  1. **${originCity} से रवानगी:** शिवपुरी लिंक रोड से होते हुए एनएच-27 (झांसी-शिवपुरी फोर-लेन) अथवा मोहाना मार्ग पकड़ें।
+  2. **पोहरी-श्योपुर स्टेट हाईवे (SH-24):** पोहरी के विंध्याचल वनों और कूनो वन्यजीव अभयारण्य बफर जोन के सुरम्य परिदृश्य से होकर गुजरें।
+  3. **श्योपुर आगमन व अंतिम मील (Last-Mile):** श्योपुर मुख्य कस्बे में प्रवेश करें; स्थानीय ऑटो अथवा टैक्सी सीधे दुर्ग के सिंहद्वार तक ले जाती है।
+• **सड़क की स्थिति:** पक्की राज्य राजमार्ग सड़क; ग्रामीण अंचल में दिन के समय ड्राइव करना सर्वोत्तम।
+• **टैक्सी का अनुमानित किराया:** **${matchedMPSite.howToReach.taxiEstimate.hi}** (पूरे दिन हेतु राउंडट्रिप)।
+• **दिन में वापसी की व्यवहार्यता:** **${matchedMPSite.howToReach.returnFeasibility.hi}** (प्रातः 7:00 बजे निकलें; 3 घंटे दुर्ग दर्शन के बाद शाम ढलने से पूर्व सुरक्षित वापसी)।
+
+---
+
+#### ⏰ 4. दर्शन समय, प्रवेश शुल्क एवं व्यावहारिक दिशा-निर्देश
+• **दर्शन समय:** **${matchedMPSite.practicalInfo.timings.hi}**
+• **प्रवेश शुल्क:** **${matchedMPSite.practicalInfo.entryFee.hi}**
+• **सर्वश्रेष्ठ भ्रमण समय:** **${matchedMPSite.practicalInfo.bestSlot.hi}**
+• **सुगमता स्कोर:** **${matchedMPSite.practicalInfo.accessibilityScore}/10** (${matchedMPSite.lastMileGuidance.hi})
+• **📸 फोटोग्राफी सुझाव:** ${matchedMPSite.practicalInfo.photographyTips.hi}
+• **🛡️ सुरक्षा व यात्रा परामर्श:** ${matchedMPSite.practicalInfo.safetyAdvisory.hi}
+
+---
+_💡 **कोपायलट, मैप एवं चैट सहभागिता (Collaboration Active):** मानचित्र पर ${originCity} से ${matchedMPSite.name.hi} तक का लाइव रूट प्लॉट हो चुका है और बाईं ओर कोपायलट में 4 घंटे के समयबद्ध पड़ाव लोड कर दिए गए हैं!_`
+      : `### 🏰 ${matchedMPSite.name.en} — Complete History, Architecture & 4-Hour Travel Route
+
+**📍 Location:** ${matchedMPSite.district.en} | **Classification:** ${matchedMPSite.badge.en}
+**🌊 Geography:** ${matchedMPSite.tagline.en}
+
+---
+
+#### 📜 1. Complete History & Chronicle (Royal Lineage)
+• **Ruling Dynasty:** **${matchedMPSite.history.dynasty.en}**
+• **Historical Period:** **${matchedMPSite.history.period.en}**
+• **Chronicle & Evolution:** ${matchedMPSite.history.chronicle.en}
+• **Heritage & ASI Status:** **${matchedMPSite.history.asiSignificance.en}**
+• **Cultural Significance:** ${matchedMPSite.culture.significance.en}
+
+---
+
+#### 🏛️ 2. Architecture & Engineering Highlights
+• **Architectural Style:** **${matchedMPSite.architecture.style.en}**
+• **Key Engineering Highlights:**
+${matchedMPSite.architecture.engineeringHighlights.en.map(h => `  - 🔹 **${h}**`).join('\n')}
+• **Defensive Design & Spatial Layout:** Strategically perched on an elevated ridge along the Sip River confluence, the fortress exemplifies medieval regional military architecture. Perimeter ramparts feature dressed sandstone blocks fitted using mortarless interlocking masonry. Surviving inner court pavilions retain graceful stone jharokhas, fluted pillared verandas, and regional frescoes reflecting the confluence of Rajput and Maratha aesthetic idioms.
+
+---
+
+#### 🚗 3. 4-Hour Travel Route & Highway Navigation from ${originCity}
+• **Total Road Distance:** **~${dynamicRoute.distanceKm} km** via ${dynamicRoute.highwayName?.en || 'NH-27 / SH-24 Highway Corridor'}
+• **Estimated Driving Duration:** **${dynamicRoute.estimatedDrivingTime}** (One-way: ~4.0 to 4.5 hours)
+• **Turn-by-Turn Route Navigation:**
+  1. **Depart ${originCity}:** Take the Shivpuri Link corridor connecting to NH-27 toward Mohana.
+  2. **Pohri-Sheopur State Highway (SH-24):** Follow the scenic highway through Vindhya forest landscapes bordering the Kuno National Park buffer corridor.
+  3. **Arrival in Sheopur Town:** The fortress is situated directly in Sheopur town; local auto-rickshaws or taxis easily navigate the last-mile ascent to the main gates.
+• **Road Condition & Pavement:** Paved state highway with smooth stretches and moderate countryside transit.
+• **Private Taxi Estimate:** **${matchedMPSite.howToReach.taxiEstimate.en}** (Round-trip full-day hiring).
+• **Day Return Feasibility:** **${matchedMPSite.howToReach.returnFeasibility.en}** (Departing early around 7:00 AM ensures ~2.5 to 3 hours at the fort and an easy return before dusk).
+
+---
+
+#### ⏰ 4. Practical Visiting Information & Guidelines
+• **Visiting Hours:** **${matchedMPSite.practicalInfo.timings.en}**
+• **Entry Fee:** **${matchedMPSite.practicalInfo.entryFee.en}**
+• **Best Visiting Slot:** **${matchedMPSite.practicalInfo.bestSlot.en}**
+• **Accessibility Rating:** **${matchedMPSite.practicalInfo.accessibilityScore}/10** (${matchedMPSite.lastMileGuidance.en})
+• **📸 Photography Advice:** ${matchedMPSite.practicalInfo.photographyTips.en}
+• **🛡️ Safety & Travel Advisory:** ${matchedMPSite.practicalInfo.safetyAdvisory.en}
+
+---
+_💡 **Collaboration Active:** The interactive map has zoomed to ${matchedMPSite.name.en} with the highway route line from ${originCity}. The Copilot Drawer on the left has been populated with a synchronized 4-hour timeline!_`;
+
+    const mpResponse: GeminiResponse = {
+      text,
+      language: activeLang,
+      hasImage: mpImages.length > 0,
+      images: mpImages,
+      hasMap: true,
+      mapData: mpMapData,
+      copilotItinerary: copilotItinerary
+    };
+
+    responseCache.set(cacheKey, mpResponse);
+    return mpResponse;
+  }
+
   // Check for Copilot / Itinerary planning intent
   const isItineraryQuery = 
     /\b(i have|hours|hour|hrs|hr|itinerary|plan a trip|trip plan|plan my trip|back by|flight at|train at|half day|full day|ghante|ghanta|yatra yojana|afternoon|sunset experience|peaceful place|romantic|photography spots|culture|2 days|3 days)\b/i.test(userMessage) &&
@@ -385,11 +665,11 @@ _All numbered stops and connecting route lines are plotted on your interactive m
     };
   }
 
-  // Check for dynamic point-to-point route query (e.g., "kanpur to prayag", "lucknow to ayodhya", "jhansi to chitrakoot")
+  // Check for dynamic point-to-point route query (e.g., "gwalior to sheopur", "kanpur to prayag", "bhopal to sanchi")
   const routeMatch = userMessage.match(/\b([a-zA-Z\u0900-\u097F]{3,})\s+(?:to|se|se lekar|tak)\s+([a-zA-Z\u0900-\u097F]{3,})\b/i);
-  let computedDynamicRoute: ReturnType<typeof calculateDynamicUPRoute> = null;
+  let computedDynamicRoute: any = null;
   if (routeMatch) {
-    computedDynamicRoute = calculateDynamicUPRoute(routeMatch[1], routeMatch[2]);
+    computedDynamicRoute = calculateDynamicMPRoute(routeMatch[1], routeMatch[2]) || calculateDynamicUPRoute(routeMatch[1], routeMatch[2]);
   }
 
   // Match referenced places & city crowd advisories
