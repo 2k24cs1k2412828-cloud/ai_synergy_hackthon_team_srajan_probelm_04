@@ -500,8 +500,8 @@ export function CopilotTimeline({
                 </h4>
                 <p className="text-[10px] text-[var(--text-secondary)] leading-tight mt-0.5">
                   {language === 'hi'
-                    ? 'चैट में कहें: "अयोध्या में 4 घंटे का समय है, राम मंदिर व सरयू आरती का रूट प्लान बनाओ"।'
-                    : 'Ask: "I have 4 hours in Ayodhya for Ram Mandir & Saryu Aarti" — AI builds the route.'}
+                    ? 'चैट में कहें: "ग्वालियर से 4 घंटे का समय है, बटेश्वर और मितावली का रूट प्लान बनाओ"।'
+                    : 'Ask: "I have 4 hours from Gwalior for Bateshwar & Mitawali" — AI builds the route.'}
                 </p>
               </div>
             </div>

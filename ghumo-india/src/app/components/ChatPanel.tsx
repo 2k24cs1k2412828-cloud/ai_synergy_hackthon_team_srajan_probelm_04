@@ -225,19 +225,19 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
 
   // Quick Action Chips in active language
   const quickActions = language === 'hi' ? [
-    { id: 1, label: '⚡ काशी 3 घंटे क्विक दर्शन (स्टेशन वापसी)', query: 'मेरे पास 3 घंटे का समय है, कैंट रेलवे स्टेशन के पास हूँ और 3 घंटे में वापस पहुँचना है। काशी विश्वनाथ, घाट और स्ट्रीट फूड का स्मार्ट रूट प्लान बनाओ।' },
+    { id: 1, label: '🏛️ बटेश्वर व मितावली 4 घंटे हेरिटेज रूट', query: 'ग्वालियर से बटेश्वर और मितावली चौसठ योगिनी मंदिर का 4 घंटे का हेरिटेज रूट और इतिहास बताएं।' },
     { id: 2, label: '⏱️ 20 मिनट लेट हूँ, रीप्लान करें', query: 'मैं 20 मिनट लेट चल रहा हूँ, कृपया मेरी यात्रा का समय रीशेड्यूल करें और वापसी का ध्यान रखें।' },
-    { id: 3, label: '🍲 लखनऊ 4 घंटे फूड व हेरिटेज वॉक', query: 'लखनऊ चारबाग स्टेशन से 4 घंटे की हेरिटेज और टुंडे कबाबी फूड ट्रिप का समयबद्ध रूट प्लान बनाएं।' },
-    { id: 4, label: '🛕 अयोध्या 4 घंटे राम मंदिर सर्किट', query: 'अयोध्या में 4 घंटे का समय है, राम मंदिर, हनुमान गढ़ी और सरयू आरती का टाइमलाइन रूट बनाएं।' },
-    { id: 5, label: '📊 मथुरा-वृंदावन: कितनी भीड़ है? जाने लायक है?', query: 'मथुरा और वृंदावन में अभी कितनी भीड़ है? क्या अभी जाने लायक है या नहीं और कैसे जाएं?' },
-    { id: 6, label: '🌊 उत्तर प्रदेश के सभी प्रमुख पावन घाट', query: 'उत्तर प्रदेश के सभी प्रमुख पावन घाट दिखाएं और उनकी सूची मैप सहित दें।' }
+    { id: 3, label: '🏰 ग्वालियर किला व पढ़ावली नक्काशी ट्रेल', query: 'ग्वालियर किला और गढ़ी पढ़ावली के मध्ययुगीन स्थापत्य व नक्काशी का विस्तृत रूट व टाइमलाइन प्लान बनाएं।' },
+    { id: 4, label: '🛕 ककनमठ शिव मंदिर (मुरैना) की वास्तुकला', query: 'ककनमठ शिव मंदिर सुहानिया (मुरैना) की बिना गारे की वास्तुकला, पहुंचने का मार्ग और सुरक्षा सलाह बताएं।' },
+    { id: 5, label: '👑 ओरछा राजमहल व राम राजा मंदिर यात्रा', query: 'ओरछा के राजमहल, जहाँगीर महल और राम राजा मंदिर का एक दिवसीय संपूर्ण यात्रा प्लान बनाएं।' },
+    { id: 6, label: '🌿 म.प्र. की अनदेखी धरोहरें (कोषकमहल चंदेरी)', query: 'मध्य प्रदेश की अनदेखी ऐतिहासिक धरोहरें जैसे कोषकमहल (चंदेरी), दुबकुंड और बटेश्वर की सूची व विवरण दें।' }
   ] : [
-    { id: 1, label: '⚡ 3-Hour Kashi Express (Station Return)', query: 'I have 3 hours in Varanasi near Cantt railway station and need to return in 3 hours. Plan an itinerary covering Kashi Vishwanath, ghats, and street food.' },
+    { id: 1, label: '🏛️ 4h Bateshwar & Mitawali Circuit', query: 'Plan a 4-hour heritage circuit from Gwalior covering Bateshwar (200 temples) and Mitawali Chausath Yogini.' },
     { id: 2, label: '⏱️ Running 20m Late, Replan', query: 'I am running 20 minutes late, please replan my itinerary to protect my return deadline.' },
-    { id: 3, label: '🍲 4h Lucknow Food & Heritage Walk', query: 'Create a 4-hour Lucknow heritage and food trail from Charbagh station covering Imambara and Tunday Kababi.' },
-    { id: 4, label: '🛕 4h Ayodhya Temple Circuit', query: 'I have 4 hours in Ayodhya. Plan a time-based route for Ram Mandir, Hanumangarhi, and Saryu Aarti.' },
-    { id: 5, label: '📊 Mathura-Vrindavan Crowd & Feasibility', query: 'How is the crowd in Mathura & Vrindavan right now? Is it recommended to visit now and how to reach?' },
-    { id: 6, label: '🌊 All Sacred Ghats of Uttar Pradesh', query: 'Show me all prominent sacred river ghats in Uttar Pradesh with map markers and photos.' }
+    { id: 3, label: '🏰 Gwalior Fort & Padhavali Trail', query: 'Create a curated trail from Gwalior Fort to Garhi Padhavali covering medieval architecture and friezes.' },
+    { id: 4, label: '🛕 Kakanmath (Morena) Mortarless Shiva Temple', query: 'Tell me about Kakanmath Shiva Temple in Morena, its mortarless dry masonry, route access, and timings.' },
+    { id: 5, label: '👑 Orchha Palaces & Ram Raja Temple', query: 'Plan a day itinerary for Orchha covering Orchha Palace Complex, Chaturbhuj Temple, and Ram Raja Temple.' },
+    { id: 6, label: '🌿 Lesser-Known MP Heritage (Chanderi & Bateshwar)', query: 'Show me lesser-known heritage wonders of Madhya Pradesh including Koshak Mahal Chanderi and Bateshwar.' }
   ];
 
   const getNextId = () => {
@@ -325,8 +325,8 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
         id: getNextId(),
         type: 'ai',
         content: language === 'hi'
-          ? 'क्षमा करें, नेटवर्क में कुछ विलंब हो रहा है। कृपया पुनः प्रयास करें। मैं उत्तर प्रदेश के सभी तीर्थों एवं ऐतिहासिक स्थलों की जानकारी हेतु उपलब्ध हूँ।'
-          : 'I apologize for the brief connectivity delay. Please try asking again. I am ready to guide you across all destinations in Uttar Pradesh.',
+          ? 'क्षमा करें, नेटवर्क में कुछ विलंब हो रहा है। कृपया पुनः प्रयास करें। मैं मध्य प्रदेश के सभी ऐतिहासिक धरोहरों एवं पर्यटन स्थलों की जानकारी हेतु उपलब्ध हूँ।'
+          : 'I apologize for the brief connectivity delay. Please try asking again. I am ready to guide you across all destinations in Madhya Pradesh.',
         timestamp: new Date()
       };
       setMessages(prev => [...prev, errorMsg]);
@@ -559,7 +559,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs font-bold text-[var(--accent-primary)] uppercase tracking-wider flex items-center gap-1.5">
                 <Newspaper className="w-4 h-4" />
-                {language === 'hi' ? 'उत्तर प्रदेश पर्यटन: ताज़ा समाचार व दिशानिर्देश' : 'UP Tourism: Live Updates & Guidelines'}
+                {language === 'hi' ? 'मध्य प्रदेश पर्यटन: ताज़ा दिशानिर्देश व धरोहर अपडेट्स' : 'MP Tourism: Heritage Updates & Guidelines'}
               </span>
               <button
                 onClick={() => setShowNewsBanner(false)}
@@ -1023,7 +1023,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
               placeholder={
                 isRecording 
                   ? (language === 'hi' ? 'सुन रहा हूँ... बोलिए' : 'Listening... Speak now') 
-                  : (language === 'hi' ? 'उत्तर प्रदेश के किसी भी धाम, मार्ग, फोटो या समाचार के बारे में पूछें...' : 'Ask about any UP temple, history, route, photos, or news...')
+                  : (language === 'hi' ? 'मध्य प्रदेश के किसी भी धरोहर, बटेश्वर, मितावली, रूट या इतिहास के बारे में पूछें...' : 'Ask about MP heritage sites, Bateshwar, Mitawali, routes, history...')
               }
               className="flex-1 bg-transparent px-3 py-1.5 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-secondary)] outline-none"
             />

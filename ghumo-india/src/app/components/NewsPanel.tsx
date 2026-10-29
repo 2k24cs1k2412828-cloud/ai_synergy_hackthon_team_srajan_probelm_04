@@ -151,8 +151,8 @@ export function NewsPanel({ theme, language, onAskAI }: NewsPanelProps) {
         <div className="overflow-hidden whitespace-nowrap w-full">
           <div className="inline-block animate-marquee text-xs font-medium text-[var(--text-primary)]">
             {language === 'hi'
-              ? 'मथुरा-वृन्दावन: सप्ताहांत पर बांके बिहारी मंदिर में सामान्य कतार समय 1.5 से 2 घंटे • अयोध्या: राम पथ व सुग्रीव किला से राम मंदिर गर्भगृह 45 मिनट में सुगम निकास • वाराणसी: कैंट से गोदौलिया रोपवे का सुरक्षा ट्रायल पूरा, गंगा आरती पर नौका दरें निर्धारित • प्रयागराज: त्रिवेणी संगम स्नान हेतु 25 ईको-टेंट सिटी सक्रिय'
-              : 'Mathura-Vrindavan: Bankey Bihari queue wait times recording ~1.5 to 2 hrs on weekends • Ayodhya: Ram Mandir smooth exit under 45 mins via Ram Path shaded corridors • Varanasi: Cantt to Godowlia ropeway trials complete; fixed boat tariffs notified • Prayagraj: 25 Eco-Tent cities operational for holy Sangam dip'}
+              ? 'चंबल हेरिटेज कॉरिडोर: बटेश्वर 200 मंदिर परिसर एवं मितावली चौसठ योगिनी तक ग्वालियर से सुगम पक्की सड़क • ग्वालियर किला: मान मंदिर व तेली का मंदिर में शाम 7:30 बजे ध्वनि व प्रकाश शो • ओरछा: बेतवा नदी तट व राम राजा मंदिर दर्शन सुचारु रूप से जारी • चंदेरी: कोषकमहल एवं ऐतिहासिक हथकरघा बुनकर क्लस्टर में पर्यटक सुविधा केंद्र सक्रिय • खजुराहो: पश्चिमी मंदिर समूह संध्या आरती व लाइट शो नियमित'
+              : 'Chambal Heritage Corridor: Smooth all-weather road access to Bateshwar 200 temples & Mitawali Chausath Yogini from Gwalior • Gwalior Fort: Sound & Light show active at Man Mandir & Teli Ka Mandir at 7:30 PM • Orchha: Betwa riverfront palaces and Ram Raja Temple darshan running smoothly • Chanderi: Koshak Mahal & handloom clusters tourist center operational • Khajuraho: Western Temple Group regular evening lights & tours'}
           </div>
         </div>
       </div>
@@ -639,15 +639,15 @@ export function NewsPanel({ theme, language, onAskAI }: NewsPanelProps) {
             </span>
             <ul className="space-y-1.5 text-xs text-[var(--text-secondary)]">
               <li className="flex items-center justify-between py-1 border-b border-[var(--glass-border)]">
-                <span>{language === 'hi' ? 'उत्तर प्रदेश पर्यटन टोल फ्री:' : 'UP Tourism Toll-Free:'}</span>
-                <a href="tel:18001805145" className="font-bold text-[var(--text-primary)] hover:text-[var(--accent-primary)]">1800-180-5145</a>
+                <span>{language === 'hi' ? 'मध्य प्रदेश पर्यटन टोल फ्री:' : 'MP Tourism Toll-Free:'}</span>
+                <a href="tel:18002330303" className="font-bold text-[var(--text-primary)] hover:text-[var(--accent-primary)]">1800-233-0303</a>
               </li>
               <li className="flex items-center justify-between py-1 border-b border-[var(--glass-border)]">
                 <span>{language === 'hi' ? 'आपातकालीन पुलिस सेवा:' : 'Emergency Police Assistance:'}</span>
                 <a href="tel:112" className="font-bold text-[var(--text-primary)] hover:text-[var(--accent-primary)]">112</a>
               </li>
               <li className="flex items-center justify-between py-1 border-b border-[var(--glass-border)]">
-                <span>{language === 'hi' ? 'महिला सुरक्षा हेल्पलाइन:' : 'Women Power Line:'}</span>
+                <span>{language === 'hi' ? 'महिला सुरक्षा हेल्पलाइन (म.प्र.):' : 'Women Helpline (MP):'}</span>
                 <a href="tel:1090" className="font-bold text-[var(--text-primary)] hover:text-[var(--accent-primary)]">1090</a>
               </li>
             </ul>
@@ -656,28 +656,17 @@ export function NewsPanel({ theme, language, onAskAI }: NewsPanelProps) {
           {/* Official Shrine Portals */}
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent-primary)] block mb-2">
-              {language === 'hi' ? 'आधिकारिक दर्शन व ट्रस्ट पोर्टल' : 'Official Shrine Booking Portals'}
+              {language === 'hi' ? 'आधिकारिक पर्यटन व ट्रस्ट पोर्टल' : 'Official MP Tourism & Shrine Portals'}
             </span>
             <ul className="space-y-1.5 text-xs text-[var(--text-secondary)]">
               <li>
                 <a 
-                  href="https://srjbtkshetra.org/" 
+                  href="https://www.mptourism.com/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="flex items-center justify-between py-1 border-b border-[var(--glass-border)] hover:text-[var(--accent-primary)] transition-colors"
                 >
-                  <span>{language === 'hi' ? 'श्री राम जन्मभूमि तीर्थ क्षेत्र (अयोध्या)' : 'Shri Ram Janmabhoomi (Ayodhya)'}</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://shrikashivishwanath.org/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="flex items-center justify-between py-1 border-b border-[var(--glass-border)] hover:text-[var(--accent-primary)] transition-colors"
-                >
-                  <span>{language === 'hi' ? 'काशी विश्वनाथ सुगम दर्शन (वाराणसी)' : 'Kashi Vishwanath Corridor (Varanasi)'}</span>
+                  <span>{language === 'hi' ? 'मध्य प्रदेश राज्य पर्यटन विकास निगम (MP Tourism)' : 'Madhya Pradesh State Tourism (MP Tourism)'}</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </li>
@@ -688,7 +677,18 @@ export function NewsPanel({ theme, language, onAskAI }: NewsPanelProps) {
                   rel="noopener noreferrer" 
                   className="flex items-center justify-between py-1 border-b border-[var(--glass-border)] hover:text-[var(--accent-primary)] transition-colors"
                 >
-                  <span>{language === 'hi' ? 'एएसआई स्मारक ई-टिकट (ताजमहल / आगरा)' : 'ASI Monuments E-Ticket (Taj Mahal)'}</span>
+                  <span>{language === 'hi' ? 'एएसआई स्मारक ई-टिकट (ग्वालियर किला / खजुराहो / सांची)' : 'ASI Monuments E-Ticket (Gwalior / Khajuraho / Sanchi)'}</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://shrimahakaleshwar.com/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center justify-between py-1 border-b border-[var(--glass-border)] hover:text-[var(--accent-primary)] transition-colors"
+                >
+                  <span>{language === 'hi' ? 'श्री महाकालेश्वर ज्योतिर्लिंग उज्जैन (भस्म आरती)' : 'Shri Mahakaleshwar Ujjain (Bhasma Aarti)'}</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </li>

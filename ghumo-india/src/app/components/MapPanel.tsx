@@ -242,10 +242,10 @@ export function MapPanel({
   activeItinerary,
   onAddPlaceToItinerary
 }: MapPanelProps) {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isSearchFocused, setIsSearchFocused] = useState<boolean>(false);
-  const [activeRouteId, setActiveRouteId] = useState<string | null>(null);
+  const [activeRouteId, setActiveRouteId] = useState<string | null>('chambal_heritage_circuit');
   const [focusCenter, setFocusCenter] = useState<[number, number] | null>(null);
 
   // Directions & Navigation Drawer State
@@ -930,8 +930,8 @@ export function MapPanel({
       {/* Main Leaflet Map */}
       <div className="w-full h-full">
         <MapContainer
-          center={[26.0, 78.3]}
-          zoom={8}
+          center={[26.25, 78.20]}
+          zoom={9}
           scrollWheelZoom={true}
           className="w-full h-full"
           zoomControl={false}

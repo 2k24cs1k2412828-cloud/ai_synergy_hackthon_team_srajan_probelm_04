@@ -39,7 +39,7 @@ import { AndroidAppShell } from './components/android/AndroidAppShell';
 export default function App() {
   const [theme, setTheme] = useState<'morning' | 'evening'>('morning');
   const [language, setLanguage] = useState<'en' | 'hi'>('en');
-  const [layoutMode, setLayoutMode] = useState<'split' | 'fullchat' | 'fullmap' | 'news' | 'mpsites'>('split');
+  const [layoutMode, setLayoutMode] = useState<'split' | 'fullchat' | 'fullmap' | 'news' | 'mpsites'>('mpsites');
   const [isLoading, setIsLoading] = useState(true);
 
   // Synchronized state between Map, Chat & Copilot
@@ -376,10 +376,10 @@ export default function App() {
                   ? 'bg-[var(--accent-primary)] text-white shadow-sm'
                   : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
               }`}
-              title={language === 'hi' ? 'दिशा AI यात्रा मार्गदर्शक' : 'AI Travel Guide'}
+              title={language === 'hi' ? 'घूमो AI यात्रा मार्गदर्शक' : 'Ghumo AI Guide'}
             >
               <MessageSquare className="w-3.5 h-3.5" />
-              <span className="hidden md:inline">{language === 'hi' ? 'दिशा AI गाइड' : 'Travel Guide'}</span>
+              <span className="hidden md:inline">{language === 'hi' ? 'घूमो AI गाइड' : 'Ghumo AI'}</span>
             </button>
 
             {/* AI Travel Copilot Timeline Drawer Toggle */}
