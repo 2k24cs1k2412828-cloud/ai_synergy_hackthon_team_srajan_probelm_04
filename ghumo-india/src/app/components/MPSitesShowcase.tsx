@@ -98,7 +98,7 @@ export function MPSitesShowcase({
               <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[var(--accent-primary)] text-white shadow-xs">
                 Madhya Pradesh Tourism Guide
               </span>
-              <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
+              <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-200 border border-emerald-300 dark:border-emerald-800">
                 ASI Protected Heritage
               </span>
               <span className="text-[10px] font-semibold text-[var(--text-secondary)]">
@@ -146,7 +146,7 @@ export function MPSitesShowcase({
                   }`}
                 >
                   <span>{language === 'hi' ? z.label.hi : z.label.en}</span>
-                  <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isSelected ? 'bg-white/20 text-white' : 'bg-black/10 dark:bg-white/10'}`}>
+                  <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isSelected ? 'bg-black/25 text-white font-bold' : 'bg-neutral-200 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-200 font-bold'}`}>
                     {z.count}
                   </span>
                 </button>
@@ -240,10 +240,10 @@ export function MPSitesShowcase({
                         </span>
                         <span className={`text-[8px] font-extrabold px-1.5 py-0.2 rounded uppercase ${
                           site.routeConfidence === 'HIGH'
-                            ? 'bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20'
+                            ? 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-200 border border-emerald-300 dark:border-emerald-800'
                             : site.routeConfidence === 'MEDIUM'
-                            ? 'bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/20'
-                            : 'bg-purple-500/15 text-purple-600 dark:text-purple-400 border border-purple-500/20'
+                            ? 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-200 border border-amber-300 dark:border-amber-800'
+                            : 'bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-200 border border-purple-300 dark:border-purple-800'
                         }`}>
                           {site.routeConfidence}
                         </span>
@@ -596,7 +596,7 @@ export function MPSitesShowcase({
                       </div>
 
                       <div className="pt-2 border-t border-[var(--glass-border)]">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300">
                           {language === 'hi' ? 'अनुमानित टैक्सी / कैब किराया (Taxi Fare Estimate)' : 'Estimated Cab / Taxi Fare'}
                         </span>
                         <p className="text-xs sm:text-sm text-[var(--text-primary)] font-bold mt-0.5">
@@ -605,7 +605,7 @@ export function MPSitesShowcase({
                       </div>
 
                       <div className="pt-2 border-t border-[var(--glass-border)]">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-orange-600 dark:text-orange-400">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-orange-800 dark:text-orange-300">
                           {language === 'hi' ? 'वापसी यात्रा व समय सीमा (Return Journey Feasibility)' : 'Return Feasibility & Deadline Safety'}
                         </span>
                         <p className="text-xs text-[var(--text-secondary)] mt-0.5">
@@ -642,7 +642,7 @@ export function MPSitesShowcase({
                         <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--text-secondary)]">
                           {language === 'hi' ? 'सर्वोत्तम समय स्लॉट' : 'Best Visiting Slot'}
                         </span>
-                        <p className="text-xs font-bold text-orange-600 dark:text-orange-400 mt-0.5">
+                        <p className="text-xs font-bold text-orange-800 dark:text-orange-300 mt-0.5">
                           {language === 'hi' ? selectedSite.practicalInfo.bestSlot.hi : selectedSite.practicalInfo.bestSlot.en}
                         </p>
                       </div>
@@ -667,7 +667,7 @@ export function MPSitesShowcase({
                             <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
                             <span>{language === 'hi' ? 'सुगमता रेटिंग (Accessibility)' : 'Accessibility Rating'}</span>
                           </span>
-                          <span className="text-xs font-extrabold text-emerald-600 dark:text-emerald-400">
+                          <span className="text-xs font-extrabold text-emerald-800 dark:text-emerald-300">
                             {selectedSite.practicalInfo.accessibilityScore}/10
                           </span>
                         </div>

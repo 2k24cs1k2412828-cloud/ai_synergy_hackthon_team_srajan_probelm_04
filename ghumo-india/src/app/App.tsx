@@ -610,7 +610,7 @@ export default function App() {
               {!isSidebarCollapsed && (
                 <div className="text-[10px] font-bold uppercase tracking-wider text-[var(--accent-primary)] px-1 mb-1.5 flex items-center justify-between flex-shrink-0">
                   <span>{language === 'hi' ? 'प्रमुख पर्यटन परिपथ' : 'Featured Heritage Routes'}</span>
-                  <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-orange-500/10 text-orange-600 font-semibold">
+                  <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-orange-100 dark:bg-orange-950/60 text-orange-800 dark:text-orange-200 border border-orange-200 dark:border-orange-800 font-bold uppercase">
                     MP Tourism
                   </span>
                 </div>
@@ -966,7 +966,7 @@ export default function App() {
               : 'text-neutral-700 dark:text-neutral-300 font-semibold hover:text-[var(--text-primary)]'
           }`}
         >
-          <Route className="w-4 h-4 text-orange-600 dark:text-orange-400" />
+          <Route className="w-4 h-4 text-orange-700 dark:text-orange-300" />
           <span className="text-[10px] font-semibold">{language === 'hi' ? 'कोपायलट' : 'Copilot'}</span>
           {activeItinerary && (
             <span className="w-2 h-2 rounded-full bg-emerald-400 absolute top-1 right-1.5 animate-pulse" />

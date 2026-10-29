@@ -629,7 +629,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                           <Sparkles className="w-3 h-3" />
                         </div>
                         <span className="font-editorial text-sm">{language === 'hi' ? 'घूमो AI' : 'Ghumo AI'}</span>
-                        <span className="hidden sm:inline-block text-[10px] font-normal px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20">
+                        <span className="hidden sm:inline-block text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 dark:bg-orange-950/60 text-orange-800 dark:text-orange-200 border border-orange-200 dark:border-orange-800 uppercase tracking-wider">
                           {language === 'hi' ? 'पर्यटन एआई परामर्श' : 'Official Intelligence'}
                         </span>
                       </div>
@@ -643,8 +643,8 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                         >
                           {copiedMessageId === msg.id ? (
                             <>
-                              <CheckCheck className="w-3.5 h-3.5 text-emerald-500" />
-                              <span className="text-[10px] text-emerald-500 hidden sm:inline">{language === 'hi' ? 'कॉपी हो गया' : 'Copied'}</span>
+                              <CheckCheck className="w-3.5 h-3.5 text-emerald-700 dark:text-emerald-400" />
+                              <span className="text-[10px] text-emerald-700 dark:text-emerald-400 hidden sm:inline font-semibold">{language === 'hi' ? 'कॉपी हो गया' : 'Copied'}</span>
                             </>
                           ) : (
                             <>
@@ -734,7 +734,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                             <span>{msg.mapData.title}</span>
                           </div>
                           {Boolean(msg.mapData.distanceKm) && (
-                            <span className="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
+                            <span className="text-[11px] font-bold text-emerald-800 dark:text-emerald-300">
                               🛣️ ~{msg.mapData.distanceKm} km
                             </span>
                           )}
@@ -821,7 +821,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                                   <p className="text-xs font-bold text-[var(--text-primary)] truncate">
                                     {language === 'hi' ? stop.hindiName : stop.name}
                                   </p>
-                                  <span className="text-[10px] font-semibold text-orange-600 dark:text-orange-400 flex-shrink-0">
+                                  <span className="text-[10px] font-bold text-orange-800 dark:text-orange-300 flex-shrink-0">
                                     {stop.startTime} - {stop.endTime}
                                   </span>
                                 </div>
@@ -902,7 +902,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                             <span className="font-semibold text-[var(--text-primary)] truncate max-w-[90px]">
                               {language === 'hi' ? spot.hindiName : spot.name}
                             </span>
-                            <span className="font-bold text-orange-600 dark:text-orange-400">
+                            <span className="font-bold text-orange-800 dark:text-orange-300">
                               {spot.waitMinutes > 0 ? `~${spot.waitMinutes}m` : 'Fast'}
                             </span>
                           </div>

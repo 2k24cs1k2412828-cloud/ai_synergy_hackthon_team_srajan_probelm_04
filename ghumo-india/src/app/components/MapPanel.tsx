@@ -1020,7 +1020,7 @@ export function MapPanel({
                         <Clock className="w-3 h-3 text-[var(--accent-primary)]" />
                         {language === 'hi' ? place.timings.hi.split('(')[0] : place.timings.en.split('(')[0]}
                       </span>
-                      <span className="font-semibold text-emerald-600 dark:text-emerald-400">
+                      <span className="font-bold text-emerald-800 dark:text-emerald-300">
                         ♿ {place.accessibilityRating}/10
                       </span>
                     </div>
@@ -1186,7 +1186,7 @@ export function MapPanel({
             </span>
             <button
               onClick={handleClearRoute}
-              className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-500/15 text-rose-600 dark:text-rose-400 hover:bg-rose-500/25 transition-colors flex items-center gap-1"
+              className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-200 border border-rose-300 dark:border-rose-800 hover:bg-rose-200 transition-colors flex items-center gap-1"
             >
               <X className="w-3 h-3" />
               <span>{language === 'hi' ? 'रूट साफ़ करें' : 'Clear Route'}</span>

@@ -274,7 +274,7 @@ export function NewsPanel({ theme, language, onAskAI }: NewsPanelProps) {
                 <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--text-secondary)] block mb-1">
                   {language === 'hi' ? 'सुगम दर्शन हेतु श्रेष्ठ समय:' : 'Recommended Peaceful Slot:'}
                 </span>
-                <span className="text-xs font-medium text-emerald-700 dark:text-emerald-400 leading-tight block">
+                <span className="text-xs font-bold text-emerald-800 dark:text-emerald-300 leading-tight block">
                   {language === 'hi' ? activeDistrictTelemetry.bestSlot.hi : activeDistrictTelemetry.bestSlot.en}
                 </span>
               </div>
