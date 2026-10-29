@@ -283,6 +283,8 @@ export default function App() {
 
       {/* Top Main Navigation Bar - Visible on all pages EXCEPT desktop fullchat */}
       <motion.header
+        role="banner"
+        aria-label="Site Header"
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         className={`w-full z-50 glass border-b border-[var(--glass-border)] backdrop-blur-md flex-shrink-0 ${
@@ -311,7 +313,7 @@ export default function App() {
           </div>
 
           {/* Center Mode Switcher - Modern Segmented Travel Navigation (Desktop Only) */}
-          <div className="hidden lg:flex glass rounded-full p-1 items-center gap-1 shadow-sm border border-[var(--glass-border)]">
+          <nav aria-label="Primary Navigation" className="hidden lg:flex glass rounded-full p-1 items-center gap-1 shadow-sm border border-[var(--glass-border)]">
             {/* MP Heritage Sites Page */}
             <button
               onClick={() => setLayoutMode('mpsites')}
@@ -400,7 +402,7 @@ export default function App() {
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               )}
             </button>
-          </div>
+          </nav>
 
           {/* Right Controls: Helpline, Language & Theme */}
           <div className="flex items-center gap-2 md:gap-3">
@@ -409,6 +411,7 @@ export default function App() {
               href="tel:18002330303"
               className="lg:hidden glass p-1.5 rounded-full shadow-sm text-xs border border-[var(--glass-border)] text-[var(--accent-primary)] flex items-center justify-center cursor-pointer"
               title="MP Tourism 24x7 Toll-Free Helpline: 1800-233-0303"
+              aria-label="Call MP Tourism 24x7 Toll-Free Helpline at 1800-233-0303"
             >
               <PhoneCall className="w-3.5 h-3.5" />
             </a>
@@ -418,15 +421,17 @@ export default function App() {
               href="tel:18002330303"
               className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold text-[var(--text-secondary)] hover:text-[var(--accent-primary)] glass border border-[var(--glass-border)] transition-colors"
               title="MP Tourism 24x7 Toll-Free Helpline: 1800-233-0303"
+              aria-label="Call MP Tourism 24x7 Toll-Free Helpline at 1800-233-0303"
             >
               <PhoneCall className="w-3 h-3 text-[var(--accent-primary)]" />
               <span>1800-233-0303</span>
             </a>
 
             {/* Language Switcher */}
-            <div className="glass rounded-full p-0.5 flex items-center border border-[var(--glass-border)] shadow-sm">
+            <div className="glass rounded-full p-0.5 flex items-center border border-[var(--glass-border)] shadow-sm" role="group" aria-label="Language selection">
               <button
                 onClick={() => setLanguage('en')}
+                aria-label="Switch language to English"
                 className={`px-2 py-0.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                   language === 'en'
                     ? 'bg-[var(--accent-primary)] text-white shadow-sm'
@@ -437,6 +442,7 @@ export default function App() {
               </button>
               <button
                 onClick={() => setLanguage('hi')}
+                aria-label="Switch language to Hindi"
                 className={`px-2 py-0.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                   language === 'hi'
                     ? 'bg-[var(--accent-primary)] text-white shadow-sm'
@@ -452,6 +458,7 @@ export default function App() {
               onClick={toggleTheme}
               className="glass p-2 rounded-full shadow-sm hover:scale-105 transition-all text-xs border border-[var(--glass-border)] cursor-pointer text-[var(--text-primary)]"
               title={theme === 'morning' ? 'Switch to Evening Aarti Atmosphere' : 'Switch to Morning Atmosphere'}
+              aria-label={theme === 'morning' ? 'Switch to Evening Aarti Atmosphere' : 'Switch to Morning Atmosphere'}
             >
               {theme === 'morning' ? (
                 <Sunrise className="w-4 h-4 text-[var(--accent-primary)]" />
@@ -488,6 +495,8 @@ export default function App() {
       {/* Left Sidebar - Displayed ONLY in Full-Screen Chatbot Mode on Desktop */}
       {layoutMode === 'fullchat' && (
         <aside
+          role="complementary"
+          aria-label="Navigation Sidebar"
           className={`hidden lg:flex flex-col h-full flex-shrink-0 glass border-r border-[var(--glass-border)] z-40 transition-all duration-300 ${
             isSidebarCollapsed ? 'w-20' : 'w-64 xl:w-72'
           } justify-between p-3.5 select-none overflow-hidden`}
@@ -524,7 +533,7 @@ export default function App() {
             </div>
 
             {/* Navigation Switchers Back to Other Views */}
-            <div className="grid grid-cols-2 gap-1.5 pt-1 border-t border-[var(--glass-border)] flex-shrink-0">
+            <nav aria-label="Sidebar Quick Navigation" className="grid grid-cols-2 gap-1.5 pt-1 border-t border-[var(--glass-border)] flex-shrink-0">
               <button
                 onClick={() => setLayoutMode('split')}
                 className="flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg text-[11px] font-semibold glass hover:bg-orange-500/10 hover:border-orange-500/30 text-[var(--text-primary)] border border-[var(--glass-border)] transition-all cursor-pointer"
@@ -575,7 +584,7 @@ export default function App() {
                 <Globe className="w-3.5 h-3.5 text-[var(--accent-primary)]" />
                 {!isSidebarCollapsed && <span>{language === 'hi' ? 'म.प्र. धरोहर स्थल' : 'MP Heritage Sites'}</span>}
               </button>
-            </div>
+            </nav>
 
             {/* Curated Heritage Circuits Section */}
             <div className="flex flex-col min-h-0 flex-1 overflow-hidden mt-1">
@@ -706,7 +715,7 @@ export default function App() {
       )}
 
       {/* Main Dual-Pillar Content Layout */}
-      <main className="flex-1 w-full min-h-0 relative overflow-hidden">
+      <main id="main-content" role="main" aria-label="Main Content" className="flex-1 w-full min-h-0 relative overflow-hidden">
         {layoutMode === 'split' && (
           <div className="w-full h-full lg:grid lg:grid-cols-12 min-h-0 relative flex flex-col">
             {/* Left Pillar: Interactive Uttar Pradesh Map */}
@@ -861,7 +870,7 @@ export default function App() {
       </main>
 
       {/* Mobile Bottom Navigation Bar (Hidden on Desktop >= 1024px) */}
-      <nav className="lg:hidden fixed bottom-0 inset-x-0 z-40 glass glass-dimmed border-t border-[var(--glass-border)] backdrop-blur-xl px-1 py-1.5 flex items-center justify-around shadow-2xl bg-white/95 dark:bg-neutral-900/95 pb-[max(0.375rem,env(safe-area-inset-bottom))]">
+      <nav aria-label="Mobile Bottom Navigation" className="lg:hidden fixed bottom-0 inset-x-0 z-40 glass glass-dimmed border-t border-[var(--glass-border)] backdrop-blur-xl px-1 py-1.5 flex items-center justify-around shadow-2xl bg-white/95 dark:bg-neutral-900/95 pb-[max(0.375rem,env(safe-area-inset-bottom))]">
         {/* 1. Disha AI Chat */}
         <button
           onClick={() => {

@@ -1,0 +1,8 @@
+# Robots.txt for Ghumo India / Darshan360 (https://d360.edufutura.in)
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://d360.edufutura.in/sitemap.xml

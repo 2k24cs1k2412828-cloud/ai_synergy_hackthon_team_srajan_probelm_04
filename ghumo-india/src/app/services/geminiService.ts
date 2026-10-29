@@ -33,17 +33,16 @@ import {
 // In-memory query response cache for sub-50ms repeat query responses
 const responseCache = new Map<string, GeminiResponse>();
 
-// Get API key from environment or fallback
-const apiKey = ((import.meta as any).env?.VITE_GEMINI_API_KEY as string) ||
-               'AIzaSyCsrRVFsKKQbVQDeoPeODlKF5KTfs_mMi0';
+// Securely read API key from environment variable only (never hardcode in client source)
+const apiKey = ((import.meta as any).env?.VITE_GEMINI_API_KEY as string) || '';
 
 let genAI: GoogleGenerativeAI | null = null;
 try {
-  if (apiKey) {
-    genAI = new GoogleGenerativeAI(apiKey);
+  if (apiKey && apiKey.trim().length > 10 && !apiKey.includes('your_')) {
+    genAI = new GoogleGenerativeAI(apiKey.trim());
   }
 } catch (error) {
-  console.error('Failed to initialize Gemini API:', error);
+  console.warn('Gemini API client initialization skipped:', error);
 }
 
 export interface InChatMapData {
