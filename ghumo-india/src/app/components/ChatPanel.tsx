@@ -403,7 +403,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
       .split('\n')
       .map((line, idx) => {
         if (line.startsWith('### ')) {
-          return <h3 key={idx} className="text-base font-bold text-[var(--accent-primary)] mt-3 mb-1.5 flex items-center gap-1.5">{line.replace('### ', '')}</h3>;
+          return <h3 key={idx} className="text-base font-bold text-orange-900 dark:text-orange-200 mt-3 mb-1.5 flex items-center gap-1.5">{line.replace('### ', '')}</h3>;
         }
         if (line.startsWith('## ')) {
           return <h2 key={idx} className="text-lg font-extrabold text-[var(--text-primary)] mt-3 mb-2">{line.replace('## ', '')}</h2>;
@@ -427,9 +427,9 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
 
   const formatInline = (str: string) => {
     return str
-      .replace(/\*\*([^*]+)\*\*/g, '<strong class="font-bold text-[var(--accent-primary)]">$1</strong>')
-      .replace(/\*([^*]+)\*/g, '<em class="italic opacity-90">$1</em>')
-      .replace(/`([^`]+)`/g, '<code class="bg-black/10 dark:bg-white/10 px-1 py-0.5 rounded text-xs">$1</code>');
+      .replace(/\*\*([^*]+)\*\*/g, '<strong class="font-bold text-[var(--text-primary)]">$1</strong>')
+      .replace(/\*([^*]+)\*/g, '<em class="italic text-[var(--text-primary)] opacity-90">$1</em>')
+      .replace(/`([^`]+)`/g, '<code class="bg-black/10 dark:bg-white/10 text-orange-900 dark:text-orange-200 px-1 py-0.5 rounded text-xs font-mono">$1</code>');
   };
 
   return (
@@ -624,12 +624,12 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                   {/* Message Header for AI */}
                   {isAI && (
                     <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-[var(--glass-border)]">
-                      <div className="flex items-center gap-2 text-xs font-bold text-[var(--accent-primary)]">
+                      <div className="flex items-center gap-2 text-xs font-bold text-orange-900 dark:text-orange-200">
                         <div className="w-5 h-5 rounded-md bg-gradient-to-tr from-orange-500 to-amber-400 text-white flex items-center justify-center shadow-xs">
                           <Sparkles className="w-3 h-3" />
                         </div>
                         <span className="font-editorial text-sm">{language === 'hi' ? 'घूमो AI' : 'Ghumo AI'}</span>
-                        <span className="hidden sm:inline-block text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 dark:bg-orange-950/60 text-orange-800 dark:text-orange-200 border border-orange-200 dark:border-orange-800 uppercase tracking-wider">
+                        <span className="hidden sm:inline-block text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 dark:bg-orange-950/60 text-orange-900 dark:text-orange-200 border border-orange-200 dark:border-orange-800 uppercase tracking-wider">
                           {language === 'hi' ? 'पर्यटन एआई परामर्श' : 'Official Intelligence'}
                         </span>
                       </div>
@@ -688,7 +688,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                   {/* In-Chat Image Gallery Component */}
                   {msg.images && msg.images.length > 0 && (
                     <div className="mt-3.5 pt-3.5 border-t border-[var(--glass-border)] space-y-2">
-                      <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--accent-primary)]">
+                      <div className="flex items-center gap-1.5 text-xs font-bold text-orange-900 dark:text-orange-200">
                         <ImageIcon className="w-3.5 h-3.5" />
                         <span>{language === 'hi' ? 'दर्शन एवं फोटो गैलरी' : 'Visual Gallery & Highlights'}</span>
                       </div>
@@ -729,7 +729,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                     <div className="mt-3.5 pt-3.5 border-t border-[var(--glass-border)]">
                       <div className="glass rounded-xl p-3.5 border border-orange-500/30 bg-orange-500/5 dark:bg-orange-950/20 shadow-sm">
                         <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--accent-primary)]">
+                          <div className="flex items-center gap-1.5 text-xs font-bold text-orange-900 dark:text-orange-200">
                             <MapPin className="w-4 h-4" />
                             <span>{msg.mapData.title}</span>
                           </div>
@@ -787,7 +787,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                               </span>
                             </div>
                           </div>
-                          <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-orange-500/15 text-[var(--accent-primary)] border border-orange-500/30 flex-shrink-0">
+                          <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-orange-100 dark:bg-orange-950/60 text-orange-900 dark:text-orange-200 border border-orange-300 dark:border-orange-800 flex-shrink-0">
                             {msg.copilotItinerary.stops.length} {language === 'hi' ? 'पड़ाव' : 'Stops'}
                           </span>
                         </div>
@@ -871,7 +871,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                   <div className="mt-3 pt-3 border-t border-[var(--glass-border)]">
                     <div className="glass rounded-xl p-3 border border-orange-500/40 bg-orange-500/10 shadow-sm">
                       <div className="flex items-center justify-between mb-2">
-                        <div className="flex items-center gap-1.5 text-xs font-black text-[var(--accent-primary)]">
+                        <div className="flex items-center gap-1.5 text-xs font-bold text-orange-900 dark:text-orange-200">
                           <span className="w-2 h-2 rounded-full bg-red-500 animate-ping flex-shrink-0" />
                           <span>
                             {language === 'hi'
@@ -915,7 +915,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                 {/* Related Scraped News Cards */}
                 {msg.scrapedNews && msg.scrapedNews.length > 0 && (
                   <div className="mt-3 pt-3 border-t border-[var(--glass-border)]">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--accent-primary)] mb-1.5 block">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-orange-900 dark:text-orange-200 mb-1.5 block">
                       📰 {language === 'hi' ? 'संबंधित लाइव जिले के समाचार:' : 'Live District Bulletins:'}
                     </span>
                     <div className="space-y-1.5">
@@ -931,7 +931,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                                 href={news.sourceUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-[var(--accent-primary)] hover:underline flex items-center gap-0.5"
+                                className="text-orange-900 dark:text-orange-200 font-semibold hover:underline flex items-center gap-0.5"
                               >
                                 <span>{news.source}</span>
                                 <ExternalLink className="w-2.5 h-2.5" />
