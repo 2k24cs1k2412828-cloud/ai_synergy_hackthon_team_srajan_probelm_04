@@ -142,9 +142,9 @@ export function MPSitesShowcase({
           <div className="flex items-center gap-2 flex-shrink-0 self-start md:self-auto">
             <button
               onClick={() => onAskAI('मध्य प्रदेश की अनदेखी धरोहरों (बटेश्वर, मितावली, पढ़ावली, ककनमठ) का 4 घंटे का संपूर्ण हेरिटेज टूर प्लान बताएं।')}
-              className="px-4 py-2.5 rounded-xl text-xs font-bold bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white shadow-md transition-all flex items-center gap-1.5 cursor-pointer"
+              className="px-4 py-2.5 rounded-xl text-xs font-bold bg-[#A94327] hover:bg-[#8F361E] text-white shadow-md transition-all flex items-center gap-1.5 cursor-pointer"
             >
-              <Sparkles className="w-4 h-4" />
+              <Sparkles className="w-4 h-4 text-[#D6A85B]" />
               <span>{language === 'hi' ? 'टूर प्लान बनाएं' : 'Plan Heritage Tour'}</span>
             </button>
           </div>
@@ -255,7 +255,13 @@ export function MPSitesShowcase({
                         <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-[var(--color-surface-secondary)] text-[var(--color-text-secondary)]">
                           #{site.num}
                         </span>
-                        <span className="text-[10px] font-medium tracking-tight px-1.5 py-0.5 rounded-md bg-[var(--color-surface-secondary)] text-[var(--color-text-primary)] border border-[var(--color-border)] truncate max-w-[150px]">
+                        <span className={`text-[10px] font-medium tracking-tight px-2 py-0.5 rounded-md truncate max-w-[150px] border ${
+                          site.category === 'fort' || site.category === 'palace'
+                            ? 'bg-[#A94327]/10 text-[#A94327] dark:text-[#E06D4E] border-[#A94327]/20'
+                            : site.category === 'temple'
+                            ? 'bg-[#A77C35]/10 text-[#7A5617] dark:text-[#D6A85B] border-[#A77C35]/25'
+                            : 'bg-[var(--color-surface-secondary)] text-[var(--color-text-primary)] border-[var(--color-border)]'
+                        }`}>
                           {language === 'hi' ? site.badge.hi : site.badge.en}
                         </span>
                         <span className={`text-[9px] font-semibold px-1.5 py-0.5 rounded-md uppercase border ${
@@ -319,7 +325,7 @@ export function MPSitesShowcase({
                   <div className="flex items-center gap-2">
                     <button
                       onClick={handleAddToTrip}
-                      className="px-3 py-1.5 rounded-full text-xs font-bold bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white border border-white/20 shadow-md transition-all flex items-center gap-1.5 cursor-pointer backdrop-blur-md"
+                      className="px-3 py-1.5 rounded-full text-xs font-bold bg-[#A94327] hover:bg-[#8F361E] text-white border border-white/20 shadow-md transition-all flex items-center gap-1.5 cursor-pointer backdrop-blur-md"
                       title={language === 'hi' ? 'यात्रा कोपायलट में जोड़ें' : 'Add to Trip Copilot'}
                     >
                       <Plus className="w-3.5 h-3.5" />

@@ -225,14 +225,14 @@ export function CopilotTimeline({
 
             <button
               onClick={() => handleRunningLate(20)}
-              className="px-2.5 py-0.5 rounded-md text-[10px] font-medium whitespace-nowrap bg-[var(--color-surface)] text-[var(--color-text-primary)] border border-[var(--color-border)] hover:bg-[var(--color-surface-secondary)] transition-colors cursor-pointer"
+              className="px-2.5 py-0.5 rounded-md text-[10px] font-medium whitespace-nowrap bg-[var(--color-surface)] text-[#8A4B08] dark:text-[#FBBF24] border border-[#8A4B08]/30 hover:bg-[#8A4B08]/10 transition-colors cursor-pointer"
             >
               ⏱️ {language === 'hi' ? '+20 मिनट देरी' : 'Running 20m Late'}
             </button>
 
             <button
               onClick={() => handleExtendStay(15)}
-              className="px-2.5 py-0.5 rounded-md text-[10px] font-medium whitespace-nowrap bg-[var(--color-surface)] text-[var(--color-text-primary)] border border-[var(--color-border)] hover:bg-[var(--color-surface-secondary)] transition-colors cursor-pointer"
+              className="px-2.5 py-0.5 rounded-md text-[10px] font-medium whitespace-nowrap bg-[var(--color-surface)] text-[#183D32] dark:text-[#34D399] border border-[#183D32]/30 dark:border-[#34D399]/40 hover:bg-[#183D32]/10 transition-colors cursor-pointer"
             >
               ⏳ {language === 'hi' ? '+15 मिनट विश्राम' : '+15m Stay'}
             </button>
@@ -244,7 +244,7 @@ export function CopilotTimeline({
                   : `Add a famous local food stop or café along my current route in ${itinerary.city}.`;
                 onAskAIAboutStop(p);
               }}
-              className="px-2.5 py-0.5 rounded-md text-[10px] font-medium whitespace-nowrap bg-[var(--color-surface)] text-[var(--color-text-primary)] border border-[var(--color-border)] hover:bg-[var(--color-surface-secondary)] transition-colors cursor-pointer"
+              className="px-2.5 py-0.5 rounded-md text-[10px] font-medium whitespace-nowrap bg-[var(--color-surface)] text-[#A94327] dark:text-[#E06D4E] border border-[#A94327]/30 hover:bg-[#A94327]/10 transition-colors cursor-pointer"
             >
               🍲 {language === 'hi' ? 'खानपान जोड़ें' : 'Add Food'}
             </button>

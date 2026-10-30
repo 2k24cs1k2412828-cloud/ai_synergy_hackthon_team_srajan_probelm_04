@@ -760,9 +760,9 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                             }
                             onSwitchToMap?.();
                           }}
-                          className="w-full mt-2 py-2 px-3 rounded-xl text-xs font-bold bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white shadow-sm flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+                          className="w-full mt-2 py-2 px-3 rounded-xl text-xs font-bold bg-[#A94327] hover:bg-[#8F361E] text-white shadow-sm flex items-center justify-center gap-1.5 transition-all cursor-pointer"
                         >
-                          <Maximize2 className="w-3.5 h-3.5" />
+                          <Maximize2 className="w-3.5 h-3.5 text-[#D6A85B]" />
                           <span>{language === 'hi' ? 'पूरा मैप देखें एवं नेविगेट करें' : 'Open in Full Screen Interactive Map'}</span>
                         </button>
                       </div>

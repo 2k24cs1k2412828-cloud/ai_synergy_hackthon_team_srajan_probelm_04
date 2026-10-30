@@ -252,9 +252,9 @@ export function NewsPanel({ theme, language, onAskAI }: NewsPanelProps) {
                     ? `${activeDistrictTelemetry.hindiDistrict} में अभी कितनी भीड़ है और दर्शन का सही समय क्या है?`
                     : `How much crowd is there in ${activeDistrictTelemetry.district} right now and what is the recommended time for darshan?`
                 )}
-                className="px-4 py-2 rounded-xl text-xs font-bold bg-[var(--color-primary)] text-[var(--color-primary-foreground)] shadow-sm hover:bg-[var(--color-primary-hover)] transition-all flex items-center gap-2 cursor-pointer self-start md:self-auto"
+                className="px-4 py-2 rounded-xl text-xs font-bold bg-[#A94327] hover:bg-[#8F361E] text-white shadow-sm transition-all flex items-center gap-2 cursor-pointer self-start md:self-auto"
               >
-                <MessageSquare className="w-3.5 h-3.5" />
+                <MessageSquare className="w-3.5 h-3.5 text-[#D6A85B]" />
                 <span>{language === 'hi' ? 'यात्रा परामर्श से पूछें' : 'Consult Travel Concierge'}</span>
               </button>
             </div>
@@ -379,9 +379,9 @@ export function NewsPanel({ theme, language, onAskAI }: NewsPanelProps) {
                       ? `मुझे "${heroStory.title.hi}" के बारे में संपूर्ण यात्रा योजना और दर्शन नियम बताएं।`
                       : `Tell me detailed travel planning guidance and darshan rules regarding "${heroStory.title.en}".`
                   )}
-                  className="px-4 py-2 rounded-xl text-xs font-semibold bg-[var(--color-primary)] text-[var(--color-primary-foreground)] shadow-sm hover:bg-[var(--color-primary-hover)] transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-4 py-2 rounded-xl text-xs font-semibold bg-[#A94327] hover:bg-[#8F361E] text-white shadow-sm transition-all flex items-center gap-2 cursor-pointer"
                 >
-                  <MessageSquare className="w-3.5 h-3.5" />
+                  <MessageSquare className="w-3.5 h-3.5 text-[#D6A85B]" />
                   <span>{language === 'hi' ? 'यात्रा परामर्श से पूछें' : 'Plan with Concierge'}</span>
                 </button>
 
