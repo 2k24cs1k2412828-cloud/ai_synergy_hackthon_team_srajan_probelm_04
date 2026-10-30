@@ -345,7 +345,7 @@ export function ServiceBookingModal({ isOpen, onClose }: ServiceBookingModalProp
                   e.stopPropagation();
                   alert(`Booking ${service.title}\n\nPrice: ${service.price}\nDuration: ${service.duration}\n\nRedirecting to payment...`);
                 }}
-                className="bg-[var(--accent-primary)] hover:bg-[var(--accent-secondary)] text-white px-4 py-2 rounded-lg font-semibold text-sm transition-all"
+                className="bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-[var(--color-primary-foreground)] px-4 py-2 rounded-lg font-semibold text-sm transition-all cursor-pointer shadow-sm"
               >
                 Book Now
               </motion.button>

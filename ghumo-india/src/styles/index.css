@@ -3,86 +3,84 @@
 @import './theme.css';
 @import 'leaflet/dist/leaflet.css';
 
-/* Theme Variables */
+/* Theme Variables Mapped to Centralized Indian Heritage Tokens */
 :root {
-  --theme-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  --bg-primary: #FAF8F5;
-  --bg-secondary: #F3EFE9;
-  --accent-primary: #9A3412;
-  --accent-secondary: #0D9488;
-  --accent-gold: #D97706;
-  --text-primary: #1C1917;
-  --text-secondary: #57534E;
+  --theme-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --bg-primary: var(--color-background);
+  --bg-secondary: var(--color-surface-secondary);
+  --accent-primary: var(--color-primary);
+  --accent-secondary: var(--color-primary-hover);
+  --accent-gold: var(--color-accent-gold);
+  --accent-terracotta: var(--color-accent);
+  --text-primary: var(--color-text-primary);
+  --text-secondary: var(--color-text-secondary);
+  --text-muted: var(--color-text-muted);
   --glass-bg: #FFFFFF;
-  --glass-border: #E7DFD5;
-  --shadow-color: rgba(28, 25, 23, 0.05);
-  --card-bg: #FFFFFF;
-  --card-border: #E7DFD5;
+  --glass-border: var(--color-border);
+  --shadow-color: rgba(37, 41, 35, 0.05);
+  --card-bg: var(--color-surface);
+  --card-border: var(--color-border);
 }
 
-/* Morning / Day Theme - Warm Alabaster, Saffron Terracotta & Sacred Ochre */
+/* Morning / Day Theme - Warm Ivory, Deep Heritage Green & Sandstone */
 [data-theme="morning"] {
-  --bg-primary: #FAF8F5;
-  --bg-secondary: #F3EFE9;
-  --accent-primary: #9A3412;
-  --accent-secondary: #0D9488;
-  --accent-gold: #D97706;
-  --text-primary: #1C1917;
-  --text-secondary: #57534E;
+  --bg-primary: #F6F2E9;
+  --bg-secondary: #E8DDC9;
+  --accent-primary: #183D32;
+  --accent-secondary: #285747;
+  --accent-gold: #A77C35;
+  --accent-terracotta: #A94327;
+  --text-primary: #252923;
+  --text-secondary: #555D57;
+  --text-muted: #626A63;
   --glass-bg: #FFFFFF;
-  --glass-border: #E7DFD5;
-  --shadow-color: rgba(28, 25, 23, 0.05);
+  --glass-border: #DCD5C6;
+  --shadow-color: rgba(37, 41, 35, 0.05);
   --card-bg: #FFFFFF;
-  --card-border: #E7DFD5;
+  --card-border: #DCD5C6;
 }
 
-/* Evening / Aarti Theme - Deep Midnight Ghats & Warm Aarti Amber */
+/* Evening / Aarti Theme - Deep Nocturnal Heritage Green & Sacred Gold */
 [data-theme="evening"] {
-  --bg-primary: #0A0F1D;
-  --bg-secondary: #111A2E;
-  --accent-primary: #F59E0B;
-  --accent-secondary: #38BDF8;
-  --accent-gold: #FBBF24;
-  --text-primary: #F8FAFC;
-  --text-secondary: #94A3B8;
-  --glass-bg: #111A2E;
-  --glass-border: #1E293B;
-  --shadow-color: rgba(0, 0, 0, 0.35);
-  --card-bg: #111928;
-  --card-border: #1E293B;
+  --bg-primary: #0D1C17;
+  --bg-secondary: #1B382F;
+  --accent-primary: #34D399;
+  --accent-secondary: #10B981;
+  --accent-gold: #D6A85B;
+  --accent-terracotta: #E06D4E;
+  --text-primary: #F6F2E9;
+  --text-secondary: #C5CDC6;
+  --text-muted: #9BA59D;
+  --glass-bg: #132A23;
+  --glass-border: #23483D;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --card-bg: #132A23;
+  --card-border: #23483D;
 }
 
-/* Polished Editorial & Glassmorphic Surfaces */
+/* Polished Editorial & Heritage Surfaces */
 .glass {
   background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
 }
 
 .editorial-card {
-  background: var(--card-bg, #ffffff);
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 4px 20px -2px var(--shadow-color);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: var(--card-bg, #FFFFFF);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 2px 12px -2px var(--shadow-color);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .editorial-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px -4px var(--shadow-color);
-}
-
-/* Dimmed glass for header - less brightness */
-.glass-dimmed {
-  background: rgba(0, 0, 0, 0.1) !important;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px -4px var(--shadow-color);
+  border-color: var(--accent-primary);
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -90,12 +88,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-primary);
-  border-radius: 4px;
+  background: var(--color-border);
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-secondary);
+  background: var(--color-primary);
 }
 
 /* Map marker styles */
@@ -106,16 +104,17 @@
 
 /* Leaflet popup customization */
 .leaflet-popup-content-wrapper {
-  background: var(--glass-bg) !important;
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border) !important;
-  border-radius: 16px !important;
+  background: var(--card-bg) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--card-border) !important;
+  border-radius: 14px !important;
   padding: 0 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12) !important;
 }
 
 .leaflet-popup-tip {
-  background: var(--glass-bg) !important;
-  backdrop-filter: blur(12px);
+  background: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
 }
 
 .leaflet-container {
@@ -139,34 +138,36 @@
 }
 
 [data-slot="scroll-area-scrollbar"][data-orientation="vertical"] {
-  width: 10px;
+  width: 8px;
 }
 
 [data-slot="scroll-area-scrollbar"] > div {
-  background: var(--accent-primary);
-  border-radius: 5px;
-  opacity: 0.6;
+  background: var(--color-border);
+  border-radius: 9999px;
+  opacity: 0.8;
   transition: opacity 0.2s;
 }
 
 [data-slot="scroll-area-scrollbar"]:hover > div {
   opacity: 1;
+  background: var(--color-primary);
 }
 
 [data-slot="scroll-area-scrollbar"][data-state="visible"] > div {
-  background: var(--accent-primary);
+  background: var(--color-border);
 }
 
-/* Markdown-like Text Styling for ChatGPT Format */
+/* Markdown-like Text Styling for Heritage AI Responses */
 .markdown-content {
-  line-height: 1.6;
+  line-height: 1.65;
   word-wrap: break-word;
+  color: var(--text-primary);
 }
 
 /* Bold text styling */
 .markdown-content strong,
 .markdown-text strong {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
 }
 
@@ -174,6 +175,7 @@
 .markdown-content em,
 .markdown-text em {
   font-style: italic;
+  color: var(--text-secondary);
 }
 
 /* List styling for bullets */
@@ -182,20 +184,21 @@
 .markdown-text ul,
 .markdown-text ol {
   margin-left: 1.25rem;
-  margin-bottom: 0.5rem;
-  margin-top: 0.5rem;
+  margin-bottom: 0.6rem;
+  margin-top: 0.6rem;
 }
 
 .markdown-content li,
 .markdown-text li {
-  margin-bottom: 0.25rem;
-  line-height: 1.5;
+  margin-bottom: 0.3rem;
+  line-height: 1.55;
+  color: var(--text-primary);
 }
 
 /* Paragraph spacing */
 .markdown-content p,
 .markdown-text p {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
   white-space: normal;
 }
 
@@ -206,9 +209,9 @@
 .markdown-text h1,
 .markdown-text h2,
 .markdown-text h3 {
-  font-weight: 600;
-  margin-top: 0.75rem;
-  margin-bottom: 0.5rem;
+  font-weight: 700;
+  margin-top: 0.85rem;
+  margin-bottom: 0.45rem;
   color: var(--text-primary);
 }
 
@@ -227,7 +230,8 @@
   border-radius: 4px;
   font-family: 'Courier New', monospace;
   font-size: 0.875rem;
-  color: var(--accent-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--card-border);
 }
 
 /* Blockquote styling */
@@ -236,8 +240,8 @@
   border-left: 3px solid var(--accent-primary);
   padding-left: 1rem;
   margin-left: 0;
-  margin-bottom: 0.5rem;
-  opacity: 0.8;
+  margin-bottom: 0.6rem;
+  color: var(--text-secondary);
 }
 
 /* Ticker marquee animation */
@@ -269,8 +273,8 @@
   }
 }
 
-/* Refined tactile button focus rings */
-button:focus-visible, a:focus-visible, input:focus-visible {
-  outline: 2px solid var(--accent-primary);
+/* Refined tactile button focus rings for WCAG 2.1 AA keyboard navigation */
+button:focus-visible, a:focus-visible, input:focus-visible, [tabindex="0"]:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
   outline-offset: 2px;
 }

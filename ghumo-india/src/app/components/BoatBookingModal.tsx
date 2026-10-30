@@ -141,12 +141,12 @@ export function BoatBookingModal({ isOpen, onClose }: BoatBookingModalProps) {
                     <div className="flex gap-3 mt-4">
                       <Button
                         variant="outline"
-                        className="flex-1 border-[var(--accent-primary)] text-[var(--accent-primary)] hover:bg-[var(--accent-primary)] hover:text-white"
+                        className="flex-1 border-[var(--color-border)] text-[var(--color-text-primary)] hover:bg-[var(--color-surface-secondary)]"
                       >
                         View Details
                       </Button>
                       <Button
-                        className="flex-1 bg-[var(--accent-primary)] hover:bg-[var(--accent-secondary)] text-white"
+                        className="flex-1 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-[var(--color-primary-foreground)]"
                       >
                         Book Now
                       </Button>

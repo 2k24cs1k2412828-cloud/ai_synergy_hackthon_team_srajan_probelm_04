@@ -590,12 +590,12 @@ export function MapPanel({
                 onClick={() => setIsLayerMenuOpen(prev => !prev)}
                 className={`px-3 py-2 rounded-full shadow-lg transition-all text-xs font-bold border border-[var(--glass-border)] cursor-pointer flex items-center gap-1.5 ${
                   isLayerMenuOpen
-                    ? 'bg-[var(--accent-primary)] text-white shadow-md'
+                    ? 'bg-[var(--color-primary)] text-[var(--color-primary-foreground)] shadow-md'
                     : 'glass text-[var(--text-primary)] hover:scale-105'
                 }`}
                 title={language === 'hi' ? 'गूगल मैप्स लेयर बदलें' : 'Map Layers (Streets, Satellite, Terrain)'}
               >
-                <Layers className={`w-4 h-4 flex-shrink-0 ${isLayerMenuOpen ? 'text-white' : 'text-[var(--accent-primary)]'}`} />
+                <Layers className={`w-4 h-4 flex-shrink-0 ${isLayerMenuOpen ? 'text-[var(--color-primary-foreground)]' : 'text-[var(--color-primary)]'}`} />
                 <span className="text-xs font-semibold whitespace-nowrap">
                   {mapLayerType === 'google-streets'
                     ? (language === 'hi' ? 'गूगल मैप्स' : 'Google Maps')
@@ -618,10 +618,10 @@ export function MapPanel({
                   >
                     <button
                       onClick={() => { setMapLayerType('google-streets'); setIsLayerMenuOpen(false); }}
-                      className={`w-full px-3 py-2 rounded-xl text-xs font-bold flex items-center justify-between transition-all cursor-pointer ${
+                      className={`w-full px-3 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition-all cursor-pointer ${
                         mapLayerType === 'google-streets'
-                          ? 'bg-[var(--accent-primary)] text-white shadow-sm'
-                          : 'text-[var(--text-primary)] hover:bg-black/5 dark:hover:bg-white/10'
+                          ? 'bg-[var(--color-primary)] text-[var(--color-primary-foreground)] shadow-xs'
+                          : 'text-[var(--text-primary)] hover:bg-[var(--color-surface-secondary)]'
                       }`}
                     >
                       <span className="flex items-center gap-1.5">🗺️ Google Streets</span>
@@ -629,10 +629,10 @@ export function MapPanel({
                     </button>
                     <button
                       onClick={() => { setMapLayerType('google-satellite'); setIsLayerMenuOpen(false); }}
-                      className={`w-full px-3 py-2 rounded-xl text-xs font-bold flex items-center justify-between transition-all cursor-pointer ${
+                      className={`w-full px-3 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition-all cursor-pointer ${
                         mapLayerType === 'google-satellite'
-                          ? 'bg-[var(--accent-primary)] text-white shadow-sm'
-                          : 'text-[var(--text-primary)] hover:bg-black/5 dark:hover:bg-white/10'
+                          ? 'bg-[var(--color-primary)] text-[var(--color-primary-foreground)] shadow-xs'
+                          : 'text-[var(--text-primary)] hover:bg-[var(--color-surface-secondary)]'
                       }`}
                     >
                       <span className="flex items-center gap-1.5">🛰️ Google Satellite</span>
@@ -640,10 +640,10 @@ export function MapPanel({
                     </button>
                     <button
                       onClick={() => { setMapLayerType('google-terrain'); setIsLayerMenuOpen(false); }}
-                      className={`w-full px-3 py-2 rounded-xl text-xs font-bold flex items-center justify-between transition-all cursor-pointer ${
+                      className={`w-full px-3 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition-all cursor-pointer ${
                         mapLayerType === 'google-terrain'
-                          ? 'bg-[var(--accent-primary)] text-white shadow-sm'
-                          : 'text-[var(--text-primary)] hover:bg-black/5 dark:hover:bg-white/10'
+                          ? 'bg-[var(--color-primary)] text-[var(--color-primary-foreground)] shadow-xs'
+                          : 'text-[var(--text-primary)] hover:bg-[var(--color-surface-secondary)]'
                       }`}
                     >
                       <span className="flex items-center gap-1.5">⛰️ Google Terrain</span>
@@ -651,10 +651,10 @@ export function MapPanel({
                     </button>
                     <button
                       onClick={() => { setMapLayerType('carto'); setIsLayerMenuOpen(false); }}
-                      className={`w-full px-3 py-2 rounded-xl text-xs font-bold flex items-center justify-between transition-all cursor-pointer ${
+                      className={`w-full px-3 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition-all cursor-pointer ${
                         mapLayerType === 'carto'
-                          ? 'bg-[var(--accent-primary)] text-white shadow-sm'
-                          : 'text-[var(--text-primary)] hover:bg-black/5 dark:hover:bg-white/10'
+                          ? 'bg-[var(--color-primary)] text-[var(--color-primary-foreground)] shadow-xs'
+                          : 'text-[var(--text-primary)] hover:bg-[var(--color-surface-secondary)]'
                       }`}
                     >
                       <span className="flex items-center gap-1.5">🎨 Clean Vector</span>
@@ -867,7 +867,7 @@ export function MapPanel({
             {/* Calculate Button */}
             <button
               onClick={handleCalculateRoute}
-              className="w-full py-2 rounded-xl text-xs font-bold bg-[var(--accent-primary)] text-white shadow hover:opacity-95 flex items-center justify-center gap-1.5 transition-all"
+              className="w-full py-2 rounded-xl text-xs font-bold bg-[var(--color-primary)] text-[var(--color-primary-foreground)] shadow hover:bg-[var(--color-primary-hover)] flex items-center justify-center gap-1.5 transition-all cursor-pointer"
             >
               <Route className="w-3.5 h-3.5" />
               <span>{language === 'hi' ? 'सटीक मार्ग एवं दूरी प्राप्त करें' : 'Compute Highway Route'}</span>
@@ -875,9 +875,9 @@ export function MapPanel({
 
             {/* Calculated Route Details Card */}
             {calculatedRoute && (
-              <div className="rounded-xl p-2.5 bg-orange-500/10 dark:bg-orange-500/20 border border-orange-500/20 space-y-2 mt-1">
+              <div className="rounded-xl p-2.5 bg-[var(--color-surface-secondary)]/50 border border-[var(--color-border)] space-y-2 mt-1">
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-bold text-[var(--accent-primary)] uppercase tracking-wider">
+                  <span className="text-[11px] font-bold text-[var(--color-primary)] uppercase tracking-wider">
                     {language === 'hi' ? 'सत्यापित हाईवे ट्रैक' : 'Verified Route Track'}
                   </span>
                   <span className="text-xs font-extrabold text-[var(--text-primary)]">
@@ -894,17 +894,17 @@ export function MapPanel({
                 </div>
 
                 {/* Stoppages */}
-                <div className="pt-1 border-t border-orange-500/20 text-[10px] text-[var(--text-secondary)] space-y-0.5">
+                <div className="pt-1 border-t border-[var(--color-border)] text-[10px] text-[var(--text-secondary)] space-y-0.5">
                   <p>• {calculatedRoute.recommendedStops[0]}</p>
                   <p>• {calculatedRoute.recommendedStops[1]}</p>
                   <p>• {calculatedRoute.recommendedStops[2]}</p>
                 </div>
 
                 {/* Bottom Actions: Clear Route & Ask AI */}
-                <div className="flex items-center gap-1.5 pt-1.5 border-t border-orange-500/20">
+                <div className="flex items-center gap-1.5 pt-1.5 border-t border-[var(--color-border)]">
                   <button
                     onClick={handleClearRoute}
-                    className="flex-1 py-1 px-2 rounded-lg text-[10px] font-bold bg-neutral-200 dark:bg-neutral-800 text-[var(--text-primary)] hover:bg-neutral-300 dark:hover:bg-neutral-700 flex items-center justify-center gap-1 transition-colors"
+                    className="flex-1 py-1 px-2 rounded-lg text-[10px] font-bold bg-[var(--color-surface)] text-[var(--text-primary)] border border-[var(--color-border)] hover:bg-[var(--color-surface-secondary)] flex items-center justify-center gap-1 transition-colors cursor-pointer"
                   >
                     <RotateCcw className="w-3 h-3" />
                     <span>{language === 'hi' ? 'रूट हटाएं' : 'Clear Route'}</span>
@@ -918,7 +918,7 @@ export function MapPanel({
                           : `Tell me detailed travel tips, highway tolls, midway rest stops, and itinerary for ${calculatedRoute.name.en} (~${calculatedRoute.distanceKm} km).`;
                         onSelectPlaceForChat(prompt);
                       }}
-                      className="flex-1 py-1 px-2 rounded-lg text-[10px] font-bold bg-[var(--accent-primary)] text-white hover:opacity-90 flex items-center justify-center gap-1 transition-all"
+                      className="flex-1 py-1 px-2 rounded-lg text-[10px] font-bold bg-[var(--color-primary)] text-[var(--color-primary-foreground)] hover:bg-[var(--color-primary-hover)] flex items-center justify-center gap-1 transition-all cursor-pointer"
                     >
                       <Sparkles className="w-3 h-3" />
                       <span>{language === 'hi' ? 'घूमो AI परामर्श' : 'Ask Ghumo AI'}</span>

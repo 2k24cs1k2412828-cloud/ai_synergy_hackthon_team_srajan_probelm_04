@@ -292,7 +292,7 @@ export default function App() {
       <nav aria-label="Skip links" className="sr-only focus-within:not-sr-only">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[99999] focus:px-4 focus:py-2 focus:bg-orange-600 focus:text-white focus:rounded-lg focus:shadow-2xl focus:font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[99999] focus:px-4 focus:py-2 focus:bg-[var(--color-primary)] focus:text-[var(--color-primary-foreground)] focus:rounded-lg focus:shadow-2xl focus:font-semibold focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
         >
           {language === 'hi' ? 'मुख्य सामग्री पर जाएं' : 'Skip to main content'}
         </a>
@@ -321,7 +321,7 @@ export default function App() {
                 <h1 className="text-base md:text-xl font-bold tracking-tight text-[var(--text-primary)] font-display">
                   GHUMO INDIA
                 </h1>
-                <span className="text-[10px] font-bold tracking-wider px-2 py-0.5 rounded-full bg-orange-100 text-orange-800 dark:bg-orange-950/60 dark:text-orange-200 border border-orange-200 dark:border-orange-800 uppercase">
+                <span className="text-[10px] font-semibold tracking-wider px-2 py-0.5 rounded-md bg-[var(--color-surface-secondary)] text-[var(--color-text-primary)] border border-[var(--color-border)] uppercase">
                   Madhya Pradesh
                 </span>
               </div>
@@ -346,11 +346,11 @@ export default function App() {
               {layoutMode === 'mpsites' && (
                 <motion.div
                   layoutId="activeDesktopNav"
-                  className="absolute inset-0 rounded-full bg-stone-900 dark:bg-stone-100 shadow-sm"
+                  className="absolute inset-0 rounded-full bg-[var(--color-primary)] shadow-sm"
                   transition={{ type: 'spring', stiffness: 400, damping: 32 }}
                 />
               )}
-              <span className={`relative z-10 flex items-center gap-1.5 ${layoutMode === 'mpsites' ? 'text-white dark:text-stone-900 font-bold' : ''}`}>
+              <span className={`relative z-10 flex items-center gap-1.5 ${layoutMode === 'mpsites' ? 'text-white font-bold' : ''}`}>
                 <Globe className="w-3.5 h-3.5" />
                 <span>{language === 'hi' ? 'धरोहर स्थल' : 'Heritage Sites'}</span>
               </span>
@@ -369,11 +369,11 @@ export default function App() {
               {layoutMode === 'fullmap' && (
                 <motion.div
                   layoutId="activeDesktopNav"
-                  className="absolute inset-0 rounded-full bg-stone-900 dark:bg-stone-100 shadow-sm"
+                  className="absolute inset-0 rounded-full bg-[var(--color-primary)] shadow-sm"
                   transition={{ type: 'spring', stiffness: 400, damping: 32 }}
                 />
               )}
-              <span className={`relative z-10 flex items-center gap-1.5 ${layoutMode === 'fullmap' ? 'text-white dark:text-stone-900 font-bold' : ''}`}>
+              <span className={`relative z-10 flex items-center gap-1.5 ${layoutMode === 'fullmap' ? 'text-white font-bold' : ''}`}>
                 <MapIcon className="w-3.5 h-3.5" />
                 <span className="hidden md:inline">{language === 'hi' ? 'मानचित्र' : 'Explore Map'}</span>
               </span>
@@ -392,11 +392,11 @@ export default function App() {
               {layoutMode === 'split' && (
                 <motion.div
                   layoutId="activeDesktopNav"
-                  className="absolute inset-0 rounded-full bg-stone-900 dark:bg-stone-100 shadow-sm"
+                  className="absolute inset-0 rounded-full bg-[var(--color-primary)] shadow-sm"
                   transition={{ type: 'spring', stiffness: 400, damping: 32 }}
                 />
               )}
-              <span className={`relative z-10 flex items-center gap-1.5 ${layoutMode === 'split' ? 'text-white dark:text-stone-900 font-bold' : ''}`}>
+              <span className={`relative z-10 flex items-center gap-1.5 ${layoutMode === 'split' ? 'text-white font-bold' : ''}`}>
                 <Columns2 className="w-3.5 h-3.5" />
                 <span className="hidden md:inline">{language === 'hi' ? 'टूर प्लानर' : 'Trip Planner'}</span>
               </span>
@@ -415,11 +415,11 @@ export default function App() {
               {layoutMode === 'news' && (
                 <motion.div
                   layoutId="activeDesktopNav"
-                  className="absolute inset-0 rounded-full bg-stone-900 dark:bg-stone-100 shadow-sm"
+                  className="absolute inset-0 rounded-full bg-[var(--color-primary)] shadow-sm"
                   transition={{ type: 'spring', stiffness: 400, damping: 32 }}
                 />
               )}
-              <span className={`relative z-10 flex items-center gap-1.5 ${layoutMode === 'news' ? 'text-white dark:text-stone-900 font-bold' : ''}`}>
+              <span className={`relative z-10 flex items-center gap-1.5 ${layoutMode === 'news' ? 'text-white font-bold' : ''}`}>
                 <Newspaper className="w-3.5 h-3.5" />
                 <span>{language === 'hi' ? 'यात्रा बुलेटिन' : 'Travel Updates'}</span>
               </span>
@@ -438,11 +438,11 @@ export default function App() {
               {layoutMode === 'fullchat' && (
                 <motion.div
                   layoutId="activeDesktopNav"
-                  className="absolute inset-0 rounded-full bg-stone-900 dark:bg-stone-100 shadow-sm"
+                  className="absolute inset-0 rounded-full bg-[var(--color-primary)] shadow-sm"
                   transition={{ type: 'spring', stiffness: 400, damping: 32 }}
                 />
               )}
-              <span className={`relative z-10 flex items-center gap-1.5 ${layoutMode === 'fullchat' ? 'text-white dark:text-stone-900 font-bold' : ''}`}>
+              <span className={`relative z-10 flex items-center gap-1.5 ${layoutMode === 'fullchat' ? 'text-white font-bold' : ''}`}>
                 <MessageSquare className="w-3.5 h-3.5" />
                 <span className="hidden md:inline">{language === 'hi' ? 'घूमो AI गाइड' : 'Ghumo AI'}</span>
               </span>
@@ -455,12 +455,12 @@ export default function App() {
               }}
               className={`px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer relative ${
                 isCopilotOpen
-                  ? 'bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 shadow-sm'
+                  ? 'bg-[var(--color-primary)] text-white shadow-sm'
                   : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
               }`}
               title={language === 'hi' ? 'एआई यात्रा कोपायलट टाइमलाइन' : 'AI Trip Copilot Timeline'}
             >
-              <Route className={`w-3.5 h-3.5 ${isCopilotOpen ? 'text-white dark:text-stone-900' : 'text-stone-600 dark:text-stone-400'}`} />
+              <Route className={`w-3.5 h-3.5 ${isCopilotOpen ? 'text-white' : 'text-[var(--text-secondary)]'}`} />
               <span className="hidden sm:inline">{language === 'hi' ? 'कोपायलट' : 'Copilot'}</span>
               {activeItinerary && (
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
@@ -473,21 +473,21 @@ export default function App() {
             {/* Mobile Phone Helpline Button */}
             <a
               href="tel:18002330303"
-              className="lg:hidden glass p-1.5 rounded-full shadow-sm text-xs border border-[var(--glass-border)] text-stone-900 dark:text-stone-100 flex items-center justify-center cursor-pointer"
+              className="lg:hidden glass p-1.5 rounded-full shadow-sm text-xs border border-[var(--glass-border)] text-[var(--text-primary)] flex items-center justify-center cursor-pointer hover:bg-[var(--color-surface-secondary)]"
               title="MP Tourism 24x7 Toll-Free Helpline: 1800-233-0303"
               aria-label="Call MP Tourism 24x7 Toll-Free Helpline at 1800-233-0303"
             >
-              <PhoneCall className="w-3.5 h-3.5" />
+              <PhoneCall className="w-3.5 h-3.5 text-[var(--color-primary)]" />
             </a>
 
             {/* Official Toll-Free Helpline Badge (Desktop) */}
             <a
               href="tel:18002330303"
-              className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)] glass border border-[var(--glass-border)] transition-colors"
+              className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)] glass border border-[var(--glass-border)] transition-colors hover:bg-[var(--color-surface-secondary)]"
               title="MP Tourism 24x7 Toll-Free Helpline: 1800-233-0303"
               aria-label="Call MP Tourism 24x7 Toll-Free Helpline at 1800-233-0303"
             >
-              <PhoneCall className="w-3 h-3 text-stone-900 dark:text-stone-100" />
+              <PhoneCall className="w-3 h-3 text-[var(--color-primary)]" />
               <span>1800-233-0303</span>
             </a>
 
@@ -498,7 +498,7 @@ export default function App() {
                 aria-label="EN - English"
                 className={`px-2 py-0.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                   language === 'en'
-                    ? 'bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 shadow-sm'
+                    ? 'bg-[var(--color-primary)] text-white shadow-sm'
                     : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                 }`}
               >
@@ -509,7 +509,7 @@ export default function App() {
                 aria-label="हिन्दी - Hindi"
                 className={`px-2 py-0.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                   language === 'hi'
-                    ? 'bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 shadow-sm'
+                    ? 'bg-[var(--color-primary)] text-white shadow-sm'
                     : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                 }`}
               >
@@ -579,7 +579,7 @@ export default function App() {
                         GHUMO INDIA
                       </h1>
                     </div>
-                    <span className="text-[9px] font-bold tracking-wider px-1.5 py-0.5 rounded-full bg-orange-100 text-orange-800 dark:bg-orange-950/60 dark:text-orange-200 border border-orange-200 dark:border-orange-800 uppercase">
+                    <span className="text-[9px] font-semibold tracking-wider px-2 py-0.5 rounded-md bg-[var(--color-surface-secondary)] text-[var(--color-text-primary)] border border-[var(--color-border)] uppercase">
                       Beyond The Fort
                     </span>
                   </div>
@@ -589,7 +589,7 @@ export default function App() {
               {/* Sidebar Collapse/Expand Toggle */}
               <button
                 onClick={() => setIsSidebarCollapsed(prev => !prev)}
-                className="p-1.5 rounded-lg glass text-[var(--text-secondary)] hover:text-[var(--accent-primary)] border border-[var(--glass-border)] transition-colors cursor-pointer flex-shrink-0"
+                className="p-1.5 rounded-lg glass text-[var(--text-secondary)] hover:text-[var(--color-primary)] border border-[var(--glass-border)] transition-colors cursor-pointer flex-shrink-0"
                 title={isSidebarCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar'}
               >
                 {isSidebarCollapsed ? <PanelLeftOpen className="w-4 h-4" /> : <PanelLeftClose className="w-4 h-4" />}
@@ -600,19 +600,19 @@ export default function App() {
             <nav aria-label="Sidebar Quick Navigation" className="grid grid-cols-2 gap-1.5 pt-1 border-t border-[var(--glass-border)] flex-shrink-0">
               <button
                 onClick={() => setLayoutMode('split')}
-                className="flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg text-[11px] font-semibold glass hover:bg-orange-500/10 hover:border-orange-500/30 text-[var(--text-primary)] border border-[var(--glass-border)] transition-all cursor-pointer"
+                className="flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg text-[11px] font-semibold glass hover:bg-[var(--color-surface-secondary)] hover:border-[var(--color-border)] text-[var(--text-primary)] border border-[var(--glass-border)] transition-all cursor-pointer"
                 title={language === 'hi' ? 'द्वैत दृश्य' : 'Split Explorer'}
               >
-                <Columns2 className="w-3.5 h-3.5 text-[var(--accent-primary)]" />
+                <Columns2 className="w-3.5 h-3.5 text-[var(--color-primary)]" />
                 {!isSidebarCollapsed && <span>{language === 'hi' ? 'द्वैत दृश्य' : 'Explorer'}</span>}
               </button>
 
               <button
                 onClick={() => setLayoutMode('fullmap')}
-                className="flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg text-[11px] font-semibold glass hover:bg-orange-500/10 hover:border-orange-500/30 text-[var(--text-primary)] border border-[var(--glass-border)] transition-all cursor-pointer"
+                className="flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg text-[11px] font-semibold glass hover:bg-[var(--color-surface-secondary)] hover:border-[var(--color-border)] text-[var(--text-primary)] border border-[var(--glass-border)] transition-all cursor-pointer"
                 title={language === 'hi' ? 'मानचित्र' : 'Interactive Map'}
               >
-                <MapIcon className="w-3.5 h-3.5 text-blue-500" />
+                <MapIcon className="w-3.5 h-3.5 text-[var(--color-primary)]" />
                 {!isSidebarCollapsed && <span>{language === 'hi' ? 'मानचित्र' : 'Map'}</span>}
               </button>
 
@@ -620,32 +620,32 @@ export default function App() {
                 onClick={() => {
                   setIsCopilotOpen(prev => !prev);
                 }}
-                className={`flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg text-[11px] font-semibold glass hover:bg-orange-500/10 hover:border-orange-500/30 text-[var(--text-primary)] border border-[var(--glass-border)] transition-all cursor-pointer ${
-                  isCopilotOpen ? 'border-orange-500 bg-orange-500/10' : ''
+                className={`flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg text-[11px] font-semibold glass hover:bg-[var(--color-surface-secondary)] hover:border-[var(--color-border)] transition-all cursor-pointer border ${
+                  isCopilotOpen ? 'border-[var(--color-primary)] bg-[var(--color-primary)] text-white' : 'text-[var(--text-primary)] border-[var(--glass-border)]'
                 }`}
                 title={language === 'hi' ? 'कोपायलट' : 'Trip Copilot'}
               >
-                <Route className="w-3.5 h-3.5 text-orange-500" />
+                <Route className={`w-3.5 h-3.5 ${isCopilotOpen ? 'text-white' : 'text-[var(--color-primary)]'}`} />
                 {!isSidebarCollapsed && <span>{language === 'hi' ? 'कोपायलट' : 'Copilot'}</span>}
               </button>
 
               <button
                 onClick={() => setLayoutMode('news')}
-                className="flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg text-[11px] font-semibold glass hover:bg-orange-500/10 hover:border-orange-500/30 text-[var(--text-primary)] border border-[var(--glass-border)] transition-all cursor-pointer"
+                className="flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg text-[11px] font-semibold glass hover:bg-[var(--color-surface-secondary)] hover:border-[var(--color-border)] text-[var(--text-primary)] border border-[var(--glass-border)] transition-all cursor-pointer"
                 title={language === 'hi' ? 'यात्रा बुलेटिन' : 'Travel Dispatch'}
               >
-                <Newspaper className="w-3.5 h-3.5 text-amber-500" />
+                <Newspaper className="w-3.5 h-3.5 text-[var(--color-primary)]" />
                 {!isSidebarCollapsed && <span>{language === 'hi' ? 'बुलेटिन' : 'Dispatch'}</span>}
               </button>
 
               <button
                 onClick={() => setLayoutMode('mpsites')}
-                className={`col-span-2 flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg text-[11px] font-semibold hover:bg-orange-500/10 hover:border-orange-500/30 text-[var(--text-primary)] border transition-all cursor-pointer ${
-                  layoutMode === 'mpsites' ? 'border-[var(--accent-primary)] bg-[var(--accent-primary)]/10' : 'glass border-[var(--glass-border)]'
+                className={`col-span-2 flex items-center justify-center gap-1.5 py-1.5 px-2 rounded-lg text-[11px] font-semibold transition-all cursor-pointer border ${
+                  layoutMode === 'mpsites' ? 'border-[var(--color-primary)] bg-[var(--color-primary)] text-white' : 'glass border-[var(--glass-border)] text-[var(--text-primary)] hover:bg-[var(--color-surface-secondary)]'
                 }`}
                 title={language === 'hi' ? 'म.प्र. धरोहर स्थल' : 'MP Heritage Sites'}
               >
-                <Globe className="w-3.5 h-3.5 text-[var(--accent-primary)]" />
+                <Globe className={`w-3.5 h-3.5 ${layoutMode === 'mpsites' ? 'text-white' : 'text-[var(--color-primary)]'}`} />
                 {!isSidebarCollapsed && <span>{language === 'hi' ? 'म.प्र. धरोहर स्थल' : 'MP Heritage Sites'}</span>}
               </button>
             </nav>
@@ -653,16 +653,16 @@ export default function App() {
             {/* Curated Heritage Circuits Section */}
             <div className="flex flex-col min-h-0 flex-1 overflow-hidden mt-1">
               {!isSidebarCollapsed && (
-                <div className="text-[10px] font-bold uppercase tracking-wider text-[var(--accent-primary)] px-1 mb-1.5 flex items-center justify-between flex-shrink-0">
+                <div className="text-[10px] font-semibold uppercase tracking-wider text-[var(--color-primary)] px-1 mb-1.5 flex items-center justify-between flex-shrink-0">
                   <span>{language === 'hi' ? 'प्रमुख पर्यटन परिपथ' : 'Featured Heritage Routes'}</span>
-                  <span className="text-[9px] px-1.5 py-0.2 rounded-full bg-orange-100 dark:bg-orange-950/60 text-orange-800 dark:text-orange-200 border border-orange-200 dark:border-orange-800 font-bold uppercase">
+                  <span className="text-[9px] px-2 py-0.5 rounded-md bg-[var(--color-surface-secondary)] text-[var(--color-text-primary)] border border-[var(--color-border)] font-medium">
                     MP Tourism
                   </span>
                 </div>
               )}
 
               {/* Scrollable List of Curated Trails in Left Sidebar */}
-              <div className="flex flex-col gap-1.5 overflow-y-auto pr-1 scrollbar-thin scrollbar-thumb-orange-500/20 flex-1 min-h-0">
+              <div className="flex flex-col gap-1.5 overflow-y-auto pr-1 scrollbar-thin scrollbar-thumb-[var(--color-border)] flex-1 min-h-0">
                 {sidebarQuickPrompts.map((action) => (
                   <button
                     key={action.id}
@@ -670,7 +670,7 @@ export default function App() {
                       setExternalChatPrompt(action.query);
                       if (layoutMode === 'mpsites') setLayoutMode('split');
                     }}
-                    className={`w-full text-left p-2 rounded-xl text-xs font-medium glass hover:bg-orange-500/15 hover:border-orange-500/40 text-[var(--text-primary)] transition-all border border-[var(--glass-border)] shadow-xs flex items-center gap-2 cursor-pointer group flex-shrink-0 ${
+                    className={`w-full text-left p-2 rounded-xl text-xs font-medium glass hover:bg-[var(--color-surface-secondary)] hover:border-[var(--color-primary)] text-[var(--text-primary)] transition-all border border-[var(--glass-border)] shadow-xs flex items-center gap-2 cursor-pointer group flex-shrink-0 ${
                       isSidebarCollapsed ? 'justify-center' : 'justify-start'
                     }`}
                     title={action.label}
@@ -692,12 +692,12 @@ export default function App() {
             {/* Toll-free Helpline */}
             <a
               href="tel:18002330303"
-              className={`flex items-center gap-2 p-2 rounded-xl text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--accent-primary)] glass border border-[var(--glass-border)] transition-colors cursor-pointer ${
+              className={`flex items-center gap-2 p-2 rounded-xl text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--color-primary)] glass border border-[var(--glass-border)] transition-colors cursor-pointer ${
                 isSidebarCollapsed ? 'justify-center' : 'justify-start'
               }`}
               title="MP Tourism 24x7 Toll-Free Helpline: 1800-233-0303"
             >
-              <PhoneCall className="w-4 h-4 text-[var(--accent-primary)] flex-shrink-0" />
+              <PhoneCall className="w-4 h-4 text-[var(--color-primary)] flex-shrink-0" />
               {!isSidebarCollapsed && (
                 <div className="min-w-0 text-left">
                   <p className="text-[9px] text-[var(--text-secondary)] leading-tight">MP Tourism Helpline</p>
@@ -714,7 +714,7 @@ export default function App() {
                   onClick={() => setLanguage('en')}
                   className={`px-2 py-0.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                     language === 'en'
-                      ? 'bg-[var(--accent-primary)] text-white shadow-xs'
+                      ? 'bg-[var(--color-primary)] text-white shadow-xs font-bold'
                       : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                   }`}
                 >
@@ -724,7 +724,7 @@ export default function App() {
                   onClick={() => setLanguage('hi')}
                   className={`px-2 py-0.5 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                     language === 'hi'
-                      ? 'bg-[var(--accent-primary)] text-white shadow-xs'
+                      ? 'bg-[var(--color-primary)] text-white shadow-xs font-bold'
                       : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                   }`}
                 >
@@ -951,14 +951,14 @@ export default function App() {
           }}
           className={`flex flex-col items-center gap-0.5 py-1 px-2 rounded-xl transition-all cursor-pointer ${
             mobileTab === 'chat' && layoutMode !== 'news' && layoutMode !== 'mpsites'
-              ? 'text-orange-800 dark:text-orange-300 font-bold'
-              : 'text-neutral-700 dark:text-neutral-300 font-semibold hover:text-[var(--text-primary)]'
+              ? 'text-[var(--color-primary)] font-bold'
+              : 'text-[var(--text-secondary)] font-medium hover:text-[var(--text-primary)]'
           }`}
         >
           <MessageSquare className="w-4 h-4" />
           <span className="text-[10px] font-semibold">{language === 'hi' ? 'घूमो AI' : 'Ghumo AI'}</span>
           {mobileTab === 'chat' && layoutMode !== 'news' && layoutMode !== 'mpsites' && (
-            <motion.div layoutId="activeMobileIndicator" className="w-1.5 h-1.5 rounded-full bg-orange-700 dark:bg-orange-400" />
+            <motion.div layoutId="activeMobileIndicator" className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
           )}
         </button>
 
@@ -970,14 +970,14 @@ export default function App() {
           }}
           className={`flex flex-col items-center gap-0.5 py-1 px-2 rounded-xl transition-all cursor-pointer ${
             mobileTab === 'map' && layoutMode !== 'news' && layoutMode !== 'mpsites'
-              ? 'text-orange-800 dark:text-orange-300 font-bold'
-              : 'text-neutral-700 dark:text-neutral-300 font-semibold hover:text-[var(--text-primary)]'
+              ? 'text-[var(--color-primary)] font-bold'
+              : 'text-[var(--text-secondary)] font-medium hover:text-[var(--text-primary)]'
           }`}
         >
           <MapIcon className="w-4 h-4" />
           <span className="text-[10px] font-semibold">{language === 'hi' ? 'मानचित्र' : 'Map'}</span>
           {mobileTab === 'map' && layoutMode !== 'news' && layoutMode !== 'mpsites' && (
-            <motion.div layoutId="activeMobileIndicator" className="w-1.5 h-1.5 rounded-full bg-orange-700 dark:bg-orange-400" />
+            <motion.div layoutId="activeMobileIndicator" className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
           )}
         </button>
 
@@ -989,14 +989,14 @@ export default function App() {
           }}
           className={`flex flex-col items-center gap-0.5 py-1 px-2 rounded-xl transition-all cursor-pointer relative ${
             layoutMode === 'mpsites'
-              ? 'text-orange-800 dark:text-orange-300 font-bold'
-              : 'text-neutral-700 dark:text-neutral-300 font-semibold hover:text-[var(--text-primary)]'
+              ? 'text-[var(--color-primary)] font-bold'
+              : 'text-[var(--text-secondary)] font-medium hover:text-[var(--text-primary)]'
           }`}
         >
           <Globe className="w-4 h-4" />
           <span className="text-[10px] font-semibold">{language === 'hi' ? 'धरोहर' : 'MP Sites'}</span>
           {layoutMode === 'mpsites' && (
-            <motion.div layoutId="activeMobileIndicator" className="w-1.5 h-1.5 rounded-full bg-orange-700 dark:bg-orange-400" />
+            <motion.div layoutId="activeMobileIndicator" className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
           )}
         </button>
 
@@ -1007,11 +1007,11 @@ export default function App() {
           }}
           className={`flex flex-col items-center gap-0.5 py-1 px-2 rounded-xl transition-all cursor-pointer relative ${
             isCopilotOpen
-              ? 'text-orange-800 dark:text-orange-300 font-bold'
-              : 'text-neutral-700 dark:text-neutral-300 font-semibold hover:text-[var(--text-primary)]'
+              ? 'text-[var(--color-primary)] font-bold'
+              : 'text-[var(--text-secondary)] font-medium hover:text-[var(--text-primary)]'
           }`}
         >
-          <Route className="w-4 h-4 text-orange-700 dark:text-orange-300" />
+          <Route className="w-4 h-4 text-[var(--color-primary)]" />
           <span className="text-[10px] font-semibold">{language === 'hi' ? 'कोपायलट' : 'Copilot'}</span>
           {activeItinerary && (
             <span className="w-2 h-2 rounded-full bg-emerald-400 absolute top-1 right-1.5 animate-pulse" />
@@ -1026,8 +1026,8 @@ export default function App() {
           }}
           className={`flex flex-col items-center gap-0.5 py-1 px-2 rounded-xl transition-all cursor-pointer ${
             layoutMode === 'news'
-              ? 'text-orange-800 dark:text-orange-300 font-bold'
-              : 'text-neutral-700 dark:text-neutral-300 font-semibold hover:text-[var(--text-primary)]'
+              ? 'text-[var(--color-primary)] font-bold'
+              : 'text-[var(--text-secondary)] font-medium hover:text-[var(--text-primary)]'
           }`}
         >
           <div className="relative">
@@ -1036,7 +1036,7 @@ export default function App() {
           </div>
           <span className="text-[10px] font-semibold">{language === 'hi' ? 'बुलेटिन' : 'Dispatch'}</span>
           {layoutMode === 'news' && (
-            <motion.div layoutId="activeMobileIndicator" className="w-1.5 h-1.5 rounded-full bg-orange-700 dark:bg-orange-400" />
+            <motion.div layoutId="activeMobileIndicator" className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)]" />
           )}
         </button>
       </nav>

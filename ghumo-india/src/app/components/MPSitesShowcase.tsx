@@ -109,18 +109,19 @@ export function MPSitesShowcase({
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="editorial-card rounded-2xl p-5 md:p-6 border border-[var(--glass-border)] shadow-xl relative overflow-hidden bg-gradient-to-r from-orange-500/10 via-amber-500/5 to-transparent backdrop-blur-md"
+        className="editorial-card rounded-2xl p-5 md:p-6 border border-[var(--glass-border)] shadow-sm relative overflow-hidden bg-[var(--card-bg)]"
       >
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div className="space-y-1.5 max-w-3xl">
+          <div className="space-y-2 max-w-3xl">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-[var(--accent-primary)] text-white shadow-xs">
+              <span className="text-[11px] font-semibold tracking-wide px-2.5 py-0.5 rounded-md bg-[var(--color-surface-secondary)] text-[var(--color-text-primary)] border border-[var(--color-border)]">
                 Madhya Pradesh Tourism Guide
               </span>
-              <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-200 border border-emerald-300 dark:border-emerald-800">
+              <span className="text-[11px] font-medium tracking-wide px-2.5 py-0.5 rounded-md bg-[#183D32]/10 dark:bg-[#34D399]/15 text-[#183D32] dark:text-[#34D399] border border-[#183D32]/20 dark:border-[#34D399]/30 flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#183D32] dark:bg-[#34D399]" />
                 ASI Protected Heritage
               </span>
-              <span className="text-[10px] font-semibold text-[var(--text-secondary)]">
+              <span className="text-[11px] text-[var(--text-secondary)]">
                 {language === 'hi' ? 'चंबल • ग्वालियर • बुंदेलखंड • मालवा' : 'Chambal • Gwalior • Bundelkhand • Malwa'}
               </span>
             </div>
@@ -141,7 +142,7 @@ export function MPSitesShowcase({
           <div className="flex items-center gap-2 flex-shrink-0 self-start md:self-auto">
             <button
               onClick={() => onAskAI('मध्य प्रदेश की अनदेखी धरोहरों (बटेश्वर, मितावली, पढ़ावली, ककनमठ) का 4 घंटे का संपूर्ण हेरिटेज टूर प्लान बताएं।')}
-              className="px-4 py-2.5 rounded-xl text-xs font-bold bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 shadow-md hover:bg-black dark:hover:bg-white transition-all flex items-center gap-1.5 cursor-pointer"
+              className="px-4 py-2.5 rounded-xl text-xs font-bold bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white shadow-md transition-all flex items-center gap-1.5 cursor-pointer"
             >
               <Sparkles className="w-4 h-4" />
               <span>{language === 'hi' ? 'टूर प्लान बनाएं' : 'Plan Heritage Tour'}</span>
@@ -160,12 +161,12 @@ export function MPSitesShowcase({
                   onClick={() => setZoneFilter(z.id)}
                   className={`px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all border flex items-center gap-1.5 cursor-pointer ${
                     isSelected
-                      ? 'bg-[var(--accent-primary)] text-white border-transparent shadow-xs'
+                      ? 'bg-[var(--color-primary)] text-white border-transparent shadow-xs'
                       : 'glass border-[var(--glass-border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                   }`}
                 >
                   <span>{language === 'hi' ? z.label.hi : z.label.en}</span>
-                  <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isSelected ? 'bg-black/25 text-white font-bold' : 'bg-neutral-200 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-200 font-bold'}`}>
+                  <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isSelected ? 'bg-black/25 text-white font-bold' : 'bg-[var(--color-surface-secondary)] text-[var(--color-text-primary)] font-bold'}`}>
                     {z.count}
                   </span>
                 </button>
@@ -183,12 +184,12 @@ export function MPSitesShowcase({
                   className={`px-2.5 py-1 rounded-full text-[10px] font-bold transition-all cursor-pointer ${
                     confidenceFilter === conf
                       ? conf === 'HIGH'
-                        ? 'bg-emerald-600 text-white shadow-xs'
+                        ? 'bg-emerald-700 text-white shadow-xs'
                         : conf === 'MEDIUM'
-                        ? 'bg-amber-600 text-white shadow-xs'
+                        ? 'bg-amber-700 text-white shadow-xs'
                         : conf === 'LOW'
-                        ? 'bg-purple-600 text-white shadow-xs'
-                        : 'bg-[var(--accent-primary)] text-white shadow-xs'
+                        ? 'bg-rose-700 text-white shadow-xs'
+                        : 'bg-[var(--color-primary)] text-white shadow-xs'
                       : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                   }`}
                 >
@@ -204,7 +205,7 @@ export function MPSitesShowcase({
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
                 placeholder={language === 'hi' ? 'धरोहर या राजवंश खोजें...' : 'Search 50 sites, dynasty...'}
-                className="w-full pl-8 pr-3 py-1.5 text-xs rounded-full glass border border-[var(--glass-border)] bg-transparent text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent-primary)]"
+                className="w-full pl-8 pr-3 py-1.5 text-xs rounded-full glass border border-[var(--glass-border)] bg-transparent text-[var(--text-primary)] focus:outline-none focus:border-[var(--color-primary)]"
               />
             </div>
           </div>
@@ -216,7 +217,7 @@ export function MPSitesShowcase({
         {/* Left Side: Destination Cards Selector */}
         <div className="lg:col-span-4 space-y-3">
           <div className="flex items-center justify-between px-1">
-            <span className="text-xs font-bold uppercase tracking-wider text-[var(--accent-primary)] flex items-center gap-1.5">
+            <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-primary)] flex items-center gap-1.5">
               <Landmark className="w-3.5 h-3.5" />
               <span>{language === 'hi' ? 'धरोहर स्थल तालिका' : 'Heritage Destinations'} ({filteredSites.length})</span>
             </span>
@@ -236,8 +237,8 @@ export function MPSitesShowcase({
                   onClick={() => setSelectedSiteId(site.id)}
                   className={`p-3.5 rounded-2xl border transition-all cursor-pointer flex gap-3 relative overflow-hidden ${
                     isSelected
-                      ? 'editorial-card border-[var(--accent-primary)] shadow-md bg-[var(--accent-primary)]/5'
-                      : 'glass border-[var(--glass-border)] hover:border-[var(--accent-primary)]/50'
+                      ? 'editorial-card border-[var(--color-primary)] shadow-md bg-[var(--color-surface-secondary)]/30'
+                      : 'glass border-[var(--glass-border)] hover:border-[var(--color-primary)]/50'
                   }`}
                 >
                   <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 bg-neutral-200 dark:bg-neutral-800 border border-[var(--glass-border)]">
@@ -251,18 +252,18 @@ export function MPSitesShowcase({
                   <div className="flex-1 min-w-0 flex flex-col justify-between py-0.5">
                     <div>
                       <div className="flex items-center gap-1.5 flex-wrap">
-                        <span className="text-[9px] font-extrabold px-1.5 py-0.2 rounded bg-black/10 dark:bg-white/10 text-[var(--text-secondary)]">
+                        <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-[var(--color-surface-secondary)] text-[var(--color-text-secondary)]">
                           #{site.num}
                         </span>
-                        <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.2 rounded-md bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border border-[var(--accent-primary)]/20 truncate max-w-[150px]">
+                        <span className="text-[10px] font-medium tracking-tight px-1.5 py-0.5 rounded-md bg-[var(--color-surface-secondary)] text-[var(--color-text-primary)] border border-[var(--color-border)] truncate max-w-[150px]">
                           {language === 'hi' ? site.badge.hi : site.badge.en}
                         </span>
-                        <span className={`text-[8px] font-extrabold px-1.5 py-0.2 rounded uppercase ${
+                        <span className={`text-[9px] font-semibold px-1.5 py-0.5 rounded-md uppercase border ${
                           site.routeConfidence === 'HIGH'
-                            ? 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-200 border border-emerald-300 dark:border-emerald-800'
+                            ? 'bg-[#183D32]/10 dark:bg-[#34D399]/15 text-[#183D32] dark:text-[#34D399] border-[#183D32]/20 dark:border-[#34D399]/30'
                             : site.routeConfidence === 'MEDIUM'
-                            ? 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-200 border border-amber-300 dark:border-amber-800'
-                            : 'bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-200 border border-purple-300 dark:border-purple-800'
+                            ? 'bg-[#8A4B08]/10 dark:bg-[#FBBF24]/15 text-[#8A4B08] dark:text-[#FBBF24] border-[#8A4B08]/20 dark:border-[#FBBF24]/30'
+                            : 'bg-[var(--color-surface-secondary)] text-[var(--color-text-secondary)] border-[var(--color-border)]'
                         }`}>
                           {site.routeConfidence}
                         </span>
@@ -318,7 +319,7 @@ export function MPSitesShowcase({
                   <div className="flex items-center gap-2">
                     <button
                       onClick={handleAddToTrip}
-                      className="px-3 py-1.5 rounded-full text-xs font-bold bg-stone-900 hover:bg-black text-white border border-stone-700 shadow-md transition-all flex items-center gap-1.5 cursor-pointer backdrop-blur-md"
+                      className="px-3 py-1.5 rounded-full text-xs font-bold bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white border border-white/20 shadow-md transition-all flex items-center gap-1.5 cursor-pointer backdrop-blur-md"
                       title={language === 'hi' ? 'यात्रा कोपायलट में जोड़ें' : 'Add to Trip Copilot'}
                     >
                       <Plus className="w-3.5 h-3.5" />
@@ -775,7 +776,7 @@ export function MPSitesShowcase({
                   <div className="flex items-center gap-2">
                     <button
                       onClick={handleAddToTrip}
-                      className="px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-md transition-all flex items-center gap-1.5 cursor-pointer"
+                      className="px-4 py-2 rounded-xl text-xs font-semibold bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-[var(--color-primary-foreground)] shadow-sm transition-all flex items-center gap-1.5 cursor-pointer"
                     >
                       <Plus className="w-3.5 h-3.5" />
                       <span>{language === 'hi' ? 'कोपायलट में जोड़ें' : 'Add to Copilot'}</span>
@@ -783,9 +784,9 @@ export function MPSitesShowcase({
 
                     <button
                       onClick={() => onFocusMapLocation(selectedSite.coordinates)}
-                      className="px-4 py-2 rounded-xl text-xs font-bold bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 shadow-md hover:bg-black dark:hover:bg-white transition-all flex items-center gap-1.5 cursor-pointer"
+                      className="px-4 py-2 rounded-xl text-xs font-semibold border border-[var(--color-border)] bg-[var(--color-surface)] hover:bg-[var(--color-surface-secondary)] text-[var(--color-text-primary)] shadow-2xs transition-all flex items-center gap-1.5 cursor-pointer"
                     >
-                      <Navigation className="w-3.5 h-3.5" />
+                      <Navigation className="w-3.5 h-3.5 text-[var(--color-primary)]" />
                       <span>{language === 'hi' ? 'मानचित्र पर रूट देखें' : 'View Route on Map'}</span>
                     </button>
 

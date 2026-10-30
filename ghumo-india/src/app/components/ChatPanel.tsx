@@ -438,7 +438,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
       <div className="px-3.5 py-2.5 border-b border-[var(--glass-border)] glass flex items-center justify-between gap-3 backdrop-blur-md z-10 flex-shrink-0 min-w-0">
         {/* Left Side: Avatar & Identity */}
         <div className="flex items-center gap-2.5 min-w-0 flex-1">
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-orange-600 to-amber-500 flex items-center justify-center text-white shadow-sm flex-shrink-0">
+          <div className="w-8 h-8 rounded-xl bg-[var(--color-primary)] flex items-center justify-center text-[var(--color-primary-foreground)] shadow-xs flex-shrink-0">
             <Sparkles className="w-4 h-4" />
           </div>
           <div className="min-w-0 flex-1">
@@ -446,8 +446,8 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
               <h2 className="text-xs sm:text-sm font-bold text-[var(--text-primary)] font-editorial truncate">
                 {language === 'hi' ? 'घूमो AI' : 'Ghumo AI'}
               </h2>
-              <span className="flex-shrink-0 inline-flex items-center gap-1 text-[9px] px-1.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/50 text-emerald-800 dark:text-emerald-300 font-bold border border-emerald-300 dark:border-emerald-700">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400 animate-pulse" />
+              <span className="flex-shrink-0 inline-flex items-center gap-1.5 text-[10px] px-2 py-0.5 rounded-md bg-[var(--color-surface-secondary)] text-[var(--color-text-primary)] border border-[var(--color-border)] font-medium">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#183D32] dark:bg-[#34D399]" />
                 <span>Online</span>
               </span>
             </div>
@@ -475,19 +475,19 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
               onClick={onToggleFullScreen}
               className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all border cursor-pointer shadow-2xs ${
                 layoutMode === 'fullchat'
-                  ? 'bg-orange-100 dark:bg-orange-950/60 text-orange-900 dark:text-orange-200 border-orange-300 dark:border-orange-700'
-                  : 'glass text-[var(--text-primary)] border-[var(--glass-border)] hover:border-[var(--accent-primary)] hover:text-[var(--accent-primary)]'
+                  ? 'bg-[var(--color-primary)] text-[var(--color-primary-foreground)] border-[var(--color-primary)]'
+                  : 'glass text-[var(--text-primary)] border-[var(--glass-border)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]'
               }`}
               title={layoutMode === 'fullchat' ? (language === 'hi' ? 'द्वैत दृश्य में बदलें' : 'Switch to Split View') : (language === 'hi' ? 'चैट पैनल विस्तृत करें' : 'Expand Chat Panel')}
             >
               {layoutMode === 'fullchat' ? (
                 <>
-                  <Columns2 className="w-3.5 h-3.5 text-[var(--accent-primary)]" />
+                  <Columns2 className="w-3.5 h-3.5" />
                   <span className="text-[11px] font-bold">{language === 'hi' ? 'द्वैत दृश्य' : 'Split'}</span>
                 </>
               ) : (
                 <>
-                  <Maximize2 className="w-3.5 h-3.5 text-[var(--accent-primary)]" />
+                  <Maximize2 className="w-3.5 h-3.5 text-[var(--color-primary)]" />
                   <span className="text-[11px] font-bold">{language === 'hi' ? 'विस्तार' : 'Expand'}</span>
                 </>
               )}
@@ -499,8 +499,8 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
             onClick={onToggleWindowFullScreen || toggleBrowserFullScreen}
             className={`px-2.5 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-all border cursor-pointer shadow-2xs ${
               (isWindowFullScreen ?? isBrowserFullScreen)
-                ? 'bg-orange-100 dark:bg-orange-950/60 text-orange-900 dark:text-orange-200 border-orange-300 dark:border-orange-700 hover:bg-orange-200'
-                : 'glass text-[var(--text-primary)] border-[var(--glass-border)] hover:border-[var(--accent-primary)] hover:text-[var(--accent-primary)]'
+                ? 'bg-[var(--color-primary)] text-[var(--color-primary-foreground)] border-[var(--color-primary)]'
+                : 'glass text-[var(--text-primary)] border-[var(--glass-border)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]'
             }`}
             title={(isWindowFullScreen ?? isBrowserFullScreen)
               ? (language === 'hi' ? 'पूर्ण स्क्रीन विंडो से बाहर निकलें (Esc)' : 'Exit Full Screen Window (Esc)')
@@ -509,7 +509,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
           >
             {(isWindowFullScreen ?? isBrowserFullScreen) ? (
               <>
-                <Shrink className="w-3.5 h-3.5 text-[var(--accent-primary)]" />
+                <Shrink className="w-3.5 h-3.5" />
                 <span className="text-[11px] font-bold">{language === 'hi' ? 'निकास' : 'Exit FS'}</span>
               </>
             ) : (
@@ -553,11 +553,11 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="glass border-b border-[var(--glass-border)] overflow-hidden bg-orange-500/10 dark:bg-orange-950/40 p-3 z-10"
+            className="glass border-b border-[var(--glass-border)] overflow-hidden bg-[var(--color-surface-secondary)]/50 p-3 z-10"
           >
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-bold text-[var(--accent-primary)] uppercase tracking-wider flex items-center gap-1.5">
-                <Newspaper className="w-4 h-4" />
+              <span className="text-xs font-semibold text-[var(--color-primary)] uppercase tracking-wider flex items-center gap-1.5">
+                <Newspaper className="w-4 h-4 text-[var(--color-primary)]" />
                 {language === 'hi' ? 'मध्य प्रदेश पर्यटन: ताज़ा दिशानिर्देश व धरोहर अपडेट्स' : 'MP Tourism: Heritage Updates & Guidelines'}
               </span>
               <button
@@ -597,7 +597,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
       {/* Messages Scroll Area */}
       <div 
         ref={scrollAreaRef}
-        className="flex-1 overflow-y-auto min-h-0 relative scrollbar-thin scrollbar-thumb-orange-500/20"
+        className="flex-1 overflow-y-auto min-h-0 relative scrollbar-thin scrollbar-thumb-[var(--color-border)]"
       >
         <div className={`w-full ${
           layoutMode === 'fullchat' 
@@ -619,17 +619,17 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                     ? (layoutMode === 'fullchat'
                         ? 'w-full rounded-2xl p-5 sm:p-6 glass border-[var(--glass-border)] text-[var(--text-primary)] shadow-sm'
                         : 'max-w-[92%] rounded-2xl p-4 glass border-[var(--glass-border)] text-[var(--text-primary)] rounded-tl-sm')
-                    : 'max-w-[85%] sm:max-w-[75%] rounded-2xl p-4 bg-stone-900 dark:bg-stone-800 text-white border border-stone-800 rounded-tr-sm shadow-md'
+                    : 'max-w-[85%] sm:max-w-[75%] rounded-2xl p-4 bg-[var(--color-primary)] text-white border border-[var(--color-primary)] rounded-tr-sm shadow-md'
                 }`}>
                   {/* Message Header for AI */}
                   {isAI && (
                     <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-[var(--glass-border)]">
-                      <div className="flex items-center gap-2 text-xs font-bold text-orange-900 dark:text-orange-200">
-                        <div className="w-5 h-5 rounded-md bg-gradient-to-tr from-orange-500 to-amber-400 text-white flex items-center justify-center shadow-xs">
+                      <div className="flex items-center gap-2 text-xs font-bold text-[var(--color-primary)]">
+                        <div className="w-5 h-5 rounded-md bg-[var(--color-primary)] text-white flex items-center justify-center shadow-xs">
                           <Sparkles className="w-3 h-3" />
                         </div>
                         <span className="font-editorial text-sm">{language === 'hi' ? 'घूमो AI' : 'Ghumo AI'}</span>
-                        <span className="hidden sm:inline-block text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 dark:bg-orange-950/60 text-orange-900 dark:text-orange-200 border border-orange-200 dark:border-orange-800 uppercase tracking-wider">
+                        <span className="hidden sm:inline-block text-[10px] font-bold px-2 py-0.5 rounded-full bg-[var(--color-surface-secondary)] text-[var(--color-text-primary)] border border-[var(--color-border)] uppercase tracking-wider">
                           {language === 'hi' ? 'पर्यटन एआई परामर्श' : 'Official Intelligence'}
                         </span>
                       </div>
@@ -638,7 +638,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                         {/* Copy Message Text */}
                         <button
                           onClick={() => handleCopyMessage(msg)}
-                          className="p-1.5 rounded-full transition-all flex items-center gap-1 text-xs font-medium glass hover:text-[var(--accent-primary)] text-[var(--text-secondary)] border border-[var(--glass-border)] cursor-pointer"
+                          className="p-1.5 rounded-full transition-all flex items-center gap-1 text-xs font-medium glass hover:text-[var(--color-primary)] text-[var(--text-secondary)] border border-[var(--glass-border)] cursor-pointer"
                           title={language === 'hi' ? 'संदेश कॉपी करें' : 'Copy Message'}
                         >
                           {copiedMessageId === msg.id ? (
@@ -659,8 +659,8 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                           onClick={() => handleToggleSpeakMessage(msg)}
                           className={`p-1.5 rounded-full transition-all flex items-center gap-1 text-xs font-medium border cursor-pointer ${
                             speakingMessageId === msg.id
-                              ? 'bg-orange-500 text-white border-orange-500 animate-pulse'
-                              : 'glass hover:text-[var(--accent-primary)] text-[var(--text-secondary)] border-[var(--glass-border)]'
+                              ? 'bg-[var(--color-primary)] text-white border-[var(--color-primary)] animate-pulse'
+                              : 'glass hover:text-[var(--color-primary)] text-[var(--text-secondary)] border-[var(--glass-border)]'
                           }`}
                           title={speakingMessageId === msg.id ? 'Stop Voice' : (language === 'hi' ? 'आवाज़ में सुनें' : 'Listen with AI Voice')}
                         >
@@ -688,7 +688,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                   {/* In-Chat Image Gallery Component */}
                   {msg.images && msg.images.length > 0 && (
                     <div className="mt-3.5 pt-3.5 border-t border-[var(--glass-border)] space-y-2">
-                      <div className="flex items-center gap-1.5 text-xs font-bold text-orange-900 dark:text-orange-200">
+                      <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--color-primary)]">
                         <ImageIcon className="w-3.5 h-3.5" />
                         <span>{language === 'hi' ? 'दर्शन एवं फोटो गैलरी' : 'Visual Gallery & Highlights'}</span>
                       </div>
@@ -727,9 +727,9 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                   {/* In-Chat Interactive Map Card Component */}
                   {msg.mapData && (
                     <div className="mt-3.5 pt-3.5 border-t border-[var(--glass-border)]">
-                      <div className="glass rounded-xl p-3.5 border border-orange-500/30 bg-orange-500/5 dark:bg-orange-950/20 shadow-sm">
+                      <div className="glass rounded-xl p-3.5 border border-[var(--color-border)] bg-[var(--color-surface-secondary)]/30 shadow-sm">
                         <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center gap-1.5 text-xs font-bold text-orange-900 dark:text-orange-200">
+                          <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--color-primary)]">
                             <MapPin className="w-4 h-4" />
                             <span>{msg.mapData.title}</span>
                           </div>
@@ -744,7 +744,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                         <div className="space-y-1.5 my-2.5">
                           {msg.mapData.markers.slice(0, 4).map((m, idx) => (
                             <div key={idx} className="flex items-center gap-2 text-xs text-[var(--text-primary)]">
-                              <span className="w-4 h-4 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0 shadow-xs">
+                              <span className="w-4 h-4 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0 shadow-xs">
                                 {idx + 1}
                               </span>
                               <span className="font-semibold">{m.title}</span>
@@ -760,7 +760,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                             }
                             onSwitchToMap?.();
                           }}
-                          className="w-full mt-2 py-2 px-3 rounded-xl text-xs font-bold bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 hover:bg-black dark:hover:bg-white shadow-sm flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+                          className="w-full mt-2 py-2 px-3 rounded-xl text-xs font-bold bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white shadow-sm flex items-center justify-center gap-1.5 transition-all cursor-pointer"
                         >
                           <Maximize2 className="w-3.5 h-3.5" />
                           <span>{language === 'hi' ? 'पूरा मैप देखें एवं नेविगेट करें' : 'Open in Full Screen Interactive Map'}</span>
@@ -772,10 +772,10 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                   {/* In-Chat Copilot Itinerary Timeline Preview Card */}
                   {msg.copilotItinerary && (
                     <div className="mt-3.5 pt-3.5 border-t border-[var(--glass-border)]">
-                      <div className="glass rounded-xl p-4 border border-orange-500/30 bg-gradient-to-b from-orange-500/5 to-transparent shadow-md">
+                      <div className="glass rounded-xl p-4 border border-[var(--color-border)] bg-[var(--color-surface-secondary)]/30 shadow-md">
                         <div className="flex items-center justify-between mb-2.5">
                           <div className="flex items-center gap-2 min-w-0">
-                            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-orange-600 to-amber-500 text-white flex items-center justify-center font-bold text-sm shadow-sm flex-shrink-0">
+                            <div className="w-8 h-8 rounded-xl bg-[var(--color-primary)] text-white flex items-center justify-center font-bold text-sm shadow-sm flex-shrink-0">
                               🧭
                             </div>
                             <div className="min-w-0">
@@ -787,7 +787,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                               </span>
                             </div>
                           </div>
-                          <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-orange-100 dark:bg-orange-950/60 text-orange-900 dark:text-orange-200 border border-orange-300 dark:border-orange-800 flex-shrink-0">
+                          <span className="px-2 py-0.5 rounded-md text-[11px] font-medium bg-[var(--color-surface-secondary)] text-[var(--color-text-primary)] border border-[var(--color-border)] flex-shrink-0">
                             {msg.copilotItinerary.stops.length} {language === 'hi' ? 'पड़ाव' : 'Stops'}
                           </span>
                         </div>
@@ -811,9 +811,9 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                                   onFocusMapLocation(stop.coordinates);
                                 }
                               }}
-                              className="flex items-start gap-2.5 p-2.5 rounded-xl glass hover:border-orange-500/50 transition-all cursor-pointer border border-[var(--glass-border)] group"
+                              className="flex items-start gap-2.5 p-2.5 rounded-xl glass hover:border-[var(--color-primary)]/50 transition-all cursor-pointer border border-[var(--glass-border)] group"
                             >
-                              <span className="w-5 h-5 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 text-white text-[10px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm group-hover:scale-110 transition-transform">
+                              <span className="w-5 h-5 rounded-full bg-[var(--color-primary)] text-white text-[10px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm group-hover:scale-110 transition-transform">
                                 {stop.stopNumber || (idx + 1)}
                               </span>
                               <div className="flex-1 min-w-0">
@@ -821,7 +821,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                                   <p className="text-xs font-bold text-[var(--text-primary)] truncate">
                                     {language === 'hi' ? stop.hindiName : stop.name}
                                   </p>
-                                  <span className="text-[10px] font-bold text-orange-800 dark:text-orange-300 flex-shrink-0">
+                                  <span className="text-[10px] font-bold text-[var(--color-primary)] flex-shrink-0">
                                     {stop.startTime} - {stop.endTime}
                                   </span>
                                 </div>
@@ -842,7 +842,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                               }
                               onToggleCopilotDrawer?.();
                             }}
-                            className="py-2 px-3 rounded-xl text-xs font-bold bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 hover:bg-black dark:hover:bg-white flex items-center justify-center gap-1.5 transition-all shadow-sm cursor-pointer"
+                            className="py-2 px-3 rounded-xl text-xs font-bold bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white flex items-center justify-center gap-1.5 transition-all shadow-sm cursor-pointer"
                           >
                             <Route className="w-3.5 h-3.5" />
                             <span>{language === 'hi' ? 'इंटरैक्टिव टाइमलाइन' : 'Open Timeline'}</span>
@@ -856,9 +856,9 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                               }
                               onSwitchToMap?.();
                             }}
-                            className="py-2 px-3 rounded-xl text-xs font-bold glass hover:bg-white/20 text-[var(--text-primary)] flex items-center justify-center gap-1.5 transition-all border border-[var(--glass-border)] cursor-pointer"
+                            className="py-2 px-3 rounded-xl text-xs font-bold glass hover:bg-[var(--color-surface-secondary)] text-[var(--text-primary)] flex items-center justify-center gap-1.5 transition-all border border-[var(--glass-border)] cursor-pointer"
                           >
-                            <MapPin className="w-3.5 h-3.5" />
+                            <MapPin className="w-3.5 h-3.5 text-[var(--color-primary)]" />
                             <span>{language === 'hi' ? 'मैप पर देखें' : 'View on Map'}</span>
                           </button>
                         </div>
@@ -869,9 +869,9 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                 {/* Real-time District Crowd Telemetry Card */}
                 {msg.districtCrowdStatus && (
                   <div className="mt-3 pt-3 border-t border-[var(--glass-border)]">
-                    <div className="glass rounded-xl p-3 border border-orange-500/40 bg-orange-500/10 shadow-sm">
+                    <div className="glass rounded-xl p-3 border border-[var(--color-border)] bg-[var(--color-surface-secondary)]/30 shadow-sm">
                       <div className="flex items-center justify-between mb-2">
-                        <div className="flex items-center gap-1.5 text-xs font-bold text-orange-900 dark:text-orange-200">
+                        <div className="flex items-center gap-1.5 text-xs font-bold text-[var(--color-primary)]">
                           <span className="w-2 h-2 rounded-full bg-red-500 animate-ping flex-shrink-0" />
                           <span>
                             {language === 'hi'
@@ -881,8 +881,8 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                         </div>
                         <span className={`px-2 py-0.5 rounded-full text-[10px] font-black uppercase ${
                           msg.districtCrowdStatus.crowdLevel === 'extreme' ? 'bg-red-600 text-white' :
-                          msg.districtCrowdStatus.crowdLevel === 'high' ? 'bg-orange-500 text-white' :
-                          'bg-yellow-500 text-black'
+                          msg.districtCrowdStatus.crowdLevel === 'high' ? 'bg-orange-700 text-white' :
+                          'bg-amber-600 text-white'
                         }`}>
                           {msg.districtCrowdStatus.crowdLevel}
                         </span>
@@ -902,7 +902,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                             <span className="font-semibold text-[var(--text-primary)] truncate max-w-[90px]">
                               {language === 'hi' ? spot.hindiName : spot.name}
                             </span>
-                            <span className="font-bold text-orange-800 dark:text-orange-300">
+                            <span className="font-bold text-[var(--color-primary)]">
                               {spot.waitMinutes > 0 ? `~${spot.waitMinutes}m` : 'Fast'}
                             </span>
                           </div>
@@ -915,7 +915,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                 {/* Related Scraped News Cards */}
                 {msg.scrapedNews && msg.scrapedNews.length > 0 && (
                   <div className="mt-3 pt-3 border-t border-[var(--glass-border)]">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-orange-900 dark:text-orange-200 mb-1.5 block">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--color-primary)] mb-1.5 block">
                       📰 {language === 'hi' ? 'संबंधित लाइव जिले के समाचार:' : 'Live District Bulletins:'}
                     </span>
                     <div className="space-y-1.5">
@@ -931,7 +931,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                                 href={news.sourceUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-orange-900 dark:text-orange-200 font-semibold hover:underline flex items-center gap-0.5"
+                                className="text-[var(--color-primary)] font-semibold hover:underline flex items-center gap-0.5"
                               >
                                 <span>{news.source}</span>
                                 <ExternalLink className="w-2.5 h-2.5" />
@@ -960,7 +960,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
             animate={{ opacity: 1, y: 0 }}
             className="flex items-center gap-2 text-xs text-[var(--text-secondary)] glass rounded-full px-4 py-2 w-max shadow-sm"
           >
-            <Loader2 className="w-4 h-4 animate-spin text-[var(--accent-primary)]" />
+            <Loader2 className="w-4 h-4 animate-spin text-[var(--color-primary)]" />
             <span>{language === 'hi' ? 'घूमो AI जानकारी जुटा रही है...' : 'Ghumo AI is exploring heritage knowledge...'}</span>
           </motion.div>
         )}
@@ -979,7 +979,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => handleUserSendMessage(action.query)}
-                className="px-3.5 py-1.5 rounded-full text-xs font-medium glass hover:bg-orange-500/10 hover:border-[var(--accent-primary)] text-[var(--text-primary)] transition-all whitespace-nowrap border border-[var(--glass-border)] shadow-xs flex items-center gap-1.5 cursor-pointer flex-shrink-0"
+                className="px-3.5 py-1.5 rounded-full text-xs font-medium glass hover:bg-[var(--color-surface-secondary)] hover:border-[var(--color-primary)] text-[var(--text-primary)] transition-all whitespace-nowrap border border-[var(--glass-border)] shadow-xs flex items-center gap-1.5 cursor-pointer flex-shrink-0"
               >
                 {action.label}
               </motion.button>
@@ -996,7 +996,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
               e.preventDefault();
               handleUserSendMessage();
             }}
-            className="flex items-center gap-2 p-1.5 rounded-full glass border border-[var(--glass-border)] shadow-xl focus-within:border-[var(--accent-primary)] focus-within:ring-2 focus-within:ring-orange-500/25 transition-all bg-white/75 dark:bg-stone-900/75"
+            className="flex items-center gap-2 p-1.5 rounded-full glass border border-[var(--glass-border)] shadow-xl focus-within:border-[var(--color-primary)] focus-within:ring-2 focus-within:ring-[var(--color-primary)]/20 transition-all bg-white dark:bg-[#132A23]"
           >
             {/* Voice Input Microphone Button */}
             {isSpeechRecognitionSupported() && (
@@ -1006,7 +1006,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                 className={`p-2.5 rounded-full transition-all flex items-center justify-center cursor-pointer ${
                   isRecording
                     ? 'bg-red-500 text-white animate-ping ring-4 ring-red-300'
-                    : 'text-[var(--accent-primary)] hover:bg-orange-500/10'
+                    : 'text-[var(--color-primary)] hover:bg-[var(--color-surface-secondary)]'
                 }`}
                 title={isRecording ? 'Stop Recording' : (language === 'hi' ? 'बोलकर प्रश्न पूछें' : 'Speak to AI')}
               >
@@ -1046,7 +1046,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
               aria-label={language === 'hi' ? 'संदेश भेजें' : 'Send message'}
               className={`p-2.5 rounded-full transition-all flex items-center justify-center cursor-pointer ${
                 inputValue.trim() && !isTyping
-                  ? 'bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 hover:bg-black dark:hover:bg-white shadow-md'
+                  ? 'bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] shadow-md'
                   : 'opacity-40 cursor-not-allowed text-[var(--text-secondary)] bg-black/5 dark:bg-white/5'
               }`}
             >
@@ -1061,7 +1061,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
                 {language === 'hi' ? 'घूमो इंडिया • टीम सृजन (प्रॉब्लम 4 - पर्यटन)' : 'Ghumo India • Team Srajan (Problem 4 - Tourism Track)'}
               </span>
-              <span className="hidden sm:inline opacity-80">
+              <span className="hidden sm:inline font-medium text-[var(--color-text-secondary)]">
                 {language === 'hi' ? 'बियॉन्ड द फोर्ट • मध्य प्रदेश अनदेखी धरोहर एवं पर्यटन पोर्टल' : 'Beyond The Fort • MP Lesser-Known Heritage Discovery'}
               </span>
             </div>

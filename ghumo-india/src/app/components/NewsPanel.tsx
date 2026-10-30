@@ -143,8 +143,8 @@ export function NewsPanel({ theme, language, onAskAI }: NewsPanelProps) {
       </header>
 
       {/* Official Urgent Travel Advisory Strip */}
-      <div className="editorial-card rounded-xl p-3 md:p-3.5 border-l-4 border-l-[var(--accent-primary)] flex items-center gap-3 overflow-hidden">
-        <span className="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-[var(--accent-primary)] text-white flex items-center gap-1.5 flex-shrink-0">
+      <div className="editorial-card rounded-xl p-3 md:p-3.5 border-l-4 border-l-[var(--color-primary)] flex items-center gap-3 overflow-hidden">
+        <span className="px-2.5 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider bg-[var(--color-primary)] text-[var(--color-primary-foreground)] flex items-center gap-1.5 flex-shrink-0">
           <AlertCircle className="w-3.5 h-3.5" />
           {language === 'hi' ? 'यात्रा सूचना' : 'Official Advisory'}
         </span>
@@ -233,9 +233,9 @@ export function NewsPanel({ theme, language, onAskAI }: NewsPanelProps) {
                     📍 {language === 'hi' ? activeDistrictTelemetry.hindiDistrict : activeDistrictTelemetry.district} — {language === 'hi' ? 'दर्शन व मार्ग परामर्श' : 'Pilgrimage Dossier'}
                   </h3>
                   <span className={`px-2.5 py-0.5 rounded-full text-xs font-bold ${
-                    activeDistrictTelemetry.crowdLevel === 'extreme' ? 'bg-red-600 text-white' :
-                    activeDistrictTelemetry.crowdLevel === 'high' ? 'bg-amber-600 text-white' :
-                    'bg-emerald-600 text-white'
+                    activeDistrictTelemetry.crowdLevel === 'extreme' ? 'bg-[#991B1B] text-white' :
+                    activeDistrictTelemetry.crowdLevel === 'high' ? 'bg-[#8A4B08] text-white' :
+                    'bg-[#1E5A38] text-white'
                   }`}>
                     {activeDistrictTelemetry.crowdLevel.toUpperCase()}
                   </span>
@@ -252,7 +252,7 @@ export function NewsPanel({ theme, language, onAskAI }: NewsPanelProps) {
                     ? `${activeDistrictTelemetry.hindiDistrict} में अभी कितनी भीड़ है और दर्शन का सही समय क्या है?`
                     : `How much crowd is there in ${activeDistrictTelemetry.district} right now and what is the recommended time for darshan?`
                 )}
-                className="px-4 py-2 rounded-xl text-xs font-bold bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 shadow-sm hover:bg-black dark:hover:bg-white transition-all flex items-center gap-2 cursor-pointer self-start md:self-auto"
+                className="px-4 py-2 rounded-xl text-xs font-bold bg-[var(--color-primary)] text-[var(--color-primary-foreground)] shadow-sm hover:bg-[var(--color-primary-hover)] transition-all flex items-center gap-2 cursor-pointer self-start md:self-auto"
               >
                 <MessageSquare className="w-3.5 h-3.5" />
                 <span>{language === 'hi' ? 'यात्रा परामर्श से पूछें' : 'Consult Travel Concierge'}</span>
@@ -379,7 +379,7 @@ export function NewsPanel({ theme, language, onAskAI }: NewsPanelProps) {
                       ? `मुझे "${heroStory.title.hi}" के बारे में संपूर्ण यात्रा योजना और दर्शन नियम बताएं।`
                       : `Tell me detailed travel planning guidance and darshan rules regarding "${heroStory.title.en}".`
                   )}
-                  className="px-4 py-2 rounded-xl text-xs font-semibold bg-[var(--accent-primary)] text-white shadow-sm hover:opacity-95 transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-4 py-2 rounded-xl text-xs font-semibold bg-[var(--color-primary)] text-[var(--color-primary-foreground)] shadow-sm hover:bg-[var(--color-primary-hover)] transition-all flex items-center gap-2 cursor-pointer"
                 >
                   <MessageSquare className="w-3.5 h-3.5" />
                   <span>{language === 'hi' ? 'यात्रा परामर्श से पूछें' : 'Plan with Concierge'}</span>
@@ -454,8 +454,8 @@ export function NewsPanel({ theme, language, onAskAI }: NewsPanelProps) {
               onClick={() => setSelectedCategory(cat.id)}
               className={`px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all whitespace-nowrap cursor-pointer ${
                 isSelected
-                  ? 'bg-[var(--accent-primary)] text-white shadow-sm'
-                  : 'editorial-card text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                  ? 'bg-[var(--color-primary)] text-[var(--color-primary-foreground)] shadow-sm'
+                  : 'editorial-card text-[var(--color-text-primary)] hover:border-[var(--color-primary)]'
               }`}
             >
               <Icon className="w-3.5 h-3.5" />
@@ -468,14 +468,14 @@ export function NewsPanel({ theme, language, onAskAI }: NewsPanelProps) {
       {/* Dispatches Magazine Grid */}
       {isLoading ? (
         <div className="w-full py-20 flex flex-col items-center justify-center gap-3">
-          <RefreshCw className="w-7 h-7 animate-spin text-[var(--accent-primary)]" />
+          <RefreshCw className="w-7 h-7 animate-spin text-[var(--color-primary)]" />
           <p className="text-xs font-medium text-[var(--text-secondary)]">
             {language === 'hi' ? 'उत्तर प्रदेश तीर्थ एवं जिला बुलेटिन प्राप्त किए जा रहे हैं...' : 'Retrieving real-time pilgrimage & travel bulletins...'}
           </p>
         </div>
       ) : storiesToDisplay.length === 0 ? (
         <div className="w-full py-16 editorial-card rounded-2xl p-6 text-center">
-          <AlertCircle className="w-9 h-9 mx-auto text-[var(--accent-primary)] mb-2" />
+          <AlertCircle className="w-9 h-9 mx-auto text-[var(--color-primary)] mb-2" />
           <h3 className="text-sm font-bold text-[var(--text-primary)] font-editorial">
             {language === 'hi' ? 'कोई बुलेटिन नहीं मिला' : 'No Travel Dispatches Found'}
           </h3>
@@ -484,7 +484,7 @@ export function NewsPanel({ theme, language, onAskAI }: NewsPanelProps) {
           </p>
           <button
             onClick={() => { setSelectedDistrict('all'); setSelectedCategory('all'); setSearchQuery(''); }}
-            className="mt-3.5 px-4 py-2 rounded-xl text-xs font-semibold bg-[var(--accent-primary)] text-white cursor-pointer"
+            className="mt-3.5 px-4 py-2 rounded-xl text-xs font-semibold bg-[var(--color-primary)] text-[var(--color-primary-foreground)] hover:bg-[var(--color-primary-hover)] cursor-pointer"
           >
             {language === 'hi' ? 'समस्त फ़िल्टर हटाएं' : 'Reset All Filters'}
           </button>
@@ -543,10 +543,10 @@ export function NewsPanel({ theme, language, onAskAI }: NewsPanelProps) {
                   {/* Card Editorial Body */}
                   <div className="p-5 space-y-2.5">
                     <div className="flex items-center justify-between text-[11px] font-semibold text-[var(--text-secondary)]">
-                      <span className="text-[var(--accent-primary)] font-bold uppercase tracking-wider text-[10px]">
+                      <span className="text-[var(--color-primary)] font-bold uppercase tracking-wider text-[10px]">
                         {language === 'hi' ? item.categoryLabel.hi : item.categoryLabel.en}
                       </span>
-                      <span className="truncate max-w-[130px] opacity-80">
+                      <span className="truncate max-w-[130px] font-medium text-[var(--color-text-secondary)]">
                         {item.source}
                       </span>
                     </div>
@@ -596,7 +596,7 @@ export function NewsPanel({ theme, language, onAskAI }: NewsPanelProps) {
                         ? `मुझे "${item.title.hi}" के बारे में विस्तार से बताएं और दर्शन व यात्रा सुझाव दें।`
                         : `Please provide practical travel guidelines and darshan advice regarding "${item.title.en}".`
                     )}
-                    className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-[var(--accent-primary)] text-white shadow-sm hover:opacity-95 flex items-center gap-1.5 transition-all cursor-pointer"
+                    className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-[var(--color-primary)] text-[var(--color-primary-foreground)] shadow-sm hover:bg-[var(--color-primary-hover)] flex items-center gap-1.5 transition-all cursor-pointer"
                     title={language === 'hi' ? 'यात्रा परामर्श से पूछें' : 'Consult Travel Concierge'}
                   >
                     <MessageSquare className="w-3.5 h-3.5" />

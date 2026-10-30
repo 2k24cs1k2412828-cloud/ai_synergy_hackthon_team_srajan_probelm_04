@@ -30,7 +30,7 @@ export function MapMarkerPopup({
       <div className="p-4 space-y-3">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-xs px-2 py-0.5 rounded-full bg-orange-100 dark:bg-orange-950/60 text-orange-900 dark:text-orange-200 border border-orange-200 dark:border-orange-800 font-bold">
+            <span className="text-xs px-2.5 py-0.5 rounded-full bg-[var(--color-surface-secondary)] text-[var(--color-text-primary)] border border-[var(--color-border)] font-bold">
               {category}
             </span>
           </div>
@@ -46,7 +46,7 @@ export function MapMarkerPopup({
             size="sm"
             variant="outline"
             onClick={onExplore}
-            className="flex-1 text-xs h-8 bg-transparent border-orange-800 dark:border-orange-300 text-orange-900 dark:text-orange-200 hover:bg-[var(--accent-primary)] hover:text-white font-bold"
+            className="flex-1 text-xs h-8 border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-text-primary)] hover:bg-[var(--color-surface-secondary)] hover:text-[var(--color-text-primary)] font-bold"
           >
             <ExternalLink className="w-3 h-3 mr-1" />
             Explore
@@ -54,7 +54,7 @@ export function MapMarkerPopup({
           <Button
             size="sm"
             onClick={onAddToPlan}
-            className="flex-1 text-xs h-8 bg-[var(--accent-primary)] hover:bg-[var(--accent-secondary)] text-white"
+            className="flex-1 text-xs h-8 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-[var(--color-primary-foreground)]"
           >
             <Plus className="w-3 h-3 mr-1" />
             Add to Plan

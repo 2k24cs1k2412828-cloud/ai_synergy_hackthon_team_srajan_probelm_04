@@ -98,7 +98,7 @@ export function HelpGuide() {
 
                 <Button
                   onClick={() => setIsOpen(false)}
-                  className="w-full mt-6 bg-[var(--accent-primary)] hover:bg-[var(--accent-secondary)] text-white"
+                  className="w-full mt-6 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-[var(--color-primary-foreground)] cursor-pointer"
                 >
                   Got it!
                 </Button>

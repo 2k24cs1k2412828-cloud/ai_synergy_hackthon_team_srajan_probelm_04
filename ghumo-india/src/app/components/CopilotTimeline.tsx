@@ -64,14 +64,14 @@ export function CopilotTimeline({
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         onClick={onToggleOpen}
-        className="fixed bottom-20 left-4 z-[1050] px-3.5 py-2.5 rounded-full shadow-2xl border border-stone-700 flex items-center gap-2 text-xs font-bold text-white bg-stone-900 hover:bg-black transition-all cursor-pointer"
+        className="fixed bottom-20 left-4 z-[1050] px-3.5 py-2.5 rounded-xl shadow-lg border border-[var(--color-border)] flex items-center gap-2 text-xs font-semibold text-[var(--color-primary-foreground)] bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] transition-all cursor-pointer"
         title="Open AI Travel Copilot Itinerary"
       >
-        <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-        <Compass className="w-4 h-4 text-white" />
+        <span className="w-2 h-2 rounded-full bg-[#34D399]" />
+        <Compass className="w-4 h-4 text-[var(--color-primary-foreground)]" />
         <span>{language === 'hi' ? 'यात्रा कोपायलट' : 'AI Copilot'}</span>
         {itinerary && (
-          <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-white/20 text-white font-bold">
+          <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-white/20 text-white font-medium">
             {itinerary.stops.length}
           </span>
         )}
@@ -130,15 +130,16 @@ export function CopilotTimeline({
       {/* Header Bar */}
       <div className="p-3.5 border-b border-[var(--glass-border)] flex items-center justify-between gap-2 flex-shrink-0 bg-black/5 dark:bg-white/5">
         <div className="flex items-center gap-2 min-w-0">
-          <div className="w-8 h-8 rounded-xl bg-[var(--accent-primary)]/15 border border-[var(--accent-primary)]/30 flex items-center justify-center flex-shrink-0">
-            <Compass className="w-4 h-4 text-[var(--accent-primary)]" />
+          <div className="w-8 h-8 rounded-xl bg-[var(--color-surface-secondary)] border border-[var(--color-border)] flex items-center justify-center flex-shrink-0">
+            <Compass className="w-4 h-4 text-[var(--color-primary)]" />
           </div>
           <div className="min-w-0">
             <div className="flex items-center gap-1.5">
-              <h2 className="text-xs font-extrabold uppercase tracking-wider text-[var(--text-primary)] truncate font-display">
+              <h2 className="text-xs font-bold uppercase tracking-wider text-[var(--text-primary)] truncate font-display">
                 {language === 'hi' ? 'AI यात्रा कोपायलट' : 'AI Travel Copilot'}
               </h2>
-              <span className="text-[9px] px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-200 border border-emerald-300 dark:border-emerald-800 font-bold uppercase">
+              <span className="text-[10px] px-2 py-0.5 rounded-md bg-[var(--color-surface-secondary)] text-[var(--color-text-primary)] border border-[var(--color-border)] font-medium flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#183D32] dark:bg-[#34D399]" />
                 Live
               </span>
             </div>
@@ -152,7 +153,7 @@ export function CopilotTimeline({
           {itinerary && itinerary.stops.length > 1 && (
             <button
               onClick={handleOptimizeTrip}
-              className="px-2 py-1 rounded-lg text-[10px] font-bold bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 hover:bg-black dark:hover:bg-white flex items-center gap-1 shadow-sm transition-all cursor-pointer"
+              className="px-2 py-1 rounded-lg text-[10px] font-semibold bg-[var(--color-primary)] text-[var(--color-primary-foreground)] hover:bg-[var(--color-primary-hover)] flex items-center gap-1 shadow-2xs transition-all cursor-pointer"
               title="Optimize order to reduce travel time"
             >
               <Sparkles className="w-3 h-3" />
@@ -163,7 +164,7 @@ export function CopilotTimeline({
           {itinerary && onClearItinerary && (
             <button
               onClick={onClearItinerary}
-              className="px-2 py-1 rounded-lg text-[10px] font-bold text-rose-700 dark:text-rose-300 hover:bg-rose-500/10 border border-rose-300 dark:border-rose-700 flex items-center gap-1 transition-all cursor-pointer"
+              className="px-2 py-1 rounded-lg text-[10px] font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--color-surface-secondary)] border border-[var(--color-border)] flex items-center gap-1 transition-all cursor-pointer"
               title={language === 'hi' ? 'यात्रा रीसेट करें और नया मार्ग बनाएं' : 'Clear & Reset Trip'}
             >
               <RotateCcw className="w-3 h-3" />
@@ -173,7 +174,7 @@ export function CopilotTimeline({
 
           <button
             onClick={onToggleOpen}
-            className="p-1 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-black/10 dark:hover:bg-white/10 transition-colors cursor-pointer"
+            className="p-1 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--color-surface-secondary)] transition-colors cursor-pointer"
           >
             <X className="w-4 h-4" />
           </button>
@@ -185,12 +186,12 @@ export function CopilotTimeline({
         <div className="flex-1 min-h-0 flex flex-col overflow-hidden">
           {/* Smart Deadline Protection Banner */}
           {itinerary.deadlineTime && (
-            <div className="px-3.5 py-2 border-b border-[var(--glass-border)] bg-orange-500/10 dark:bg-orange-500/15 flex items-center justify-between gap-2 flex-shrink-0">
+            <div className="px-3.5 py-2 border-b border-[var(--glass-border)] bg-[var(--color-surface-secondary)]/50 flex items-center justify-between gap-2 flex-shrink-0">
               <div className="flex items-center gap-2 min-w-0">
                 {itinerary.safetyBufferMinutes >= 20 ? (
-                  <ShieldCheck className="w-4 h-4 text-emerald-700 dark:text-emerald-300 flex-shrink-0" />
+                  <ShieldCheck className="w-4 h-4 text-[#183D32] dark:text-[#34D399] flex-shrink-0" />
                 ) : (
-                  <ShieldAlert className="w-4 h-4 text-amber-700 dark:text-amber-300 flex-shrink-0 animate-bounce" />
+                  <ShieldAlert className="w-4 h-4 text-[#A94327] flex-shrink-0 animate-bounce" />
                 )}
                 <div className="min-w-0">
                   <p className="text-[11px] font-bold text-[var(--text-primary)] truncate">
@@ -207,31 +208,31 @@ export function CopilotTimeline({
               {/* Check-in / Next Stop Button */}
               <button
                 onClick={handleAdvanceStop}
-                className="px-2 py-1 rounded-lg text-[10px] font-bold bg-white/80 dark:bg-neutral-800 text-[var(--accent-primary)] hover:bg-white dark:hover:bg-neutral-700 border border-[var(--glass-border)] flex items-center gap-1 transition-all flex-shrink-0 cursor-pointer"
+                className="px-2 py-1 rounded-lg text-[10px] font-semibold bg-[var(--color-surface)] text-[var(--color-text-primary)] hover:bg-[var(--color-surface-secondary)] border border-[var(--color-border)] flex items-center gap-1 transition-all flex-shrink-0 cursor-pointer shadow-2xs"
                 title="Mark current stop done and proceed to next"
               >
-                <CheckCircle2 className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
+                <CheckCircle2 className="w-3 h-3 text-[#183D32] dark:text-[#34D399]" />
                 <span>{language === 'hi' ? 'अगला पड़ाव' : 'Next Stop'}</span>
               </button>
             </div>
           )}
 
           {/* Quick Replanning Control Chips */}
-          <div className="px-3 py-1.5 border-b border-[var(--glass-border)] flex items-center gap-1.5 overflow-x-auto scrollbar-hide flex-shrink-0 bg-black/5 dark:bg-white/5">
-            <span className="text-[10px] font-bold text-[var(--text-secondary)] uppercase tracking-wider flex-shrink-0">
+          <div className="px-3 py-1.5 border-b border-[var(--glass-border)] flex items-center gap-1.5 overflow-x-auto scrollbar-hide flex-shrink-0 bg-[var(--color-surface-secondary)]/30">
+            <span className="text-[10px] font-semibold text-[var(--text-secondary)] uppercase tracking-wider flex-shrink-0">
               {language === 'hi' ? 'त्वरित बदलाव:' : 'Quick Replan:'}
             </span>
 
             <button
               onClick={() => handleRunningLate(20)}
-              className="px-2.5 py-0.5 rounded-full text-[10px] font-bold whitespace-nowrap bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-200 border border-amber-300 dark:border-amber-700 hover:bg-amber-200 transition-colors cursor-pointer"
+              className="px-2.5 py-0.5 rounded-md text-[10px] font-medium whitespace-nowrap bg-[var(--color-surface)] text-[var(--color-text-primary)] border border-[var(--color-border)] hover:bg-[var(--color-surface-secondary)] transition-colors cursor-pointer"
             >
               ⏱️ {language === 'hi' ? '+20 मिनट देरी' : 'Running 20m Late'}
             </button>
 
             <button
               onClick={() => handleExtendStay(15)}
-              className="px-2.5 py-0.5 rounded-full text-[10px] font-bold whitespace-nowrap bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-200 border border-emerald-300 dark:border-emerald-700 hover:bg-emerald-200 transition-colors cursor-pointer"
+              className="px-2.5 py-0.5 rounded-md text-[10px] font-medium whitespace-nowrap bg-[var(--color-surface)] text-[var(--color-text-primary)] border border-[var(--color-border)] hover:bg-[var(--color-surface-secondary)] transition-colors cursor-pointer"
             >
               ⏳ {language === 'hi' ? '+15 मिनट विश्राम' : '+15m Stay'}
             </button>
@@ -243,7 +244,7 @@ export function CopilotTimeline({
                   : `Add a famous local food stop or café along my current route in ${itinerary.city}.`;
                 onAskAIAboutStop(p);
               }}
-              className="px-2.5 py-0.5 rounded-full text-[10px] font-bold whitespace-nowrap bg-orange-100 dark:bg-orange-950/60 text-orange-800 dark:text-orange-200 border border-orange-300 dark:border-orange-700 hover:bg-orange-200 transition-colors cursor-pointer"
+              className="px-2.5 py-0.5 rounded-md text-[10px] font-medium whitespace-nowrap bg-[var(--color-surface)] text-[var(--color-text-primary)] border border-[var(--color-border)] hover:bg-[var(--color-surface-secondary)] transition-colors cursor-pointer"
             >
               🍲 {language === 'hi' ? 'खानपान जोड़ें' : 'Add Food'}
             </button>
@@ -288,12 +289,12 @@ export function CopilotTimeline({
                       <div className="flex items-center gap-2">
                         {/* Numbered Marker Badge */}
                         <div
-                          className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-extrabold ${
+                          className={`w-6 h-6 rounded-md flex items-center justify-center text-xs font-bold ${
                             isCompleted
-                              ? 'bg-emerald-500 text-white'
+                              ? 'bg-[#183D32] dark:bg-[#34D399] text-white dark:text-[#0D1C17]'
                               : isCurrent
-                                ? 'bg-[var(--accent-primary)] text-white ring-4 ring-orange-500/20'
-                                : 'bg-neutral-200 dark:bg-neutral-700 text-[var(--text-primary)]'
+                                ? 'bg-[var(--color-primary)] text-[var(--color-primary-foreground)]'
+                                : 'bg-[var(--color-surface-secondary)] text-[var(--color-text-primary)] border border-[var(--color-border)]'
                           }`}
                         >
                           {isCompleted ? '✓' : stop.stopNumber}
@@ -311,12 +312,12 @@ export function CopilotTimeline({
 
                       {/* Status Pill */}
                       <span
-                        className={`text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider ${
+                        className={`text-[10px] font-medium px-2 py-0.5 rounded-md ${
                           isCompleted
-                            ? 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-200 border border-emerald-300 dark:border-emerald-800'
+                            ? 'bg-[#183D32]/10 dark:bg-[#34D399]/15 text-[#183D32] dark:text-[#34D399] border border-[#183D32]/20 dark:border-[#34D399]/30'
                             : isCurrent
-                              ? 'bg-[var(--accent-primary)] text-white shadow-sm'
-                              : 'bg-black/5 dark:bg-white/10 text-[var(--text-secondary)]'
+                              ? 'bg-[var(--color-primary)] text-[var(--color-primary-foreground)] shadow-2xs font-semibold'
+                              : 'bg-[var(--color-surface-secondary)] text-[var(--color-text-secondary)] border border-[var(--color-border)]'
                         }`}
                       >
                         {isCompleted
@@ -443,15 +444,15 @@ export function CopilotTimeline({
         </div>
       ) : (
         /* Empty State: Comprehensive First-Time Guide & Curated Starters */
-        <div className="flex-1 p-4 flex flex-col justify-start overflow-y-auto space-y-4 text-[var(--text-primary)] scrollbar-thin scrollbar-thumb-orange-500/20">
+        <div className="flex-1 p-4 flex flex-col justify-start overflow-y-auto space-y-4 text-[var(--text-primary)]">
           {/* Welcome Hero Banner */}
-          <div className="p-3.5 rounded-2xl bg-gradient-to-br from-orange-500/15 via-amber-500/10 to-transparent border border-orange-500/25 space-y-2 flex-shrink-0">
+          <div className="p-3.5 rounded-2xl bg-[var(--color-surface-secondary)]/50 border border-[var(--color-border)] space-y-2 flex-shrink-0">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-xl bg-[var(--accent-primary)] text-white flex items-center justify-center shadow-xs">
+              <div className="w-7 h-7 rounded-xl bg-[var(--color-primary)] text-[var(--color-primary-foreground)] flex items-center justify-center shadow-xs">
                 <Sparkles className="w-4 h-4" />
               </div>
               <div className="min-w-0">
-                <h3 className="text-xs font-extrabold text-[var(--text-primary)] font-display truncate">
+                <h3 className="text-xs font-bold text-[var(--text-primary)] font-display truncate">
                   {language === 'hi' ? 'AI यात्रा कोपायलट में आपका स्वागत है' : 'Welcome to AI Travel Copilot'}
                 </h3>
                 <p className="text-[10px] text-[var(--text-secondary)] truncate">
@@ -468,13 +469,13 @@ export function CopilotTimeline({
 
           {/* How It Works Guide */}
           <div className="space-y-2 flex-shrink-0">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--text-secondary)] block px-0.5">
+            <span className="text-[10px] font-semibold uppercase tracking-wider text-[var(--text-secondary)] block px-0.5">
               {language === 'hi' ? 'यह कैसे काम करता है? (3 सरल चरण)' : 'How It Works (3 Easy Steps):'}
             </span>
 
             {/* Step 1: Map Selection */}
-            <div className="p-2.5 rounded-xl border border-[var(--glass-border)] bg-black/5 dark:bg-white/5 flex items-start gap-2.5">
-              <div className="w-6 h-6 rounded-lg bg-blue-500/15 text-blue-900 dark:text-blue-200 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <div className="p-2.5 rounded-xl border border-[var(--glass-border)] bg-[var(--color-surface)] flex items-start gap-2.5">
+              <div className="w-6 h-6 rounded-lg bg-[var(--color-surface-secondary)] text-[var(--color-primary)] flex items-center justify-center flex-shrink-0 mt-0.5">
                 <MapPin className="w-3.5 h-3.5" />
               </div>
               <div className="min-w-0">
@@ -490,8 +491,8 @@ export function CopilotTimeline({
             </div>
 
             {/* Step 2: Disha AI Chat */}
-            <div className="p-2.5 rounded-xl border border-[var(--glass-border)] bg-black/5 dark:bg-white/5 flex items-start gap-2.5">
-              <div className="w-6 h-6 rounded-lg bg-amber-500/15 text-amber-900 dark:text-amber-200 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <div className="p-2.5 rounded-xl border border-[var(--glass-border)] bg-[var(--color-surface)] flex items-start gap-2.5">
+              <div className="w-6 h-6 rounded-lg bg-[var(--color-surface-secondary)] text-[var(--color-primary)] flex items-center justify-center flex-shrink-0 mt-0.5">
                 <Sparkles className="w-3.5 h-3.5" />
               </div>
               <div className="min-w-0">
@@ -507,8 +508,8 @@ export function CopilotTimeline({
             </div>
 
             {/* Step 3: Dynamic Replanning */}
-            <div className="p-2.5 rounded-xl border border-[var(--glass-border)] bg-black/5 dark:bg-white/5 flex items-start gap-2.5">
-              <div className="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-900 dark:text-emerald-200 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <div className="p-2.5 rounded-xl border border-[var(--glass-border)] bg-[var(--color-surface)] flex items-start gap-2.5">
+              <div className="w-6 h-6 rounded-lg bg-[var(--color-surface-secondary)] text-[var(--color-primary)] flex items-center justify-center flex-shrink-0 mt-0.5">
                 <Clock className="w-3.5 h-3.5" />
               </div>
               <div className="min-w-0">
@@ -544,16 +545,16 @@ export function CopilotTimeline({
                   optimizationsApplied: ['Custom User Plan']
                 });
               }}
-              className="w-full p-2.5 rounded-xl border-2 border-dashed border-[var(--accent-primary)]/40 hover:border-[var(--accent-primary)] bg-orange-500/5 hover:bg-orange-500/10 text-xs font-bold text-[var(--accent-primary)] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-2xs"
+              className="w-full p-2.5 rounded-xl border border-[var(--color-border)] hover:border-[var(--color-primary)] bg-[var(--color-surface)] hover:bg-[var(--color-surface-secondary)] text-xs font-semibold text-[var(--color-primary)] transition-all flex items-center justify-center gap-2 cursor-pointer shadow-2xs group"
             >
-              <Plus className="w-4 h-4" />
+              <Plus className="w-4 h-4 text-[var(--color-primary)] group-hover:scale-110 transition-transform" />
               <span>{language === 'hi' ? '+ नई खाली यात्रा शुरू करें (नक्शे से जोड़ें)' : '+ Start Blank Custom Trip (Build from Map)'}</span>
             </button>
           </div>
 
           {/* Action 2: Quick Presets */}
           <div className="space-y-2 flex-shrink-0">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--text-secondary)] block px-0.5">
+            <span className="text-[10px] font-semibold uppercase tracking-wider text-[var(--text-secondary)] block px-0.5">
               {language === 'hi' ? 'या तुरंत तैयार यात्रा चुनें:' : 'Or Load an Instant Curated Circuit:'}
             </span>
 
@@ -561,13 +562,13 @@ export function CopilotTimeline({
               <button
                 key={preset.id}
                 onClick={() => handleLoadPreset(preset)}
-                className="w-full text-left p-2.5 rounded-xl border border-[var(--glass-border)] bg-black/5 dark:bg-white/5 hover:border-[var(--accent-primary)] hover:bg-orange-500/5 transition-all group cursor-pointer"
+                className="w-full text-left p-2.5 rounded-xl border border-[var(--glass-border)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:bg-[var(--color-surface-secondary)] transition-all group cursor-pointer"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-[var(--text-primary)] group-hover:text-[var(--accent-primary)]">
+                  <span className="text-xs font-bold text-[var(--text-primary)] group-hover:text-[var(--color-primary)]">
                     {language === 'hi' ? preset.titleHi : preset.title}
                   </span>
-                  <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-[var(--accent-primary)]/15 text-[var(--accent-primary)] font-bold">
+                  <span className="text-[10px] px-2 py-0.5 rounded-md bg-[var(--color-surface-secondary)] text-[var(--color-text-primary)] border border-[var(--color-border)] font-semibold">
                     {preset.targetHours}h
                   </span>
                 </div>
