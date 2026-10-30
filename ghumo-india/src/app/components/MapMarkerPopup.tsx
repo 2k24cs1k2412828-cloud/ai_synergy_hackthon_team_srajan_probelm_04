@@ -30,7 +30,7 @@ export function MapMarkerPopup({
       <div className="p-4 space-y-3">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-xs px-2 py-1 rounded-full bg-[var(--accent-primary)] bg-opacity-20 text-[var(--accent-primary)]">
+            <span className="text-xs px-2 py-0.5 rounded-full bg-orange-100 dark:bg-orange-950/60 text-orange-900 dark:text-orange-200 border border-orange-200 dark:border-orange-800 font-bold">
               {category}
             </span>
           </div>
@@ -46,7 +46,7 @@ export function MapMarkerPopup({
             size="sm"
             variant="outline"
             onClick={onExplore}
-            className="flex-1 text-xs h-8 bg-transparent border-[var(--accent-primary)] text-[var(--accent-primary)] hover:bg-[var(--accent-primary)] hover:text-white"
+            className="flex-1 text-xs h-8 bg-transparent border-orange-800 dark:border-orange-300 text-orange-900 dark:text-orange-200 hover:bg-[var(--accent-primary)] hover:text-white font-bold"
           >
             <ExternalLink className="w-3 h-3 mr-1" />
             Explore

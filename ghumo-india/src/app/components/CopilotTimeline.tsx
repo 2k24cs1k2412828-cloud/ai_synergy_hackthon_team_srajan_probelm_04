@@ -474,7 +474,7 @@ export function CopilotTimeline({
 
             {/* Step 1: Map Selection */}
             <div className="p-2.5 rounded-xl border border-[var(--glass-border)] bg-black/5 dark:bg-white/5 flex items-start gap-2.5">
-              <div className="w-6 h-6 rounded-lg bg-blue-500/15 text-blue-700 dark:text-blue-300 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div className="w-6 h-6 rounded-lg bg-blue-500/15 text-blue-900 dark:text-blue-200 flex items-center justify-center flex-shrink-0 mt-0.5">
                 <MapPin className="w-3.5 h-3.5" />
               </div>
               <div className="min-w-0">
@@ -491,7 +491,7 @@ export function CopilotTimeline({
 
             {/* Step 2: Disha AI Chat */}
             <div className="p-2.5 rounded-xl border border-[var(--glass-border)] bg-black/5 dark:bg-white/5 flex items-start gap-2.5">
-              <div className="w-6 h-6 rounded-lg bg-amber-500/15 text-amber-700 dark:text-amber-300 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div className="w-6 h-6 rounded-lg bg-amber-500/15 text-amber-900 dark:text-amber-200 flex items-center justify-center flex-shrink-0 mt-0.5">
                 <Sparkles className="w-3.5 h-3.5" />
               </div>
               <div className="min-w-0">
@@ -508,7 +508,7 @@ export function CopilotTimeline({
 
             {/* Step 3: Dynamic Replanning */}
             <div className="p-2.5 rounded-xl border border-[var(--glass-border)] bg-black/5 dark:bg-white/5 flex items-start gap-2.5">
-              <div className="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div className="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-900 dark:text-emerald-200 flex items-center justify-center flex-shrink-0 mt-0.5">
                 <Clock className="w-3.5 h-3.5" />
               </div>
               <div className="min-w-0">

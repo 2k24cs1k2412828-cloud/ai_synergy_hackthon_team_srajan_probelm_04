@@ -617,7 +617,7 @@ export function MPSitesShowcase({
                   <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                       <div className="p-3 rounded-xl bg-[var(--bg-secondary)] border border-[var(--glass-border)] space-y-1">
-                        <div className="flex items-center gap-1.5 text-orange-500 text-xs font-bold">
+                        <div className="flex items-center gap-1.5 text-orange-900 dark:text-orange-300 text-xs font-bold">
                           <Car className="w-3.5 h-3.5" />
                           <span>{language === 'hi' ? 'सड़क मार्ग' : 'Road Distance'}</span>
                         </div>
@@ -627,7 +627,7 @@ export function MPSitesShowcase({
                       </div>
 
                       <div className="p-3 rounded-xl bg-[var(--bg-secondary)] border border-[var(--glass-border)] space-y-1">
-                        <div className="flex items-center gap-1.5 text-blue-500 text-xs font-bold">
+                        <div className="flex items-center gap-1.5 text-blue-900 dark:text-blue-300 text-xs font-bold">
                           <Train className="w-3.5 h-3.5" />
                           <span>{language === 'hi' ? 'निकटतम रेलवे स्टेशन' : 'Nearest Railway'}</span>
                         </div>
@@ -637,7 +637,7 @@ export function MPSitesShowcase({
                       </div>
 
                       <div className="p-3 rounded-xl bg-[var(--bg-secondary)] border border-[var(--glass-border)] space-y-1">
-                        <div className="flex items-center gap-1.5 text-purple-500 text-xs font-bold">
+                        <div className="flex items-center gap-1.5 text-purple-900 dark:text-purple-300 text-xs font-bold">
                           <Navigation className="w-3.5 h-3.5" />
                           <span>{language === 'hi' ? 'हवाई अड्डा' : 'Nearest Airport'}</span>
                         </div>

@@ -8,7 +8,7 @@
   --theme-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   --bg-primary: #FAF8F5;
   --bg-secondary: #F3EFE9;
-  --accent-primary: #C2410C;
+  --accent-primary: #9A3412;
   --accent-secondary: #0D9488;
   --accent-gold: #D97706;
   --text-primary: #1C1917;
@@ -24,7 +24,7 @@
 [data-theme="morning"] {
   --bg-primary: #FAF8F5;
   --bg-secondary: #F3EFE9;
-  --accent-primary: #C2410C;
+  --accent-primary: #9A3412;
   --accent-secondary: #0D9488;
   --accent-gold: #D97706;
   --text-primary: #1C1917;
