@@ -141,7 +141,7 @@ export function MPSitesShowcase({
           <div className="flex items-center gap-2 flex-shrink-0 self-start md:self-auto">
             <button
               onClick={() => onAskAI('मध्य प्रदेश की अनदेखी धरोहरों (बटेश्वर, मितावली, पढ़ावली, ककनमठ) का 4 घंटे का संपूर्ण हेरिटेज टूर प्लान बताएं।')}
-              className="px-4 py-2.5 rounded-xl text-xs font-bold bg-[var(--accent-primary)] text-white shadow-md hover:opacity-95 transition-all flex items-center gap-1.5 cursor-pointer"
+              className="px-4 py-2.5 rounded-xl text-xs font-bold bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 shadow-md hover:bg-black dark:hover:bg-white transition-all flex items-center gap-1.5 cursor-pointer"
             >
               <Sparkles className="w-4 h-4" />
               <span>{language === 'hi' ? 'टूर प्लान बनाएं' : 'Plan Heritage Tour'}</span>
@@ -311,14 +311,14 @@ export function MPSitesShowcase({
 
                 {/* Top Floating Badges */}
                 <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2">
-                  <span className="px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-orange-600 text-white shadow-lg backdrop-blur-md">
+                  <span className="px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-stone-900/90 text-white border border-white/20 shadow-lg backdrop-blur-md">
                     {language === 'hi' ? selectedSite.badge.hi : selectedSite.badge.en}
                   </span>
 
                   <div className="flex items-center gap-2">
                     <button
                       onClick={handleAddToTrip}
-                      className="px-3 py-1.5 rounded-full text-xs font-bold bg-orange-600 hover:bg-orange-700 text-white shadow-md transition-all flex items-center gap-1.5 cursor-pointer backdrop-blur-md"
+                      className="px-3 py-1.5 rounded-full text-xs font-bold bg-stone-900 hover:bg-black text-white border border-stone-700 shadow-md transition-all flex items-center gap-1.5 cursor-pointer backdrop-blur-md"
                       title={language === 'hi' ? 'यात्रा कोपायलट में जोड़ें' : 'Add to Trip Copilot'}
                     >
                       <Plus className="w-3.5 h-3.5" />
@@ -339,7 +339,7 @@ export function MPSitesShowcase({
                       className="px-3 py-1.5 rounded-full text-xs font-bold glass text-white border border-white/20 shadow-md hover:bg-white/20 transition-all flex items-center gap-1.5 cursor-pointer backdrop-blur-md"
                       title="Focus on map"
                     >
-                      <Navigation className="w-3.5 h-3.5 text-orange-400" />
+                      <Navigation className="w-3.5 h-3.5 text-white" />
                       <span>{language === 'hi' ? 'मानचित्र में देखें' : 'View on Map'}</span>
                     </button>
                   </div>
@@ -783,7 +783,7 @@ export function MPSitesShowcase({
 
                     <button
                       onClick={() => onFocusMapLocation(selectedSite.coordinates)}
-                      className="px-4 py-2 rounded-xl text-xs font-bold bg-[var(--accent-primary)] text-white shadow-md hover:opacity-95 transition-all flex items-center gap-1.5 cursor-pointer"
+                      className="px-4 py-2 rounded-xl text-xs font-bold bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 shadow-md hover:bg-black dark:hover:bg-white transition-all flex items-center gap-1.5 cursor-pointer"
                     >
                       <Navigation className="w-3.5 h-3.5" />
                       <span>{language === 'hi' ? 'मानचित्र पर रूट देखें' : 'View Route on Map'}</span>
@@ -796,9 +796,9 @@ export function MPSitesShowcase({
                           : `Tell me the complete history, architecture, and a 4-hour travel route from Gwalior for ${selectedSite.name.en}.`;
                         onAskAI(q);
                       }}
-                      className="px-4 py-2 rounded-xl text-xs font-bold glass border border-[var(--glass-border)] text-[var(--text-primary)] hover:border-[var(--accent-primary)] transition-all flex items-center gap-1.5 cursor-pointer"
+                      className="px-4 py-2 rounded-xl text-xs font-bold glass border border-[var(--glass-border)] text-[var(--text-primary)] hover:border-stone-800 transition-all flex items-center gap-1.5 cursor-pointer"
                     >
-                      <Sparkles className="w-3.5 h-3.5 text-orange-500" />
+                      <Sparkles className="w-3.5 h-3.5 text-stone-900 dark:text-stone-100" />
                       <span>{language === 'hi' ? 'घूमो AI से पूछें' : 'Ask Ghumo AI'}</span>
                     </button>
                   </div>

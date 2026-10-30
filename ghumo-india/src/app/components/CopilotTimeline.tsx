@@ -64,14 +64,14 @@ export function CopilotTimeline({
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         onClick={onToggleOpen}
-        className="fixed bottom-20 left-4 z-[1050] glass px-3.5 py-2.5 rounded-full shadow-2xl border border-[var(--accent-primary)]/40 flex items-center gap-2 text-xs font-bold text-[var(--text-primary)] hover:scale-105 transition-all cursor-pointer bg-white/90 dark:bg-black/80"
+        className="fixed bottom-20 left-4 z-[1050] px-3.5 py-2.5 rounded-full shadow-2xl border border-stone-700 flex items-center gap-2 text-xs font-bold text-white bg-stone-900 hover:bg-black transition-all cursor-pointer"
         title="Open AI Travel Copilot Itinerary"
       >
-        <span className="w-2.5 h-2.5 rounded-full bg-[var(--accent-primary)] animate-pulse" />
-        <Compass className="w-4 h-4 text-[var(--accent-primary)]" />
+        <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+        <Compass className="w-4 h-4 text-white" />
         <span>{language === 'hi' ? 'यात्रा कोपायलट' : 'AI Copilot'}</span>
         {itinerary && (
-          <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-[var(--accent-primary)] text-white font-bold">
+          <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-white/20 text-white font-bold">
             {itinerary.stops.length}
           </span>
         )}
@@ -152,7 +152,7 @@ export function CopilotTimeline({
           {itinerary && itinerary.stops.length > 1 && (
             <button
               onClick={handleOptimizeTrip}
-              className="px-2 py-1 rounded-lg text-[10px] font-bold bg-[var(--accent-primary)] text-white hover:opacity-90 flex items-center gap-1 shadow-sm transition-all cursor-pointer"
+              className="px-2 py-1 rounded-lg text-[10px] font-bold bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 hover:bg-black dark:hover:bg-white flex items-center gap-1 shadow-sm transition-all cursor-pointer"
               title="Optimize order to reduce travel time"
             >
               <Sparkles className="w-3 h-3" />

@@ -570,7 +570,7 @@ export function MapPanel({
               onClick={() => setIsDirectionsOpen(prev => !prev)}
               className={`px-3 py-2 rounded-full shadow-lg transition-all text-xs font-bold flex items-center gap-1.5 border border-[var(--glass-border)] ${
                 isDirectionsOpen || calculatedRoute
-                  ? 'bg-[var(--accent-primary)] text-white'
+                  ? 'bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 shadow-md'
                   : 'glass text-[var(--text-primary)] hover:scale-105'
               }`}
               title={language === 'hi' ? 'मध्य प्रदेश हाईवे मार्ग व दिशाएं' : 'MP Highway Directions'}
@@ -735,7 +735,7 @@ export function MapPanel({
                 }}
                 className={`px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap flex items-center gap-1.5 transition-all shadow-md border ${
                   isSelected
-                    ? 'bg-[var(--accent-primary)] text-white border-transparent shadow-sm'
+                    ? 'bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 border-transparent shadow-sm'
                     : 'glass text-[var(--text-primary)] border-[var(--glass-border)] hover:bg-white/80 dark:hover:bg-white/10'
                 }`}
               >
@@ -1048,7 +1048,7 @@ export function MapPanel({
                     {onAddPlaceToItinerary && (
                       <button
                         onClick={() => onAddPlaceToItinerary(place)}
-                        className="w-full py-1.5 px-3 rounded-lg text-xs font-bold bg-emerald-600 text-white shadow-sm hover:opacity-95 flex items-center justify-center gap-1.5 transition-all mt-1 cursor-pointer"
+                        className="w-full py-1.5 px-3 rounded-lg text-xs font-bold bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900 shadow-sm hover:bg-black dark:hover:bg-white flex items-center justify-center gap-1.5 transition-all mt-1 cursor-pointer"
                       >
                         <Plus className="w-3.5 h-3.5" />
                         <span>{language === 'hi' ? 'यात्रा कोपायलट में जोड़ें (+)' : 'Add to Copilot Trip (+)'}</span>
@@ -1064,7 +1064,7 @@ export function MapPanel({
                             : `Is ${place.name} in ${place.city} worth visiting according to my current trip plan and schedule? What are its top highlights?`;
                           onSelectPlaceForChat(prompt);
                         }}
-                        className="w-full py-1.5 px-2 rounded-lg text-xs font-bold bg-indigo-600/15 hover:bg-indigo-600/25 text-indigo-700 dark:text-indigo-300 border border-indigo-600/30 flex items-center justify-center gap-1.5 transition-all mt-1 cursor-pointer"
+                        className="w-full py-1.5 px-2 rounded-lg text-xs font-bold bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 text-stone-900 dark:text-stone-100 border border-stone-300 dark:border-stone-700 flex items-center justify-center gap-1.5 transition-all mt-1 cursor-pointer"
                       >
                         <Compass className="w-3.5 h-3.5" />
                         <span>{language === 'hi' ? 'क्या यह घूमने लायक है? (AI)' : 'Is this worth visiting? (AI)'}</span>
@@ -1080,7 +1080,7 @@ export function MapPanel({
                             : `Tell me detailed travel causes, history, crowd status, timings, routes, and photos for ${place.name} in ${place.city}.`;
                           onSelectPlaceForChat(prompt);
                         }}
-                        className="w-full py-1.5 px-3 rounded-lg text-xs font-bold bg-[var(--accent-primary)] text-white shadow-sm hover:opacity-95 flex items-center justify-center gap-1.5 transition-all mt-1 cursor-pointer"
+                        className="w-full py-1.5 px-3 rounded-lg text-xs font-bold bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 shadow-sm hover:bg-black dark:hover:bg-white flex items-center justify-center gap-1.5 transition-all mt-1 cursor-pointer"
                       >
                         <Sparkles className="w-3.5 h-3.5" />
                         <span>{language === 'hi' ? 'घूमो AI से इस स्थल की जानकारी लें' : 'Ask Ghumo AI about this place'}</span>
@@ -1103,7 +1103,7 @@ export function MapPanel({
               <Popup className="custom-popup" maxWidth={320}>
                 <div className="p-3 space-y-2 text-[var(--text-primary)] font-sans">
                   <div className="flex items-center justify-between border-b border-[var(--glass-border)] pb-1.5">
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[var(--accent-primary)] text-white">
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900">
                       Stop #{stop.stopNumber}
                     </span>
                     <span className="text-xs font-extrabold text-[var(--text-primary)]">
@@ -1115,8 +1115,8 @@ export function MapPanel({
                     {language === 'hi' ? stop.hindiName : stop.name}
                   </h3>
 
-                  <div className="bg-orange-500/10 dark:bg-orange-500/20 p-2 rounded-lg border border-orange-500/20 text-[10px]">
-                    <span className="font-bold text-[var(--accent-primary)] uppercase block text-[9px]">
+                  <div className="bg-stone-100 dark:bg-stone-800/60 p-2 rounded-lg border border-stone-200 dark:border-stone-700 text-[10px]">
+                    <span className="font-bold text-stone-900 dark:text-stone-100 uppercase block text-[9px]">
                       {language === 'hi' ? '✨ चयन का कारण' : '✨ Why This Place?'}
                     </span>
                     <p className="text-[10px] text-[var(--text-secondary)] mt-0.5 leading-relaxed">
@@ -1132,7 +1132,7 @@ export function MapPanel({
                           : `Tell me detailed tips and visiting guidance for Stop ${stop.stopNumber}: ${stop.name}.`;
                         onSelectPlaceForChat(prompt);
                       }}
-                      className="w-full py-1.5 px-2 rounded-lg text-xs font-bold bg-[var(--accent-primary)] text-white hover:opacity-90 flex items-center justify-center gap-1 transition-all mt-1 cursor-pointer"
+                      className="w-full py-1.5 px-2 rounded-lg text-xs font-bold bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 hover:bg-black dark:hover:bg-white flex items-center justify-center gap-1 transition-all mt-1 cursor-pointer"
                     >
                       <Sparkles className="w-3.5 h-3.5" />
                       <span>{language === 'hi' ? 'घूमो AI से इस पड़ाव की सलाह लें' : 'Consult Ghumo AI about this stop'}</span>

@@ -619,7 +619,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                     ? (layoutMode === 'fullchat'
                         ? 'w-full rounded-2xl p-5 sm:p-6 glass border-[var(--glass-border)] text-[var(--text-primary)] shadow-sm'
                         : 'max-w-[92%] rounded-2xl p-4 glass border-[var(--glass-border)] text-[var(--text-primary)] rounded-tl-sm')
-                    : 'max-w-[85%] sm:max-w-[75%] rounded-2xl p-4 bg-gradient-to-r from-orange-600 to-amber-600 text-white border-transparent rounded-tr-sm shadow-md'
+                    : 'max-w-[85%] sm:max-w-[75%] rounded-2xl p-4 bg-stone-900 dark:bg-stone-800 text-white border border-stone-800 rounded-tr-sm shadow-md'
                 }`}>
                   {/* Message Header for AI */}
                   {isAI && (
@@ -760,7 +760,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                             }
                             onSwitchToMap?.();
                           }}
-                          className="w-full mt-2 py-2 px-3 rounded-xl text-xs font-bold bg-gradient-to-r from-orange-600 to-amber-600 text-white shadow-sm hover:opacity-95 flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+                          className="w-full mt-2 py-2 px-3 rounded-xl text-xs font-bold bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 hover:bg-black dark:hover:bg-white shadow-sm flex items-center justify-center gap-1.5 transition-all cursor-pointer"
                         >
                           <Maximize2 className="w-3.5 h-3.5" />
                           <span>{language === 'hi' ? 'पूरा मैप देखें एवं नेविगेट करें' : 'Open in Full Screen Interactive Map'}</span>
@@ -842,7 +842,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
                               }
                               onToggleCopilotDrawer?.();
                             }}
-                            className="py-2 px-3 rounded-xl text-xs font-bold bg-gradient-to-r from-orange-600 to-amber-600 text-white hover:opacity-95 flex items-center justify-center gap-1.5 transition-all shadow-sm cursor-pointer"
+                            className="py-2 px-3 rounded-xl text-xs font-bold bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 hover:bg-black dark:hover:bg-white flex items-center justify-center gap-1.5 transition-all shadow-sm cursor-pointer"
                           >
                             <Route className="w-3.5 h-3.5" />
                             <span>{language === 'hi' ? 'इंटरैक्टिव टाइमलाइन' : 'Open Timeline'}</span>
@@ -1046,7 +1046,7 @@ _Ask me anything in English or Hindi, request routes & heritage photos, or use t
               aria-label={language === 'hi' ? 'संदेश भेजें' : 'Send message'}
               className={`p-2.5 rounded-full transition-all flex items-center justify-center cursor-pointer ${
                 inputValue.trim() && !isTyping
-                  ? 'bg-gradient-to-r from-orange-600 to-amber-600 text-white hover:opacity-95 shadow-md shadow-orange-500/20'
+                  ? 'bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 hover:bg-black dark:hover:bg-white shadow-md'
                   : 'opacity-40 cursor-not-allowed text-[var(--text-secondary)] bg-black/5 dark:bg-white/5'
               }`}
             >
