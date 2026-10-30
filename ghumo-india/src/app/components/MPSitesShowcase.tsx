@@ -23,7 +23,8 @@ import {
   CheckCircle2,
   SlidersHorizontal,
   Route,
-  ChevronRight
+  ChevronRight,
+  Plus
 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -55,6 +56,24 @@ export function MPSitesShowcase({
   const [activeLightboxImage, setActiveLightboxImage] = useState<string | null>(null);
 
   const selectedSite = MP_HERITAGE_SITES.find(s => s.id === selectedSiteId) || MP_HERITAGE_SITES[0];
+
+  const handleAddToTrip = () => {
+    if (onAddPlaceToItinerary) {
+      onAddPlaceToItinerary({
+        id: selectedSite.id,
+        name: { en: selectedSite.name.en, hi: selectedSite.name.hi },
+        coordinates: selectedSite.coordinates,
+        city: selectedSite.district.en,
+        hindiCity: selectedSite.district.hi,
+        category: 'heritage',
+        durationHours: 2,
+        heroImage: selectedSite.heroImage,
+        tagline: selectedSite.tagline.en
+      });
+    } else {
+      toast.info(language === 'hi' ? 'यात्रा कोपायलट में जोड़ा गया' : 'Added to Copilot trip');
+    }
+  };
 
   const filteredSites = MP_HERITAGE_SITES.filter(site => {
     const matchesZone = zoneFilter === 'all' || site.zone === zoneFilter;
@@ -297,6 +316,14 @@ export function MPSitesShowcase({
                   </span>
 
                   <div className="flex items-center gap-2">
+                    <button
+                      onClick={handleAddToTrip}
+                      className="px-3 py-1.5 rounded-full text-xs font-bold bg-orange-600 hover:bg-orange-700 text-white shadow-md transition-all flex items-center gap-1.5 cursor-pointer backdrop-blur-md"
+                      title={language === 'hi' ? 'यात्रा कोपायलट में जोड़ें' : 'Add to Trip Copilot'}
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                      <span>{language === 'hi' ? 'यात्रा में जोड़ें' : 'Add to Trip'}</span>
+                    </button>
                     <a
                       href={selectedSite.mapUrl}
                       target="_blank"
@@ -711,6 +738,14 @@ export function MPSitesShowcase({
                 {/* Bottom Action Ribbon */}
                 <div className="pt-3 border-t border-[var(--glass-border)] flex flex-wrap items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
+                    <button
+                      onClick={handleAddToTrip}
+                      className="px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white shadow-md transition-all flex items-center gap-1.5 cursor-pointer"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                      <span>{language === 'hi' ? 'कोपायलट में जोड़ें' : 'Add to Copilot'}</span>
+                    </button>
+
                     <button
                       onClick={() => onFocusMapLocation(selectedSite.coordinates)}
                       className="px-4 py-2 rounded-xl text-xs font-bold bg-[var(--accent-primary)] text-white shadow-md hover:opacity-95 transition-all flex items-center gap-1.5 cursor-pointer"
