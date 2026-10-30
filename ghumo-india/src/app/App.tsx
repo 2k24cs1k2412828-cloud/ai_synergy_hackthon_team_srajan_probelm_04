@@ -336,71 +336,116 @@ export default function App() {
             {/* MP Heritage Sites Page */}
             <button
               onClick={() => setLayoutMode('mpsites')}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer relative ${
+              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer relative ${
                 layoutMode === 'mpsites'
-                  ? 'bg-[var(--accent-primary)] text-white shadow-sm'
+                  ? 'text-white'
                   : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
               }`}
               title={language === 'hi' ? 'मध्य प्रदेश की धरोहर, संस्कृति और पर्यटन स्थल' : 'Madhya Pradesh Heritage Sites & Culture'}
             >
-              <Globe className="w-3.5 h-3.5" />
-              <span>{language === 'hi' ? 'धरोहर स्थल' : 'Heritage Sites'}</span>
+              {layoutMode === 'mpsites' && (
+                <motion.div
+                  layoutId="activeDesktopNav"
+                  className="absolute inset-0 rounded-full bg-[var(--accent-primary)] shadow-sm"
+                  transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+                />
+              )}
+              <span className="relative z-10 flex items-center gap-1.5">
+                <Globe className="w-3.5 h-3.5" />
+                <span>{language === 'hi' ? 'धरोहर स्थल' : 'Heritage Sites'}</span>
+              </span>
             </button>
 
             {/* Interactive Map */}
             <button
               onClick={() => setLayoutMode('fullmap')}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer relative ${
                 layoutMode === 'fullmap'
-                  ? 'bg-[var(--accent-primary)] text-white shadow-sm'
+                  ? 'text-white'
                   : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
               }`}
               title={language === 'hi' ? 'मध्य प्रदेश इंटरैक्टिव मानचित्र' : 'Madhya Pradesh Interactive Map'}
             >
-              <MapIcon className="w-3.5 h-3.5" />
-              <span className="hidden md:inline">{language === 'hi' ? 'मानचित्र' : 'Explore Map'}</span>
+              {layoutMode === 'fullmap' && (
+                <motion.div
+                  layoutId="activeDesktopNav"
+                  className="absolute inset-0 rounded-full bg-[var(--accent-primary)] shadow-sm"
+                  transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+                />
+              )}
+              <span className="relative z-10 flex items-center gap-1.5">
+                <MapIcon className="w-3.5 h-3.5" />
+                <span className="hidden md:inline">{language === 'hi' ? 'मानचित्र' : 'Explore Map'}</span>
+              </span>
             </button>
 
             {/* Split Planner */}
             <button
               onClick={() => setLayoutMode('split')}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer relative ${
                 layoutMode === 'split'
-                  ? 'bg-[var(--accent-primary)] text-white shadow-sm'
+                  ? 'text-white'
                   : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
               }`}
               title={language === 'hi' ? 'द्वैत यात्रा प्लानर (मानचित्र + परामर्श)' : 'Trip Planner (Map + Guide)'}
             >
-              <Columns2 className="w-3.5 h-3.5" />
-              <span className="hidden md:inline">{language === 'hi' ? 'टूर प्लानर' : 'Trip Planner'}</span>
+              {layoutMode === 'split' && (
+                <motion.div
+                  layoutId="activeDesktopNav"
+                  className="absolute inset-0 rounded-full bg-[var(--accent-primary)] shadow-sm"
+                  transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+                />
+              )}
+              <span className="relative z-10 flex items-center gap-1.5">
+                <Columns2 className="w-3.5 h-3.5" />
+                <span className="hidden md:inline">{language === 'hi' ? 'टूर प्लानर' : 'Trip Planner'}</span>
+              </span>
             </button>
 
             {/* Travel Bulletins */}
             <button
               onClick={() => setLayoutMode('news')}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer relative ${
+              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer relative ${
                 layoutMode === 'news'
-                  ? 'bg-[var(--accent-primary)] text-white shadow-sm'
+                  ? 'text-white'
                   : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
               }`}
               title={language === 'hi' ? 'मध्य प्रदेश ताज़ा यात्रा बुलेटिन व स्थिति' : 'Live MP Travel Bulletins & Crowd Advisory'}
             >
-              <Newspaper className="w-3.5 h-3.5" />
-              <span>{language === 'hi' ? 'यात्रा बुलेटिन' : 'Travel Updates'}</span>
+              {layoutMode === 'news' && (
+                <motion.div
+                  layoutId="activeDesktopNav"
+                  className="absolute inset-0 rounded-full bg-[var(--accent-primary)] shadow-sm"
+                  transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+                />
+              )}
+              <span className="relative z-10 flex items-center gap-1.5">
+                <Newspaper className="w-3.5 h-3.5" />
+                <span>{language === 'hi' ? 'यात्रा बुलेटिन' : 'Travel Updates'}</span>
+              </span>
             </button>
 
             {/* Travel Concierge / AI Guide */}
             <button
               onClick={() => setLayoutMode('fullchat')}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer relative ${
                 layoutMode === 'fullchat'
-                  ? 'bg-[var(--accent-primary)] text-white shadow-sm'
+                  ? 'text-white'
                   : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
               }`}
               title={language === 'hi' ? 'घूमो AI यात्रा मार्गदर्शक' : 'Ghumo AI Guide'}
             >
-              <MessageSquare className="w-3.5 h-3.5" />
-              <span className="hidden md:inline">{language === 'hi' ? 'घूमो AI गाइड' : 'Ghumo AI'}</span>
+              {layoutMode === 'fullchat' && (
+                <motion.div
+                  layoutId="activeDesktopNav"
+                  className="absolute inset-0 rounded-full bg-[var(--accent-primary)] shadow-sm"
+                  transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+                />
+              )}
+              <span className="relative z-10 flex items-center gap-1.5">
+                <MessageSquare className="w-3.5 h-3.5" />
+                <span className="hidden md:inline">{language === 'hi' ? 'घूमो AI गाइड' : 'Ghumo AI'}</span>
+              </span>
             </button>
 
             {/* AI Travel Copilot Timeline Drawer Toggle */}

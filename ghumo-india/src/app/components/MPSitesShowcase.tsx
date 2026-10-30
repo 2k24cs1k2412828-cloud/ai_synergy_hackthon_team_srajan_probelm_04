@@ -402,62 +402,97 @@ export function MPSitesShowcase({
               <div className="px-4 border-b border-[var(--glass-border)] flex items-center gap-2 overflow-x-auto scrollbar-hide bg-[var(--bg-primary)]">
                 <button
                   onClick={() => setActiveTab('history')}
-                  className={`py-3 px-3 text-xs font-bold border-b-2 flex items-center gap-1.5 transition-all cursor-pointer whitespace-nowrap ${
+                  className={`py-3 px-3 text-xs font-bold relative flex items-center gap-1.5 transition-all cursor-pointer whitespace-nowrap ${
                     activeTab === 'history'
-                      ? 'border-[var(--accent-primary)] text-[var(--accent-primary)]'
-                      : 'border-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                      ? 'text-[var(--accent-primary)]'
+                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                   }`}
                 >
                   <BookOpen className="w-3.5 h-3.5" />
                   <span>{language === 'hi' ? 'इतिहास व राजवंश' : 'History & Dynasties'}</span>
+                  {activeTab === 'history' && (
+                    <motion.div
+                      layoutId="activeDossierTab"
+                      className="absolute bottom-0 inset-x-0 h-0.5 bg-[var(--accent-primary)] rounded-full"
+                      transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                    />
+                  )}
                 </button>
 
                 <button
                   onClick={() => setActiveTab('culture')}
-                  className={`py-3 px-3 text-xs font-bold border-b-2 flex items-center gap-1.5 transition-all cursor-pointer whitespace-nowrap ${
+                  className={`py-3 px-3 text-xs font-bold relative flex items-center gap-1.5 transition-all cursor-pointer whitespace-nowrap ${
                     activeTab === 'culture'
-                      ? 'border-[var(--accent-primary)] text-[var(--accent-primary)]'
-                      : 'border-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                      ? 'text-[var(--accent-primary)]'
+                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                   }`}
                 >
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>{language === 'hi' ? 'संस्कृति व महत्व' : 'Culture & Purpose'}</span>
+                  {activeTab === 'culture' && (
+                    <motion.div
+                      layoutId="activeDossierTab"
+                      className="absolute bottom-0 inset-x-0 h-0.5 bg-[var(--accent-primary)] rounded-full"
+                      transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                    />
+                  )}
                 </button>
 
                 <button
                   onClick={() => setActiveTab('architecture')}
-                  className={`py-3 px-3 text-xs font-bold border-b-2 flex items-center gap-1.5 transition-all cursor-pointer whitespace-nowrap ${
+                  className={`py-3 px-3 text-xs font-bold relative flex items-center gap-1.5 transition-all cursor-pointer whitespace-nowrap ${
                     activeTab === 'architecture'
-                      ? 'border-[var(--accent-primary)] text-[var(--accent-primary)]'
-                      : 'border-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                      ? 'text-[var(--accent-primary)]'
+                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                   }`}
                 >
                   <Layers className="w-3.5 h-3.5" />
                   <span>{language === 'hi' ? 'वास्तुकला व इंजीनियरिंग' : 'Architecture & Civil Art'}</span>
+                  {activeTab === 'architecture' && (
+                    <motion.div
+                      layoutId="activeDossierTab"
+                      className="absolute bottom-0 inset-x-0 h-0.5 bg-[var(--accent-primary)] rounded-full"
+                      transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                    />
+                  )}
                 </button>
 
                 <button
                   onClick={() => setActiveTab('reach')}
-                  className={`py-3 px-3 text-xs font-bold border-b-2 flex items-center gap-1.5 transition-all cursor-pointer whitespace-nowrap ${
+                  className={`py-3 px-3 text-xs font-bold relative flex items-center gap-1.5 transition-all cursor-pointer whitespace-nowrap ${
                     activeTab === 'reach'
-                      ? 'border-[var(--accent-primary)] text-[var(--accent-primary)]'
-                      : 'border-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                      ? 'text-[var(--accent-primary)]'
+                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                   }`}
                 >
                   <Car className="w-3.5 h-3.5" />
                   <span>{language === 'hi' ? 'पहुंचने का मार्ग व टैक्सी' : 'How to Reach & Transit'}</span>
+                  {activeTab === 'reach' && (
+                    <motion.div
+                      layoutId="activeDossierTab"
+                      className="absolute bottom-0 inset-x-0 h-0.5 bg-[var(--accent-primary)] rounded-full"
+                      transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                    />
+                  )}
                 </button>
 
                 <button
                   onClick={() => setActiveTab('practical')}
-                  className={`py-3 px-3 text-xs font-bold border-b-2 flex items-center gap-1.5 transition-all cursor-pointer whitespace-nowrap ${
+                  className={`py-3 px-3 text-xs font-bold relative flex items-center gap-1.5 transition-all cursor-pointer whitespace-nowrap ${
                     activeTab === 'practical'
-                      ? 'border-[var(--accent-primary)] text-[var(--accent-primary)]'
-                      : 'border-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                      ? 'text-[var(--accent-primary)]'
+                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                   }`}
                 >
                   <Clock className="w-3.5 h-3.5" />
                   <span>{language === 'hi' ? 'समय, टिकट व सलाह' : 'Visiting Hours & Tips'}</span>
+                  {activeTab === 'practical' && (
+                    <motion.div
+                      layoutId="activeDossierTab"
+                      className="absolute bottom-0 inset-x-0 h-0.5 bg-[var(--accent-primary)] rounded-full"
+                      transition={{ type: 'spring', stiffness: 500, damping: 35 }}
+                    />
+                  )}
                 </button>
               </div>
 
